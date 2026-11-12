@@ -678,7 +678,6 @@ html{scroll-behavior:auto;}
 .flash-visual{height:100%!important;min-height:0!important;}
 @media(max-width:720px){.flash{height:auto!important;min-height:0!important;}.flash-visual{height:100%!important;}}
 
-/* ================= StoreX CSS V12 — Dark Black + WhatsApp Orders ================= */
 /* ================= StoreX PERFORMANCE + MEDIA OPTIMIZATION ================= */
 img{image-rendering:auto;}
 img[loading="lazy"]{content-visibility:auto;}
@@ -1015,7 +1014,20 @@ main img[loading="lazy"].sx-in{opacity:1}
   };
 })();
 </script>
-<div id="app"></div>
+<div id="app"><div id="sx-boot-msg" style="min-height:50vh;display:grid;place-items:center;font-family:system-ui,sans-serif;color:#333;padding:24px;text-align:center"><div><div style="width:36px;height:36px;border:3px solid #ddd;border-top-color:#111;border-radius:50%;margin:0 auto 12px;animation:sxspin .8s linear infinite"></div><p style="margin:0 0 6px;font-weight:700">Loading store…</p><p style="margin:0;font-size:13px;color:#777">If this stays more than 10 seconds, check your connection.</p></div></div><style>@keyframes sxspin{to{transform:rotate(360deg)}}</style></div>
+<script>
+window.addEventListener('error',function(e){
+  try{
+    var a=document.getElementById('app'); if(!a) return;
+    if(a.getAttribute('data-booted')==='1') return;
+    var msg=(e&&e.message)?e.message:String(e);
+    a.innerHTML='<div style="max-width:560px;margin:40px auto;padding:20px;font-family:system-ui,sans-serif;border:1px solid #f0c2c2;background:#fff5f5;border-radius:12px;color:#111"><h2 style="margin:0 0 8px">Store failed to start</h2><p style="margin:0 0 10px;color:#555">A script error stopped the page. Please screenshot this and send it to the developer.</p><pre style="white-space:pre-wrap;font-size:12px;background:#fff;border:1px solid #eee;padding:10px;border-radius:8px;overflow:auto">'+String(msg).replace(/</g,'&lt;')+'</pre><p style="margin:12px 0 0"><button onclick="location.reload()" style="padding:10px 16px;border:0;border-radius:8px;background:#111;color:#fff;font-weight:700;cursor:pointer">Reload</button></p></div>';
+  }catch(_){}
+});
+window.addEventListener('unhandledrejection',function(e){
+  try{ console.error('Unhandled', e&&e.reason); }catch(_){}
+});
+</script>
 <script>
 /* ============================================================
    StoreX — single-file storefront + admin (client-side persistence)
@@ -1433,10 +1445,10 @@ const DEFAULT_SETTINGS = {
   siteName:'TEFaura',
   logo:SX_DEFAULT_ASSETS.logo, logoLink:'#/', logoWidth:200,
   primaryColor:'#111111', primaryDark:'#222222', secondaryColor:'#5B616B', secondaryDark:'#3A3F47',
-  accentColor:'#222222', headerBg:'#0A0A0A', headerText:'#F5F5F5',
+  accentColor:'#222222', headerBg:'#0A0A0A', headerText:'#F7E7CC',
   bodyBg:'#FAF9F7', inkColor:'#1F2328', inkSoft:'#5B616B', borderColor:'#E5E2DC', cardBg:'#FFFFFF',
   buttonBg:'#111111', buttonText:'#FFFFFF', iconColor:'#111111',
-  footerBg:'#0A0A0A', footerText:'#F0F0F0',
+  footerBg:'#111111', footerText:'#FFFFFF',
   favicon:SX_DEFAULT_ASSETS.favicon, gaId:'', darazStoreUrl:'',
   invoice:{ownerName:'Taha Faiz', websiteUrl:'https://store.tfoda.com', logo:'', thankYou:'Thanks for the order', size:'A4'},
   hero:{
@@ -1449,17 +1461,7 @@ const DEFAULT_SETTINGS = {
     buttonBgColor:'#111111', buttonTextColor:'#FFFFFF',
     buttonPaddingY:12, buttonPaddingX:22, buttonMarginTop:0, buttonWidth:'', buttonAlign:'left'
   },
-  whatsappOrder:{
-    enabled:true,
-    number:'923301588630',
-    intro:'I want to order this product. Can I get more details?',
-    includeTitle:true,
-    includeSku:true,
-    includePrice:true,
-    includeDelivery:true,
-    includeQty:true,
-    includeLink:true
-  },
+  whatsappOrder:{enabled:true,number:'923301588630',intro:'I want to order this product. Can I get more details?',includeTitle:true,includeSku:true,includePrice:true,includeDelivery:true,includeQty:true,includeLink:true},
   footer:{about:'TEFaura — premium products, luxury accessories and everyday essentials.',copyright:'© TEFaura',social:{}},
   darazPromo:{enabled:false,title:'',description:'',buttonText:'',buttonUrl:'',image:'',height:96,radius:10,background:'#FFF4EA',textColor:'#1F2328',buttonBg:'#111111',buttonColor:'#FFFFFF',buttonBorder:'#111111',padding:16,imageFit:'cover'},
   search:{trending:[],maxSuggestions:10,letterSuggestions:{}},
@@ -1720,90 +1722,38 @@ function buildWhatsAppOrderMessage(p, qty){
   lines.push('');
   if(cfg.includeTitle) lines.push('Product: '+(p.shortTitle||p.title||''));
   if(cfg.includeSku && p.sku) lines.push('SKU: '+p.sku);
-  const original=Number(p.originalPrice!=null?p.originalPrice:(p.oldPrice!=null?p.oldPrice:p.price))||0;
-  const special=Number(p.specialPrice!=null?p.specialPrice:p.price)||original;
+  var original=Number(p.originalPrice!=null?p.originalPrice:(p.oldPrice!=null?p.oldPrice:p.price))||0;
+  var special=Number(p.specialPrice!=null?p.specialPrice:p.price)||original;
   if(cfg.includePrice) lines.push('Price: Rs. '+Number(special).toLocaleString('en-PK'));
   if(cfg.includeDelivery){
-    const d=Number(p.deliveryCharges)||0;
+    var d=Number(p.deliveryCharges)||0;
     lines.push('Delivery: '+(d>0?('Rs. '+d.toLocaleString('en-PK')):'FREE / as discussed'));
   }
   if(cfg.includeQty) lines.push('Quantity: '+(qty||1));
   if(cfg.includeLink){
     try{
-      const slug=(p.seo&&p.seo.slug)||p.id;
+      var slug=(p.seo&&p.seo.slug)||p.id;
       lines.push('Link: '+location.origin+'/#/p/'+encodeURIComponent(slug));
     }catch(e){}
   }
   return lines.join('\n').trim();
 }
-function startBuyNow(productId, initialQty=1){
+function startBuyNow(productId, initialQty){
+  if(initialQty==null) initialQty=1;
   const p=PRODUCTS.find(x=>x.id===productId); if(!p)return;
   const stock=Math.max(0,Number(p.stock)||0);
   if(stock<=0){ toast('This product is out of stock.'); return; }
   const qty=Math.max(1,Math.min(Number(initialQty)||1,stock));
   try{ if(typeof trackProductBuyClick==='function') trackProductBuyClick(productId); }catch(e){}
   const cfg=getWhatsAppOrderConfig();
-  if(!cfg.enabled || !cfg.number){
-    toast('WhatsApp ordering is not configured yet.');
-    return;
-  }
+  if(!cfg.enabled || !cfg.number){ toast('WhatsApp ordering is not configured yet.'); return; }
   const msg=buildWhatsAppOrderMessage(p, qty);
   const url='https://wa.me/'+cfg.number+'?text='+encodeURIComponent(msg);
   window.open(url, '_blank', 'noopener');
 }
 function renderBuyNowDeliveryPage(productId){
   setTimeout(function(){ try{startBuyNow(productId,1);}catch(e){} try{location.hash='#/p/'+encodeURIComponent(productId);}catch(e2){} }, 20);
-  return (typeof renderPageLoading==='function'?renderPageLoading('Opening WhatsApp…'):'<p>Opening WhatsApp…</p>');
-}
-function renderBuyNowDeliveryPage_LEGACY(productId){
-  const p=PRODUCTS.find(x=>x.id===productId);
-  if(!p || p.status!=='published') return renderNotFound('Product not found', 'This product may have been removed or is no longer available.');
-  const stock=Math.max(0,Number(p.stock)||0);
-  if(stock<=0) return renderNotFound('Out of stock', 'This product is currently out of stock.');
-  let draft=getBuyNowDraft();
-  if(!draft || draft.productId!==productId){
-    draft={productId, qty:1, customer:{name:'',phone:'',email:'',city:'',address:''}, couponCode:''};
-    setBuyNowDraft(draft);
-  }
-  const qty=Math.max(1,Math.min(Number(draft.qty)||1,stock));
-  const base=calculateOrder(p,qty);
-  let couponDiscount=0, freeShipping=false, coupon=null;
-  if(draft.couponCode){ coupon=findLoadedCoupon(draft.couponCode); if(coupon){ const r=computeCouponDiscount(coupon,[{line:{qty},info:{p,unit:base.unitPrice}}],base.unitPrice*qty); couponDiscount=r.discount; freeShipping=r.freeShipping; } }
-  const delivery=freeShipping?0:base.delivery;
-  const total=Math.max(0,base.unitPrice*qty-base.promotionDiscount-couponDiscount)+delivery;
-  const img=p.mainImage?mediaSrc(p.mainImage):(p.images&&p.images[0]?mediaSrc(p.images[0]):'');
-  const c=draft.customer||{};
-  applySEO(null, 'Delivery Information — '+(p.shortTitle||p.title), '');
-  return `${backButtonHtml()}<div class="container" style="padding:10px 20px 30px;max-width:760px;">
-    <div class="crumb"><a href="#/">Home</a> / <a href="${buyNowProductHref(p)}">${esc(p.shortTitle||p.title)}</a> / Delivery Information</div>
-    <div class="customer-card">
-      <h1>Delivery Information</h1>
-      <div style="display:flex;gap:14px;align-items:center;margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:10px;background:#FAF9F7;">
-        ${img?`<img src="${img}" alt="${esc(p.title)}" style="width:64px;height:64px;object-fit:cover;border-radius:8px;">`:''}
-        <div><div style="font-weight:700;">${esc(p.title)}</div><div style="font-size:13px;color:var(--ink-soft);">Qty: ${qty} · ${money(calculateOrder(p,1).unitPrice)} each</div></div>
-      </div>
-      <form id="buy-now-delivery-form" onsubmit="event.preventDefault();submitBuyNowDelivery('${esc(p.id)}');">
-        <div class="form-grid">
-          <div class="field full"><label>Quantity *</label><input id="bn-qty" type="number" name="quantity" min="1" max="${stock}" value="${qty}" oninput="updateBuyNowTotal('${esc(p.id)}')" required></div>
-          <div class="field"><label>Full name *</label><input required name="name" value="${esc(c.name||'')}" autocomplete="name"></div>
-          <div class="field"><label>Phone number *</label><input required type="tel" inputmode="tel" name="phone" value="${esc(c.phone||'')}" autocomplete="tel"></div>
-          <div class="field full"><label>Email (optional)</label><input type="email" inputmode="email" name="email" value="${esc(c.email||'')}" autocomplete="email"></div>
-          <div class="field full"><label>City *</label><input required name="city" value="${esc(c.city||'')}" autocomplete="address-level2" placeholder="e.g. Lahore"></div>
-          <div class="field full"><label>Full delivery address *</label><textarea required name="address" autocomplete="street-address" placeholder="House/Flat, Street, Area, Block/Road, Landmark, etc.">${esc(c.address||'')}</textarea></div>
-        </div>
-        <div class="admin-card" style="margin-top:12px;background:#FAF9F7;">
-          <b>Apply Coupon</b>
-          <div class="coupon-row" style="margin-top:8px;"><input id="bn-coupon-input" type="text" placeholder="Enter coupon code" value="${esc(draft.couponCode||'')}" aria-label="Coupon code"><button type="button" class="btn small" onclick="applyBuyNowCoupon('${esc(p.id)}')">Apply</button></div>
-          <div id="bn-coupon-msg" class="coupon-msg">${coupon?'Coupon applied successfully.':''}</div>
-        </div>
-        <div id="bn-order-summary" class="admin-card" style="margin-top:12px;background:#FAF9F7;"><b>Order summary</b><div style="margin-top:8px;display:grid;gap:4px;font-size:13px;"><span>Price: <strong id="bn-price">${money(base.unitPrice)} × ${qty}</strong></span><span>Delivery: <strong id="bn-delivery">${delivery?money(delivery):'FREE'}</strong></span><span>Coupon: <strong id="bn-coupon-discount">${couponDiscount?'-'+money(couponDiscount):(coupon?'Applied':'—')}</strong></span><span>Total: <strong id="bn-total">${money(total)}</strong></span><span style="color:var(--ink-soft);">Stock available: ${stock}</span></div></div>
-        <div id="bn-main-actions" class="modal-close-row"><button id="bn-review-btn" type="submit" class="btn" style="width:100%;justify-content:center;">Review Order</button></div>
-      </form>
-    </div>
-    <div id="bn-sticky-bar" class="pd-sticky-bar bn-sticky-bar is-hidden" aria-hidden="true">
-      <button type="button" class="btn" style="grid-column:1/-1;" onclick="document.getElementById('bn-review-btn')&&document.getElementById('bn-review-btn').click()">Review Order</button>
-    </div>
-  </div>`;
+  return (typeof renderPageLoading==='function' ? renderPageLoading('Opening WhatsApp…') : '<p style="padding:40px;text-align:center">Opening WhatsApp…</p>');
 }
 function updateBuyNowTotal(productId){
   const p=PRODUCTS.find(x=>x.id===productId), q=Math.max(1,Number(document.getElementById('bn-qty')?.value)||1), stock=Math.max(1,Number(p?.stock)||1); if(!p)return;
@@ -2004,11 +1954,8 @@ function customerCanRequestReturn(o){
   return (Date.now()-deliveredAt) >= 0 && (Date.now()-deliveredAt) <= 7*86400000;
 }
 function renderTrackOrder(){
-  const n=((SETTINGS&&SETTINGS.whatsappOrder&&SETTINGS.whatsappOrder.number)||'923301588630').replace(/[^0-9]/g,'');
+  var n=((SETTINGS&&SETTINGS.whatsappOrder&&SETTINGS.whatsappOrder.number)||'923301588630').replace(/[^0-9]/g,'');
   return '<div class="container section"><div class="empty-state"><div class="icon">💬</div><h3>Orders via WhatsApp</h3><p>This store takes orders on WhatsApp. Message us for status updates.</p><a class="btn" href="https://wa.me/'+n+'" target="_blank" rel="noopener">Chat on WhatsApp</a></div></div>';
-}
-function renderTrackOrder_LEGACY(){
-  return `${backButtonHtml()}<div class="container" style="padding:10px 20px 30px;max-width:760px;"><div class="trk-head"><nav class="crumb" aria-label="Breadcrumb"><a href="#/">Home</a> / Track Order</nav><h1>Track Your Order</h1><p>Stay updated on your order’s journey.</p></div><div class="customer-card trk-card"><form id="track-order-form" novalidate onsubmit="event.preventDefault();trackOrder();"><div class="form-grid"><div class="field full"><label for="trk-no">Order number *</label><input id="trk-no" name="order_number" required placeholder="e.g. SX-ABC1234567" autocomplete="off" autocapitalize="characters"></div><div class="field"><label for="trk-name">Full name *</label><input id="trk-name" name="name" required autocomplete="name"></div><div class="field"><label for="trk-phone">Phone number *</label><input id="trk-phone" name="phone" required type="tel" inputmode="tel" autocomplete="tel"></div></div><div id="track-order-error" class="trk-error" role="alert" hidden></div><div class="form-actions"><button id="track-order-btn" type="submit" class="btn trk-btn">Track Order</button></div></form><div class="trk-forgot"><button type="button" class="btn ghost" onclick="location.hash='#/my-orders'">Forgot Order ID / See All Orders</button></div></div><div id="track-order-result" style="margin-top:18px;"></div><div id="all-orders-result" style="margin-top:18px;"></div></div>`;
 }
 /* ---------- Track order: dedicated order page + "all my orders" page ---------- */
 const TRACK_CREDS_KEY='StoreX.trackCreds.v1';
@@ -2548,6 +2495,7 @@ function render(){
   if(!location.hash.startsWith('#/admin-of-storex')) window.scrollTo(0,0);
   StoreX_RENDERING=true;
   try{
+    try{ var __a=document.getElementById('app'); if(__a) __a.setAttribute('data-booted','1'); }catch(__e){}
     normalizeCloudState();
     const h = route();
     if(window.__StoreXLastRoute!==h){ CUSTOMER_PRODUCT_SORT='default'; window.__StoreXLastRoute=h; }
@@ -3623,24 +3571,20 @@ function storexBaseRenderAdminView(){
 
 function adminWhatsAppOrders(){
   const w=Object.assign({enabled:true,number:'923301588630',intro:'I want to order this product. Can I get more details?',includeTitle:true,includeSku:true,includePrice:true,includeDelivery:true,includeQty:true,includeLink:true}, (SETTINGS&&SETTINGS.whatsappOrder)||{});
-  return `<div class="admin-topbar"><h1>WhatsApp Orders</h1></div>
-  <div class="help-note">Buy Now opens WhatsApp with a pre-filled message. Website checkout is disabled.</div>
-  <div class="admin-card">
-    <form onsubmit="event.preventDefault();saveWhatsAppOrderSettings(this);">
-      <div class="form-grid">
-        <div class="field"><label class="checkline"><input type="checkbox" name="enabled" ${w.enabled!==false?'checked':''}> Enable WhatsApp ordering</label></div>
-        <div class="field"><label>WhatsApp number (digits only, with country code)</label><input type="text" name="number" value="${esc(w.number||'')}" placeholder="923301588630" required></div>
-        <div class="field full"><label>Message intro</label><textarea name="intro" rows="3">${esc(w.intro||'')}</textarea></div>
-        <div class="field"><label class="checkline"><input type="checkbox" name="includeTitle" ${w.includeTitle!==false?'checked':''}> Include product title</label></div>
-        <div class="field"><label class="checkline"><input type="checkbox" name="includeSku" ${w.includeSku!==false?'checked':''}> Include SKU</label></div>
-        <div class="field"><label class="checkline"><input type="checkbox" name="includePrice" ${w.includePrice!==false?'checked':''}> Include price</label></div>
-        <div class="field"><label class="checkline"><input type="checkbox" name="includeDelivery" ${w.includeDelivery!==false?'checked':''}> Include delivery charges</label></div>
-        <div class="field"><label class="checkline"><input type="checkbox" name="includeQty" ${w.includeQty!==false?'checked':''}> Include quantity</label></div>
-        <div class="field"><label class="checkline"><input type="checkbox" name="includeLink" ${w.includeLink!==false?'checked':''}> Include product link</label></div>
-      </div>
-      <div style="margin-top:14px;"><button class="btn" type="submit">Save WhatsApp settings</button></div>
-    </form>
-  </div>`;
+  return '<div class="admin-topbar"><h1>WhatsApp Orders</h1></div>'
+    +'<div class="help-note">Buy Now opens WhatsApp with a pre-filled message.</div>'
+    +'<div class="admin-card"><form onsubmit="event.preventDefault();saveWhatsAppOrderSettings(this);">'
+    +'<div class="form-grid">'
+    +'<div class="field"><label class="checkline"><input type="checkbox" name="enabled" '+(w.enabled!==false?'checked':'')+'> Enable WhatsApp ordering</label></div>'
+    +'<div class="field"><label>WhatsApp number (digits only)</label><input type="text" name="number" value="'+esc(w.number||'')+'" placeholder="923301588630" required></div>'
+    +'<div class="field full"><label>Message intro</label><textarea name="intro" rows="3">'+esc(w.intro||'')+'</textarea></div>'
+    +'<div class="field"><label class="checkline"><input type="checkbox" name="includeTitle" '+(w.includeTitle!==false?'checked':'')+'> Include product title</label></div>'
+    +'<div class="field"><label class="checkline"><input type="checkbox" name="includeSku" '+(w.includeSku!==false?'checked':'')+'> Include SKU</label></div>'
+    +'<div class="field"><label class="checkline"><input type="checkbox" name="includePrice" '+(w.includePrice!==false?'checked':'')+'> Include price</label></div>'
+    +'<div class="field"><label class="checkline"><input type="checkbox" name="includeDelivery" '+(w.includeDelivery!==false?'checked':'')+'> Include delivery charges</label></div>'
+    +'<div class="field"><label class="checkline"><input type="checkbox" name="includeQty" '+(w.includeQty!==false?'checked':'')+'> Include quantity</label></div>'
+    +'<div class="field"><label class="checkline"><input type="checkbox" name="includeLink" '+(w.includeLink!==false?'checked':'')+'> Include product link</label></div>'
+    +'</div><div style="margin-top:14px;"><button class="btn" type="submit">Save WhatsApp settings</button></div></form></div>';
 }
 async function saveWhatsAppOrderSettings(form){
   const fd=new FormData(form);
@@ -8191,7 +8135,6 @@ window.SXBI_CORE={validate,classify,counts,runImport,publishImported,reportText,
 
 </script>
 
-<style id="StoreXNoFileUpload">input[type=file],.media-upload-button input[type=file]{display:none!important;}</style>
 <style id="StoreXProductStickyBar">
 .pd-sticky-bar{
   position:fixed;left:0;right:0;bottom:0;z-index:55;
