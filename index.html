@@ -150,7 +150,7 @@ const SEO_CONFIG = {
   keywords: "TEFaura, TEFaura online store, Taha Faiz, premium watches, luxury accessories, lifestyle products, everyday essentials, online shopping, stylish watches, quality products, elegant designs",
   robots: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   language: "en",
-  themeColor: "#4B2511",
+  themeColor: "#0D0D0D",
   socialTitle: "TEFaura | Premium Watches, Luxury Accessories & Everyday Essentials",
   socialDescription: "TEFaura is an online shopping destination owned by Taha Faiz, offering a carefully selected collection of premium-quality products, luxury accessories, stylish watches and everyday essentials. Discover quality products, elegant designs and a convenient shopping experience.",
   socialImage: "https://i.ibb.co/H9zDbW0/Minimalist-luxury-wristwatch-fav-4bd73a1e.jpg"
@@ -226,11 +226,11 @@ const SEO_CONFIG = {
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
 :root{
-  --primary:#7B3F00;
-  --primary-dark:#D9631B;
+  --primary:#111111;
+  --primary-dark:#222222;
   --secondary:#5B616B;
   --secondary-dark:#3A3F47;
-  --accent:#D9631B;
+  --accent:#222222;
   --ink:#1F2328;
   --ink-soft:#5B616B;
   --paper:#FAF9F7;
@@ -239,10 +239,10 @@ const SEO_CONFIG = {
   --radius:8px;
   --header-bg:#FFFFFF;
   --header-text:#1F2328;
-  --btn-bg:#7B3F00;
+  --btn-bg:#111111;
   --btn-text:#FFFFFF;
-  --icon-color:#7B3F00;
-  --footer-bg:#7B3F00;
+  --icon-color:#111111;
+  --footer-bg:#111111;
   --footer-text:#FFFFFF;
 }
 *{box-sizing:border-box;}
@@ -266,7 +266,7 @@ img{max-width:100%;display:block;}
 #site-header{background:var(--header-bg);color:var(--header-text);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40;}
 .header-row{display:grid;grid-template-columns:auto minmax(220px,1fr) auto auto;gap:18px;align-items:center;padding:14px 0;position:relative;}
 .logo-wrap{display:flex;align-items:center;gap:10px;min-width:0;justify-content:center;}
-.logo-wrap img{max-width:280px;}
+.logo-wrap img{max-width:340px;}
 .logo-wrap img{object-fit:contain;}
 .logo-fallback{font-family:'Space Grotesk';font-weight:700;font-size:22px;white-space:nowrap;}
 .logo-fallback .x{color:var(--primary);}
@@ -275,7 +275,7 @@ img{max-width:100%;display:block;}
 .search-form input:focus{outline:none;border-color:var(--primary);}
 .search-form button{background:var(--primary);border:none;color:#fff;padding:0 18px;border-radius:0 6px 6px 0;font-weight:600;font-size:14px;}
 .search-form button:hover{background:var(--primary-dark);}
-@media(min-width:901px){.header-row .logo-wrap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3}.header-row .logo-wrap img{width:280px!important;max-width:280px;max-height:56px}.header-row .search-wrap{padding-right:300px}}
+@media(min-width:901px){.header-row .logo-wrap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3}.header-row .logo-wrap img{width:320px!important;max-width:320px;max-height:72px}.header-row .search-wrap{padding-right:300px}}
 .search-wrap{position:relative;flex:1;min-width:0;}
 .search-wrap .search-form{position:relative;}
 .search-wrap .search-form{max-width:none;}
@@ -456,7 +456,7 @@ img{max-width:100%;display:block;}
 .card:hover{border-color:#D8D3C9;box-shadow:0 6px 18px rgba(20,20,20,.07);}
 .card-img{aspect-ratio:1/1;background:#F2F0EB;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .card-img img{width:100%;height:100%;object-fit:contain;}
-.card-badge{position:absolute;top:8px;left:8px;background:var(--primary);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;z-index:2;}
+.card-badge{position:absolute;top:8px;left:8px;background:#111111;color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:4px;z-index:2;}
 .card-body{padding:10px 12px 12px;display:flex;flex-direction:column;gap:5px;flex:1;}
 .card-title{font-size:13.5px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.5em;}
 .card-desc{font-size:12px;color:var(--ink-soft);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;}
@@ -527,7 +527,7 @@ img{max-width:100%;display:block;}
 .promo-banner-overlay{position:absolute;inset:0;background:rgba(0,0,0,.25);}
 
 /* ---------- Footer ---------- */
-#site-footer{background:var(--footer-bg,#7B3F00);color:var(--footer-text,#FFFFFF);margin-top:60px;}
+#site-footer{background:var(--footer-bg,#111111);color:var(--footer-text,#FFFFFF);margin-top:60px;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;padding:44px 0 24px;}
 .footer-grid h4{color:#FFFFFF;font-size:14px;margin:0 0 12px;}
 .footer-grid a{display:block;font-size:13.5px;padding:4px 0;color:#FFFFFF;}
@@ -678,6 +678,7 @@ html{scroll-behavior:auto;}
 .flash-visual{height:100%!important;min-height:0!important;}
 @media(max-width:720px){.flash{height:auto!important;min-height:0!important;}.flash-visual{height:100%!important;}}
 
+/* ================= StoreX CSS V12 — Dark Black + WhatsApp Orders ================= */
 /* ================= StoreX PERFORMANCE + MEDIA OPTIMIZATION ================= */
 img{image-rendering:auto;}
 img[loading="lazy"]{content-visibility:auto;}
@@ -836,16 +837,16 @@ img[loading="lazy"]{content-visibility:auto;}
 .trk-card{border:1px solid var(--line)}.trk-btn{min-height:44px;min-width:140px}
 .trk-error{margin-top:10px;padding:10px 12px;border-radius:10px;background:#FDECEC;color:#B42318;font-size:13px}
 .trk-forgot{margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
-.trk-loading{display:flex;align-items:center;gap:10px;color:var(--ink-soft)}.trk-spin{width:18px;height:18px;border:2px solid var(--line);border-top-color:#7B3F00;border-radius:50%;animation:trkspin .8s linear infinite}@keyframes trkspin{to{transform:rotate(360deg)}}
+.trk-loading{display:flex;align-items:center;gap:10px;color:var(--ink-soft)}.trk-spin{width:18px;height:18px;border:2px solid var(--line);border-top-color:#111111;border-radius:50%;animation:trkspin .8s linear infinite}@keyframes trkspin{to{transform:rotate(360deg)}}
 .trk-fail{border:1px solid #e3b4b4}
 .trk-steps{list-style:none;margin:18px 0 6px;padding:0;display:grid;gap:0}
 .trk-steps li{display:flex;gap:12px;align-items:flex-start;position:relative;padding-bottom:18px;color:var(--ink-soft)}
 .trk-steps li:last-child{padding-bottom:0}
 .trk-steps li:not(:last-child)::before{content:"";position:absolute;left:13px;top:28px;bottom:0;width:2px;background:var(--line)}
-.trk-steps li.done:not(:last-child)::before{background:#7B3F00}
+.trk-steps li.done:not(:last-child)::before{background:#111111}
 .trk-dot{flex:0 0 28px;height:28px;border-radius:50%;border:2px solid var(--line);background:#fff;display:grid;place-items:center;font-size:12px;font-weight:700}
-.trk-steps li.done .trk-dot{background:#7B3F00;border-color:#7B3F00;color:#fff}
-.trk-steps li.current .trk-dot{border-color:#7B3F00;color:#7B3F00;box-shadow:0 0 0 4px #EADBC7}
+.trk-steps li.done .trk-dot{background:#111111;border-color:#111111;color:#fff}
+.trk-steps li.current .trk-dot{border-color:#111111;color:#111111;box-shadow:0 0 0 4px #EADBC7}
 .trk-steps li.done b,.trk-steps li.current b{color:var(--ink)}.trk-steps small{display:block;font-size:11.5px;margin-top:2px}
 @media(min-width:700px){.trk-steps{grid-template-columns:repeat(5,1fr)}.trk-steps li{flex-direction:column;align-items:center;text-align:center;padding-bottom:0}.trk-steps li:not(:last-child)::before{left:calc(50% + 18px);right:calc(-50% + 18px);top:13px;bottom:auto;width:auto;height:2px}}
 .trk-alert{margin-top:12px;padding:10px 12px;border-radius:10px;background:#FFF4EA;color:#9A4A12;font-size:13px}.trk-alert.off{background:#F1EFEA;color:#555}
@@ -980,7 +981,7 @@ website hosting (not inside the HTML):
 </script>
 <!-- StoreX enhancement: site analytics requires the companion Supabase migration file supplied with this build. -->
 <body>
-<noscript><div style="max-width:760px;margin:30px auto;padding:20px;font-family:Arial,sans-serif;line-height:1.6"><h1>TEFaura - Online Store</h1><p>TEFaura is an online shopping destination owned by Taha Faiz, offering premium-quality products, luxury accessories, stylish watches and everyday essentials.</p><p>Please enable JavaScript to browse products, apply coupons, place orders and track your order.</p></div></noscript>
+<noscript><div style="max-width:760px;margin:30px auto;padding:20px;font-family:Arial,sans-serif;line-height:1.6"><h1>TEFaura - Online Store</h1><p>TEFaura is an online shopping destination owned by Taha Faiz, offering premium-quality products, luxury accessories, stylish watches and everyday essentials.</p><p>Please enable JavaScript to browse products and order via WhatsApp.</p></div></noscript>
 <style id="StoreXLazyCss">
 /* images fade in softly once they have really loaded */
 main img[loading="lazy"]{opacity:0;transition:opacity .45s ease}
@@ -999,7 +1000,7 @@ main img[loading="lazy"].sx-in{opacity:1}
   window.sxWaitHero=function(){return Promise.resolve();};
   window.sxLoaderError=function(){
     var a=document.getElementById('app'); if(!a)return;
-    a.innerHTML='<div style="min-height:60vh;display:grid;place-items:center;padding:24px;font-family:Arial,sans-serif;color:#1f2328;text-align:center"><div><h2 style="margin:0 0 8px">Could not load the store</h2><p style="margin:0 0 14px;color:#666">Please check your connection and try again.</p><button type="button" onclick="location.reload()" style="border:0;border-radius:999px;padding:12px 26px;background:#5E2F0C;color:#fff;font:700 14px Arial,sans-serif;cursor:pointer">Try again</button></div></div>';
+    a.innerHTML='<div style="min-height:60vh;display:grid;place-items:center;padding:24px;font-family:Arial,sans-serif;color:#1f2328;text-align:center"><div><h2 style="margin:0 0 8px">Could not load the store</h2><p style="margin:0 0 14px;color:#666">Please check your connection and try again.</p><button type="button" onclick="location.reload()" style="border:0;border-radius:999px;padding:12px 26px;background:#111111;color:#fff;font:700 14px Arial,sans-serif;cursor:pointer">Try again</button></div></div>';
   };
   /* fade an image in only after it has actually loaded (error also reveals it, so nothing stays hidden) */
   var shown=function(e){var t=e.target;if(t&&t.tagName==='IMG')t.classList.add('sx-in');};
@@ -1236,14 +1237,14 @@ let SUPABASE_SYNC_CHANNEL = null;
 async function initSupabase(){
   if(!window.supabase || typeof window.supabase.createClient!=='function') throw new Error('Supabase library could not load.');
   supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
-    auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}
+    auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,storage:window.localStorage}
   });
   SUPABASE_READY = true;
   const {data:{session}} = await supabaseClient.auth.getSession();
   if(session) await refreshAdminStatus();
   supabaseClient.auth.onAuthStateChange((_event, session)=>{
     setTimeout(async()=>{
-      if(session) await refreshAdminStatus(); else {SUPABASE_ADMIN=false;ADMIN_UNLOCKED=false;}
+      if(session) await refreshAdminStatus();
       if(route().startsWith('/admin-of-storex')) render();
     },0);
   });
@@ -1369,16 +1370,8 @@ async function uploadImageToSupabase(file){
 }
 
 async function handleLocalFileInput(input,callback){
-  const file=input.files&&input.files[0]; if(!file)return;
-  input.disabled=true;
-  try{
-    const url=await uploadImageToSupabase(file);
-    await rememberMediaUrl(url,file.name||'image');
-    callback(url);
-    toast('Image optimized & uploaded ✓');
-  }catch(e){
-    console.error(e); toast('Image upload failed: '+(e.message||'Unknown error'));
-  }finally{input.disabled=false; input.value='';}
+  toast('File upload is disabled. Paste an image URL instead.');
+  if(input) input.value='';
 }
 
 async function handleImageUrlInput(input,callback){
@@ -1438,12 +1431,12 @@ const SX_DEFAULT_ASSETS={
 };
 const DEFAULT_SETTINGS = {
   siteName:'TEFaura',
-  logo:SX_DEFAULT_ASSETS.logo, logoLink:'#/', logoWidth:150,
-  primaryColor:'#7B3F00', primaryDark:'#D9631B', secondaryColor:'#5B616B', secondaryDark:'#3A3F47',
-  accentColor:'#D9631B', headerBg:'#3B1E0E', headerText:'#F7E7CC',
+  logo:SX_DEFAULT_ASSETS.logo, logoLink:'#/', logoWidth:200,
+  primaryColor:'#111111', primaryDark:'#222222', secondaryColor:'#5B616B', secondaryDark:'#3A3F47',
+  accentColor:'#222222', headerBg:'#0A0A0A', headerText:'#F5F5F5',
   bodyBg:'#FAF9F7', inkColor:'#1F2328', inkSoft:'#5B616B', borderColor:'#E5E2DC', cardBg:'#FFFFFF',
-  buttonBg:'#7B3F00', buttonText:'#FFFFFF', iconColor:'#7B3F00',
-  footerBg:'#7B3F00', footerText:'#FFFFFF',
+  buttonBg:'#111111', buttonText:'#FFFFFF', iconColor:'#111111',
+  footerBg:'#0A0A0A', footerText:'#F0F0F0',
   favicon:SX_DEFAULT_ASSETS.favicon, gaId:'', darazStoreUrl:'',
   invoice:{ownerName:'Taha Faiz', websiteUrl:'https://store.tfoda.com', logo:'', thankYou:'Thanks for the order', size:'A4'},
   hero:{
@@ -1453,13 +1446,24 @@ const DEFAULT_SETTINGS = {
     pillText:'Welcome to TEFaura', pillEnabled:true, pillAlign:'left',
     buttonText:'Shop Now', buttonLink:'#/category/all', buttonUrl:'#/category/all',
     height:360, overlay:0, align:'left',
-    buttonBgColor:'#7B3F00', buttonTextColor:'#FFFFFF',
+    buttonBgColor:'#111111', buttonTextColor:'#FFFFFF',
     buttonPaddingY:12, buttonPaddingX:22, buttonMarginTop:0, buttonWidth:'', buttonAlign:'left'
   },
+  whatsappOrder:{
+    enabled:true,
+    number:'923301588630',
+    intro:'I want to order this product. Can I get more details?',
+    includeTitle:true,
+    includeSku:true,
+    includePrice:true,
+    includeDelivery:true,
+    includeQty:true,
+    includeLink:true
+  },
   footer:{about:'TEFaura — premium products, luxury accessories and everyday essentials.',copyright:'© TEFaura',social:{}},
-  darazPromo:{enabled:false,title:'',description:'',buttonText:'',buttonUrl:'',image:'',height:96,radius:10,background:'#FFF4EA',textColor:'#1F2328',buttonBg:'#7B3F00',buttonColor:'#FFFFFF',buttonBorder:'#7B3F00',padding:16,imageFit:'cover'},
+  darazPromo:{enabled:false,title:'',description:'',buttonText:'',buttonUrl:'',image:'',height:96,radius:10,background:'#FFF4EA',textColor:'#1F2328',buttonBg:'#111111',buttonColor:'#FFFFFF',buttonBorder:'#111111',padding:16,imageFit:'cover'},
   search:{trending:[],maxSuggestions:10,letterSuggestions:{}},
-  nav:[{id:'nav-home',label:'Home',url:'#/'},{id:'nav-products',label:'All Products',url:'#/category/all'},{id:'nav-flash',label:'Flash Sale',url:'#/flash-sale'}],
+  nav:[{id:'nav-home',label:'Home',url:'#/'},{id:'nav-products',label:'All Products',url:'#/category/all'}],
   sections:[
     {id:'sec-hero',type:'hero',visible:true,title:'Hero'},
     {id:'sec-cats',type:'categories',visible:true,title:'Shop by Category',subtitle:'Browse popular departments'},
@@ -1695,18 +1699,63 @@ function getConfirmedBuyNowOrder(orderNumber){
   try{ const v=JSON.parse(sessionStorage.getItem(BUY_NOW_ORDER_KEY_PREFIX+String(orderNumber))||'null'); return v&&typeof v==='object'?v:null; }catch(_){ return null; }
 }
 function buyNowProductHref(p){ return '#/p/'+encodeURIComponent((p&&p.seo&&p.seo.slug)||(p&&p.id)||''); }
+function getWhatsAppOrderConfig(){
+  const w=(SETTINGS&&SETTINGS.whatsappOrder)||{};
+  return {
+    enabled:w.enabled!==false,
+    number:String(w.number||'923301588630').replace(/[^0-9]/g,''),
+    intro:String(w.intro||'I want to order this product. Can I get more details?'),
+    includeTitle:w.includeTitle!==false,
+    includeSku:w.includeSku!==false,
+    includePrice:w.includePrice!==false,
+    includeDelivery:w.includeDelivery!==false,
+    includeQty:w.includeQty!==false,
+    includeLink:w.includeLink!==false
+  };
+}
+function buildWhatsAppOrderMessage(p, qty){
+  const cfg=getWhatsAppOrderConfig();
+  const lines=[];
+  if(cfg.intro) lines.push(cfg.intro);
+  lines.push('');
+  if(cfg.includeTitle) lines.push('Product: '+(p.shortTitle||p.title||''));
+  if(cfg.includeSku && p.sku) lines.push('SKU: '+p.sku);
+  const original=Number(p.originalPrice!=null?p.originalPrice:(p.oldPrice!=null?p.oldPrice:p.price))||0;
+  const special=Number(p.specialPrice!=null?p.specialPrice:p.price)||original;
+  if(cfg.includePrice) lines.push('Price: Rs. '+Number(special).toLocaleString('en-PK'));
+  if(cfg.includeDelivery){
+    const d=Number(p.deliveryCharges)||0;
+    lines.push('Delivery: '+(d>0?('Rs. '+d.toLocaleString('en-PK')):'FREE / as discussed'));
+  }
+  if(cfg.includeQty) lines.push('Quantity: '+(qty||1));
+  if(cfg.includeLink){
+    try{
+      const slug=(p.seo&&p.seo.slug)||p.id;
+      lines.push('Link: '+location.origin+'/#/p/'+encodeURIComponent(slug));
+    }catch(e){}
+  }
+  return lines.join('\n').trim();
+}
 function startBuyNow(productId, initialQty=1){
   const p=PRODUCTS.find(x=>x.id===productId); if(!p)return;
   const stock=Math.max(0,Number(p.stock)||0);
   if(stock<=0){ toast('This product is out of stock.'); return; }
   const qty=Math.max(1,Math.min(Number(initialQty)||1,stock));
-  const existing=getBuyNowDraft();
-  const customer=(existing&&existing.productId===productId&&existing.customer)?existing.customer:{name:'',phone:'',email:'',city:'',address:''};
-  const couponCode=(existing&&existing.productId===productId)?(existing.couponCode||''):'';
-  setBuyNowDraft({productId,qty,customer,couponCode});
-  location.hash='#/buy-now/'+encodeURIComponent(productId);
+  try{ if(typeof trackProductBuyClick==='function') trackProductBuyClick(productId); }catch(e){}
+  const cfg=getWhatsAppOrderConfig();
+  if(!cfg.enabled || !cfg.number){
+    toast('WhatsApp ordering is not configured yet.');
+    return;
+  }
+  const msg=buildWhatsAppOrderMessage(p, qty);
+  const url='https://wa.me/'+cfg.number+'?text='+encodeURIComponent(msg);
+  window.open(url, '_blank', 'noopener');
 }
 function renderBuyNowDeliveryPage(productId){
+  setTimeout(function(){ try{startBuyNow(productId,1);}catch(e){} try{location.hash='#/p/'+encodeURIComponent(productId);}catch(e2){} }, 20);
+  return (typeof renderPageLoading==='function'?renderPageLoading('Opening WhatsApp…'):'<p>Opening WhatsApp…</p>');
+}
+function renderBuyNowDeliveryPage_LEGACY(productId){
   const p=PRODUCTS.find(x=>x.id===productId);
   if(!p || p.status!=='published') return renderNotFound('Product not found', 'This product may have been removed or is no longer available.');
   const stock=Math.max(0,Number(p.stock)||0);
@@ -1915,7 +1964,7 @@ function renderBuyNowInvoicePage(orderNumber){
 }
 
 function storexLogoHtml(){
-  return SETTINGS.logo ? `<img src="${mediaSrc(SETTINGS.logo)}" alt="${esc(SETTINGS.siteName||'TEFaura')} logo" style="max-width:180px;max-height:58px;object-fit:contain;display:block;margin:0 auto;filter:drop-shadow(1px 0 0 #3B1E0E) drop-shadow(-1px 0 0 #3B1E0E) drop-shadow(0 1px 0 #3B1E0E) drop-shadow(0 -1px 0 #3B1E0E);">` : `<div style="font-size:30px;font-weight:900;letter-spacing:-1.5px;color:#111;line-height:1;">${esc(SETTINGS.siteName||'TEFaura')}</div>`;
+  return SETTINGS.logo ? `<img src="${mediaSrc(SETTINGS.logo)}" alt="${esc(SETTINGS.siteName||'TEFaura')} logo" style="max-width:220px;max-height:72px;object-fit:contain;display:block;margin:0 auto;filter:drop-shadow(1px 0 0 #0A0A0A) drop-shadow(-1px 0 0 #0A0A0A) drop-shadow(0 1px 0 #0A0A0A) drop-shadow(0 -1px 0 #0A0A0A);">` : `<div style="font-size:30px;font-weight:900;letter-spacing:-1.5px;color:#111;line-height:1;">${esc(SETTINGS.siteName||'TEFaura')}</div>`;
 }
 function buildDirectOrderInvoiceHtml(order,p,qty,customer,couponCode=''){
   const base=calculateOrder(p,qty);
@@ -1930,7 +1979,7 @@ function buildDirectOrderInvoiceHtml(order,p,qty,customer,couponCode=''){
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;font-size:13px;"><div><b>Order Number</b><br>${esc(orderNo)}</div><div><b>Order Date</b><br>${esc(created)}</div><div><b>Status</b><br>Pending</div><div><b>Customer</b><br>${esc(customer.name)}</div></div>
     <div style="border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px;"><b>Order Details</b><div style="margin-top:9px;font-size:13px;"><div style="display:flex;justify-content:space-between;gap:10px;"><span>${esc(p.title)}</span><span>Qty: ${qty}</span></div><div style="display:flex;justify-content:space-between;gap:10px;margin-top:5px;"><span>Unit price</span><span>${money(total.unitPrice)}</span></div>${total.promotionDiscount>0?`<div style="display:flex;justify-content:space-between;gap:10px;margin-top:5px;"><span>Product promotion</span><span>-${money(total.promotionDiscount)}</span></div>`:''}${total.couponDiscount>0?`<div style="display:flex;justify-content:space-between;gap:10px;margin-top:5px;"><span>Coupon discount</span><span>-${money(total.couponDiscount)}</span></div>`:''}<div style="display:flex;justify-content:space-between;gap:10px;margin-top:5px;"><span>Delivery</span><span>${total.delivery?money(total.delivery):'FREE'}</span></div><div style="display:flex;justify-content:space-between;gap:10px;margin-top:8px;font-size:16px;font-weight:800;border-top:1px solid var(--line);padding-top:9px;"><span>Total</span><span>${money(total.total)}</span></div></div></div>
     <div style="display:grid;gap:5px;font-size:13px;margin-bottom:12px;"><b>Delivery Details</b><span>Name: ${esc(customer.name)}</span><span>Phone: ${esc(customer.phone)}</span>${customer.email?`<span>Email: ${esc(customer.email)}</span>`:''}<span>City: ${esc(customer.city)}</span><span>Address: ${esc(customer.address)}</span></div>
-    <div style="margin:0 0 16px;padding:12px 14px;border:1px solid #7B3F00;border-radius:10px;background:#FBF1E3;font-size:13px;line-height:1.5;"><b>Important — Save your Order Number</b><br>Keep <strong>${esc(orderNo)}</strong> safe. You will need your order number to track your order, request cancellation, or request a return.</div>
+    <div style="margin:0 0 16px;padding:12px 14px;border:1px solid #111111;border-radius:10px;background:#FBF1E3;font-size:13px;line-height:1.5;"><b>Important — Save your Order Number</b><br>Keep <strong>${esc(orderNo)}</strong> safe. You will need your order number to track your order, request cancellation, or request a return.</div>
     <div style="text-align:center;border-top:1px solid var(--line);padding-top:12px;font-weight:800;">Taha Faiz<div style="font-size:12px;font-weight:500;color:var(--ink-soft);margin-top:4px;">Thanks for the order</div></div>
   </div>`;
 }
@@ -1955,6 +2004,10 @@ function customerCanRequestReturn(o){
   return (Date.now()-deliveredAt) >= 0 && (Date.now()-deliveredAt) <= 7*86400000;
 }
 function renderTrackOrder(){
+  const n=((SETTINGS&&SETTINGS.whatsappOrder&&SETTINGS.whatsappOrder.number)||'923301588630').replace(/[^0-9]/g,'');
+  return '<div class="container section"><div class="empty-state"><div class="icon">💬</div><h3>Orders via WhatsApp</h3><p>This store takes orders on WhatsApp. Message us for status updates.</p><a class="btn" href="https://wa.me/'+n+'" target="_blank" rel="noopener">Chat on WhatsApp</a></div></div>';
+}
+function renderTrackOrder_LEGACY(){
   return `${backButtonHtml()}<div class="container" style="padding:10px 20px 30px;max-width:760px;"><div class="trk-head"><nav class="crumb" aria-label="Breadcrumb"><a href="#/">Home</a> / Track Order</nav><h1>Track Your Order</h1><p>Stay updated on your order’s journey.</p></div><div class="customer-card trk-card"><form id="track-order-form" novalidate onsubmit="event.preventDefault();trackOrder();"><div class="form-grid"><div class="field full"><label for="trk-no">Order number *</label><input id="trk-no" name="order_number" required placeholder="e.g. SX-ABC1234567" autocomplete="off" autocapitalize="characters"></div><div class="field"><label for="trk-name">Full name *</label><input id="trk-name" name="name" required autocomplete="name"></div><div class="field"><label for="trk-phone">Phone number *</label><input id="trk-phone" name="phone" required type="tel" inputmode="tel" autocomplete="tel"></div></div><div id="track-order-error" class="trk-error" role="alert" hidden></div><div class="form-actions"><button id="track-order-btn" type="submit" class="btn trk-btn">Track Order</button></div></form><div class="trk-forgot"><button type="button" class="btn ghost" onclick="location.hash='#/my-orders'">Forgot Order ID / See All Orders</button></div></div><div id="track-order-result" style="margin-top:18px;"></div><div id="all-orders-result" style="margin-top:18px;"></div></div>`;
 }
 /* ---------- Track order: dedicated order page + "all my orders" page ---------- */
@@ -2192,7 +2245,7 @@ async function boot(){
   let initOk=false;
   try{
     if(!window.supabase || typeof window.supabase.createClient!=='function') throw new Error('Supabase library could not load.');
-    supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+    supabaseClient=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,storage:window.localStorage}});
     SUPABASE_READY=true; initOk=true;
   }catch(e){ console.error('Supabase initialization failed:',e); }
 
@@ -2205,7 +2258,7 @@ async function boot(){
       try{
         supabaseClient.auth.onAuthStateChange((_event,session)=>{
           setTimeout(async()=>{
-            try{ if(session) await refreshAdminStatus(); else {SUPABASE_ADMIN=false;ADMIN_UNLOCKED=false;} }catch(_){}
+            try{ if(session) await refreshAdminStatus(); }catch(_){}
             if(route().startsWith('/admin-of-storex')) render();
           },0);
         });
@@ -2297,8 +2350,8 @@ window.addEventListener('resize',function(){ clearTimeout(SX_RESIZE_T); SX_RESIZ
 function applyTheme(){
   if(!SETTINGS) return;
   const r=document.documentElement;
-  const primary=SETTINGS.primaryColor||'#7B3F00';
-  const primaryDark=SETTINGS.primaryDark||SETTINGS.accentColor||'#D9631B';
+  const primary=SETTINGS.primaryColor||'#111111';
+  const primaryDark=SETTINGS.primaryDark||SETTINGS.accentColor||'#222222';
   const secondary=SETTINGS.secondaryColor||'#5B616B';
   const secondaryDark=SETTINGS.secondaryDark||'#3A3F47';
   r.style.setProperty('--primary', primary);
@@ -2306,7 +2359,7 @@ function applyTheme(){
   r.style.setProperty('--secondary', secondary);
   r.style.setProperty('--secondary-dark', secondaryDark);
   r.style.setProperty('--accent', SETTINGS.accentColor||primaryDark);
-  r.style.setProperty('--header-bg', SETTINGS.headerBg||'#3B1E0E');
+  r.style.setProperty('--header-bg', SETTINGS.headerBg||'#0A0A0A');
   r.style.setProperty('--header-text', SETTINGS.headerText||'#F7E7CC');
   r.style.setProperty('--paper', SETTINGS.bodyBg||'#FAF9F7');
   r.style.setProperty('--ink', SETTINGS.inkColor||'#1F2328');
@@ -2490,6 +2543,7 @@ function safeRenderFallback(message,err){
   app.innerHTML='<div style="min-height:60vh;display:grid;place-items:center;padding:24px;font-family:Arial,sans-serif;color:#1f2328;text-align:center"><div><h2 style="margin:0 0 8px">Could not display this page</h2><p style="margin:0 0 14px;color:#666">Please try again.</p><button onclick="location.reload()" style="padding:10px 22px;border:0;border-radius:8px;background:#1f2328;color:#fff;font-size:15px">Reload</button><p style="margin:14px 0 0;color:#a00;font-size:12px">'+esc(detail)+'</p></div></div>';
 }
 function render(){
+  if(window.__sxAdminTyping && String(location.hash).indexOf('admin-of-storex')>=0) return;
   if(StoreX_RENDERING) return;
   if(!location.hash.startsWith('#/admin-of-storex')) window.scrollTo(0,0);
   StoreX_RENDERING=true;
@@ -2713,7 +2767,7 @@ function renderFooter(){
   const topCats=chosenCats.length?chosenCats:visCats.slice(0,3);
   const cats=(topCats.map(c=>`<a href="#/category/${esc(c.slug)}">${esc(c.name)}</a>`).join('')||'<span style="color:#71757B;font-size:13px;">No categories yet</span>')+'<a href="#/all-categories" style="font-weight:700;">View all categories &rarr;</a>';
   const pageLinks=[...new Map(PAGES.filter(p=>p.status==='published').map(p=>[p.slug,p])).values()].map(p=>`<a href="#/page/${esc(p.slug)}">${esc(p.title)}</a>`).join('');
-  return `<footer id="site-footer"><div class="container footer-grid"><div><h4>${esc(SETTINGS.siteName)}</h4>${String(s.about||'').trim()?`<p style="font-size:13.5px;color:#FFFFFF;max-width:320px;">${esc(s.about)}</p>`:''}${(s.description===undefined?'TEFaura is an online shopping destination owned by Taha Faiz, offering a carefully selected collection of premium-quality products, luxury accessories, stylish watches and everyday essentials.':String(s.description||'').trim())?`<p class="sx-owner-desc" style="font-size:12.5px;color:#FFFFFF;max-width:320px;opacity:.92;margin-top:8px;">${esc(s.description===undefined?'TEFaura is an online shopping destination owned by Taha Faiz, offering a carefully selected collection of premium-quality products, luxury accessories, stylish watches and everyday essentials.':s.description)}</p>`:''}</div><div><h4>Categories</h4>${cats}</div><div><h4>Quick Links</h4><a href="#/">Home</a><a href="#/flash-sale">Flash Sale</a></div><div><h4>Information</h4>${pageLinks||'<span style="color:#71757B;font-size:13px;">No pages yet</span>'}</div></div><div class="container footer-bottom"><span>${esc(s.copyright||'')}</span><div class="footer-share"><span>Secure direct ordering</span><button type="button" class="share-btn" onclick="shareStorefront()" aria-label="Share this website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="m8.6 13.5 6.8 3.9M15.4 6.6 8.6 10.5"></path></svg>Share Website</button></div></div></footer>`;
+  return `<footer id="site-footer"><div class="container footer-grid"><div><h4>${esc(SETTINGS.siteName)}</h4>${String(s.about||'').trim()?`<p style="font-size:13.5px;color:#FFFFFF;max-width:320px;">${esc(s.about)}</p>`:''}${(s.description===undefined?'TEFaura is an online shopping destination owned by Taha Faiz, offering a carefully selected collection of premium-quality products, luxury accessories, stylish watches and everyday essentials.':String(s.description||'').trim())?`<p class="sx-owner-desc" style="font-size:12.5px;color:#FFFFFF;max-width:320px;opacity:.92;margin-top:8px;">${esc(s.description===undefined?'TEFaura is an online shopping destination owned by Taha Faiz, offering a carefully selected collection of premium-quality products, luxury accessories, stylish watches and everyday essentials.':s.description)}</p>`:''}</div><div><h4>Categories</h4>${cats}</div><div><h4>Quick Links</h4><a href="#/">Home</a></div><div><h4>Information</h4>${pageLinks||'<span style="color:#71757B;font-size:13px;">No pages yet</span>'}</div></div><div class="container footer-bottom"><span>${esc(s.copyright||'')}</span><div class="footer-share"><span>Secure direct ordering</span><button type="button" class="share-btn" onclick="shareStorefront()" aria-label="Share this website"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><path d="m8.6 13.5 6.8 3.9M15.4 6.6 8.6 10.5"></path></svg>Share Website</button></div></div></footer>`;
 }
 
 /* ================= HOME / SECTIONS ================= */
@@ -2757,7 +2811,7 @@ function renderSection(sec){
 function renderSectionRaw(sec){
   switch(sec.type){
     case 'hero': return renderHero();
-    case 'flashsale': return renderFlashSaleSection(sec);
+    case 'flashsale': return '';
     case 'categories': return renderCategoriesSection(sec);
     case 'productCollection': return renderCollectionSection(sec);
     case 'categoryShowcase': return renderCategoryShowcaseSection(sec);
@@ -2816,7 +2870,7 @@ function heroExtraButtonsHtml(h,alignMap){
   const list=(Array.isArray(h.buttons)?h.buttons:[]).filter(b=>b&&b.enabled!==false&&String(b.text||'').trim());
   if(!list.length) return '';
   return `<div class="hero-extra-btns" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:12px;align-self:${(alignMap&&alignMap[h.buttonAlign])||'flex-start'}">${list.map(b=>{
-    const bg=b.bg||'#7B3F00', fg=b.color||'#FFFFFF';
+    const bg=b.bg||'#111111', fg=b.color||'#FFFFFF';
     const st=b.outline?`background:transparent;color:${esc(bg)};border:2px solid ${esc(bg)}`:`background:${esc(bg)};color:${esc(fg)}`;
     return `<a class="btn" style="${st};padding:${Number(b.padY)||12}px ${Number(b.padX)||22}px" href="${esc(b.url||'#/')}"${b.newTab?' target="_blank" rel="noopener"':''}>${esc(b.text)}</a>`;
   }).join('')}</div>`;
@@ -2863,12 +2917,12 @@ function initFlashVisuals(){
 }
 
 function flashSlideHtml(f){
-  const d=Object.assign({height:null,infoBg:'#FFFFFF',textColor:'#1F2328',accentColor:'#7B3F00',imageFit:'cover'},f.display||{});
+  const d=Object.assign({height:null,infoBg:'#FFFFFF',textColor:'#1F2328',accentColor:'#111111',imageFit:'cover'},f.display||{});
   const style=d.height?`height:${Math.max(140,Number(d.height)||360)}px;min-height:${Math.max(140,Number(d.height)||360)}px;`:''; 
   return `<a href="#/flash-sale/${esc(f.slug)}" class="flash-slide"><div class="flash" style="${style}">
     ${flashVisualHtml(flashImages(f))}
     <div class="flash-info" style="${d.infoBg?`background:${esc(d.infoBg)};`:''}color:${esc(d.textColor||'#fff')};">
-      <span class="flash-eyebrow" style="color:${esc(d.accentColor||'#7B3F00')};">Flash Sale</span>
+      <span class="flash-eyebrow" style="color:${esc(d.accentColor||'#111111')};">Flash Sale</span>
       <h3 style="color:${esc(d.textColor||'#fff')};">${safeRichHtml(f.title)}</h3>
       <p style="color:${esc(d.textColor||'#fff')};opacity:.78;">${safeRichHtml(f.subtitle||'')}</p>
           <div class="countdown" data-countdown="${esc(f.end||'')}" data-ended-text="Sale ended">
@@ -3128,7 +3182,7 @@ const SOCIAL_PLATFORMS={
   snapchat:{label:'Snapchat',domain:'snapchat.com',color:'#F5C400',icon:'\u{1F47B}'},
   linkedin:{label:'LinkedIn',domain:'linkedin.com',color:'#0A66C2',icon:'in'},
   pinterest:{label:'Pinterest',domain:'pinterest.com',color:'#E60023',icon:'P'},
-  custom:{label:'Other',color:'#7B3F00',icon:'\u{1F517}'}
+  custom:{label:'Other',color:'#111111',icon:'\u{1F517}'}
 };
 function socialIconHtml(pf,url,platform){
   let domain=pf.domain||'';
@@ -3151,13 +3205,13 @@ function renderSocialSection(sec){
 }
 function renderBannerSection(sec){
   const b=BANNERS.find(x=>x.id===(sec.config&&sec.config.bannerId)); if(!b||!b.visible)return '';
-  const d=Object.assign({headingColor:'#FFFFFF',descriptionColor:'#FFFFFF',buttonBg:'#7B3F00',buttonColor:'#FFFFFF',buttonBorder:'#7B3F00',padding:30,buttonWidth:'',imageFit:'cover'},b.display||{});
+  const d=Object.assign({headingColor:'#FFFFFF',descriptionColor:'#FFFFFF',buttonBg:'#111111',buttonColor:'#FFFFFF',buttonBorder:'#111111',padding:30,buttonWidth:'',imageFit:'cover'},b.display||{});
   return `<section class="section container"><a class="promo-banner" href="${esc(b.buttonUrl||'#/')}" data-lazy-bg="${esc(mediaSrc(b.desktopImage||b.image))}" style="${bannerStyle(b)}">
     <div class="promo-banner-overlay" style="background:rgba(0,0,0,var(--promo-overlay,.25));"></div>
     <div class="promo-banner-inner" style="padding:${Number(d.padding)||30}px;">
       <h3 style="color:${esc(d.headingColor||'#fff')};">${safeRichHtml(b.heading||'')}</h3>
       <p style="color:${esc(d.descriptionColor||'#fff')};">${safeRichHtml(b.description||'')}</p>
-      ${b.buttonText?`<span class="btn small" style="background:${esc(d.buttonBg||'#7B3F00')};color:${esc(d.buttonColor||'#fff')};border:1.5px solid ${esc(d.buttonBorder||d.buttonBg||'#7B3F00')};${d.buttonWidth?`width:${Number(d.buttonWidth)}px;justify-content:center;`:''}">${safeRichHtml(b.buttonText)}</span>`:''}
+      ${b.buttonText?`<span class="btn small" style="background:${esc(d.buttonBg||'#111111')};color:${esc(d.buttonColor||'#fff')};border:1.5px solid ${esc(d.buttonBorder||d.buttonBg||'#111111')};${d.buttonWidth?`width:${Number(d.buttonWidth)}px;justify-content:center;`:''}">${safeRichHtml(b.buttonText)}</span>`:''}
     </div></a></section>`;
 }
 
@@ -3375,7 +3429,7 @@ function renderFlashSalePage(slug){
       </div>
     </div>`).join('');
   return `${backButtonHtml()}<div class="container" style="padding:10px 20px 30px;">
-    <div class="crumb"><a href="#/">Home</a> / <a href="#/flash-sale">Flash Sale</a> / ${esc(f.title)}</div>
+    <div class="crumb"><a href="#/">Home</a> /  / ${esc(f.title)}</div>
     <div class="flash" style="margin-bottom:26px;">
       ${flashVisualHtml(flashImages(f))}
       <div class="flash-info">
@@ -3508,6 +3562,15 @@ function renderAdminLogin(){
 }
 
 function setAdminView(v){ ADMIN_VIEW=v; ADMIN_DRAWER_OPEN=false; render(); }
+window.__sxAdminTyping=false;
+document.addEventListener('focusin',function(e){
+  var t=e.target;
+  if(t && /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName) && String(location.hash).indexOf('admin-of-storex')>=0){
+    if(t.type==='checkbox'||t.type==='radio'||t.type==='color'||t.type==='button'||t.type==='submit'||t.type==='file') return;
+    window.__sxAdminTyping=true;
+  }
+},true);
+document.addEventListener('focusout',function(){ setTimeout(function(){ window.__sxAdminTyping=false; },300); },true);
 
 function storexBaseRenderAdminSidebar(){
   const item = (v,label)=>`<button class="navlink ${ADMIN_VIEW===v?'active':''}" onclick="setAdminView('${v}')">${label}</button>`;
@@ -3518,12 +3581,10 @@ function storexBaseRenderAdminSidebar(){
     <div class="group-label">Catalog</div>
     ${item('products','Products')}
     ${item('categories','Categories')}
-    ${item('orders','Orders')}
     ${item('analytics','Analytics')}${item('engagement','Cart & Wishlist')}${item('sorting','Sorting & Tags')}
-    ${item('coupons','Coupons')}
     <div class="group-label">Marketing</div>
-    ${item('flashsales','Flash Sales')}
     ${item('banners','Banners')}
+    ${item('whatsapp','WhatsApp Orders')}
     <div class="group-label">Site</div>
     ${item('homepage','Homepage Builder')}
     ${item('bulkimport','Bulk Import Center')}
@@ -3541,13 +3602,10 @@ function storexBaseRenderAdminSidebar(){
 function storexBaseRenderAdminView(){
   switch(ADMIN_VIEW){
     case 'products': return adminProducts();
-    case 'orders': return adminOrders();
     case 'analytics': return adminAnalytics();
     case 'engagement': return sxAdminEngagement();
     case 'sorting': return sxAdminSorting();
-    case 'coupons': return adminCoupons();
     case 'categories': return adminCategories();
-    case 'flashsales': return adminFlashSales();
     case 'banners': return adminBanners();
     case 'homepage': return adminHomepage();
     case 'bulkimport': return adminBulkImport();
@@ -3557,8 +3615,48 @@ function storexBaseRenderAdminView(){
     case 'pages': return adminPages();
     case 'settings': return adminSettings();
     case 'storestatus': return adminStoreStatus();
+    case 'whatsapp': return adminWhatsAppOrders();
     default: return adminDashboard();
   }
+}
+
+
+function adminWhatsAppOrders(){
+  const w=Object.assign({enabled:true,number:'923301588630',intro:'I want to order this product. Can I get more details?',includeTitle:true,includeSku:true,includePrice:true,includeDelivery:true,includeQty:true,includeLink:true}, (SETTINGS&&SETTINGS.whatsappOrder)||{});
+  return `<div class="admin-topbar"><h1>WhatsApp Orders</h1></div>
+  <div class="help-note">Buy Now opens WhatsApp with a pre-filled message. Website checkout is disabled.</div>
+  <div class="admin-card">
+    <form onsubmit="event.preventDefault();saveWhatsAppOrderSettings(this);">
+      <div class="form-grid">
+        <div class="field"><label class="checkline"><input type="checkbox" name="enabled" ${w.enabled!==false?'checked':''}> Enable WhatsApp ordering</label></div>
+        <div class="field"><label>WhatsApp number (digits only, with country code)</label><input type="text" name="number" value="${esc(w.number||'')}" placeholder="923301588630" required></div>
+        <div class="field full"><label>Message intro</label><textarea name="intro" rows="3">${esc(w.intro||'')}</textarea></div>
+        <div class="field"><label class="checkline"><input type="checkbox" name="includeTitle" ${w.includeTitle!==false?'checked':''}> Include product title</label></div>
+        <div class="field"><label class="checkline"><input type="checkbox" name="includeSku" ${w.includeSku!==false?'checked':''}> Include SKU</label></div>
+        <div class="field"><label class="checkline"><input type="checkbox" name="includePrice" ${w.includePrice!==false?'checked':''}> Include price</label></div>
+        <div class="field"><label class="checkline"><input type="checkbox" name="includeDelivery" ${w.includeDelivery!==false?'checked':''}> Include delivery charges</label></div>
+        <div class="field"><label class="checkline"><input type="checkbox" name="includeQty" ${w.includeQty!==false?'checked':''}> Include quantity</label></div>
+        <div class="field"><label class="checkline"><input type="checkbox" name="includeLink" ${w.includeLink!==false?'checked':''}> Include product link</label></div>
+      </div>
+      <div style="margin-top:14px;"><button class="btn" type="submit">Save WhatsApp settings</button></div>
+    </form>
+  </div>`;
+}
+async function saveWhatsAppOrderSettings(form){
+  const fd=new FormData(form);
+  SETTINGS.whatsappOrder={
+    enabled:!!fd.get('enabled'),
+    number:String(fd.get('number')||'').replace(/[^0-9]/g,''),
+    intro:String(fd.get('intro')||'').trim(),
+    includeTitle:!!fd.get('includeTitle'),
+    includeSku:!!fd.get('includeSku'),
+    includePrice:!!fd.get('includePrice'),
+    includeDelivery:!!fd.get('includeDelivery'),
+    includeQty:!!fd.get('includeQty'),
+    includeLink:!!fd.get('includeLink')
+  };
+  const ok=await saveKey(KEYS.settings,SETTINGS);
+  if(ok) toast('WhatsApp order settings saved');
 }
 
 /* ---------- Dashboard ---------- */
@@ -4354,7 +4452,7 @@ function deleteFlashSale(id){ if(!confirm('Delete this flash sale?')) return; FL
 function openFlashSaleModal(id){
   const f = id ? FLASHSALES.find(x=>x.id===id) : {id:uid(),title:'',subtitle:'',slug:'',start:'',end:'',banner:null,banner2:null,banner3:null,description:'',status:'active',products:[],seo:{title:'',keywords:'',description:''}};
   f.seo = f.seo || {title:'',keywords:'',description:''};
-  f.display = Object.assign({height:360,infoBg:'',textColor:'#FFFFFF',accentColor:'#7B3F00',imageFit:'cover'},f.display||{});
+  f.display = Object.assign({height:360,infoBg:'',textColor:'#FFFFFF',accentColor:'#111111',imageFit:'cover'},f.display||{});
   const isNew = !id;
   if(isNew) window.__draftFlash = f;
   showModal(`
@@ -4398,7 +4496,7 @@ function openFlashSaleModal(id){
           <div class="field"><label>Display height (px)</label><input type="number" name="displayHeight" value="${Number((f.display||{}).height)||360}"></div>
           <div class="field"><label>Info background</label><input type="text" name="infoBg" value="${esc((f.display||{}).infoBg||'')}" placeholder="#1F2328"></div>
           <div class="field"><label>Text color</label><input type="text" name="textColor" value="${esc((f.display||{}).textColor||'#FFFFFF')}"></div>
-          <div class="field"><label>Accent color</label><input type="text" name="accentColor" value="${esc((f.display||{}).accentColor||'#7B3F00')}"></div>
+          <div class="field"><label>Accent color</label><input type="text" name="accentColor" value="${esc((f.display||{}).accentColor||'#111111')}"></div>
           <div class="field"><label>Image fit</label><select name="imageFit">
 <option value="cover" ${(f.display||{}).imageFit==='cover'?'selected':''}>Cover</option>
 <option value="contain" ${(f.display||{}).imageFit==='contain'?'selected':''}>Contain</option>
@@ -4471,7 +4569,7 @@ function saveFlashForm(id, isNew){
   Object.assign(draft,{
     title, slug: slugify(fd.get('slug').trim()||title), subtitle: fd.get('subtitle').trim(),
     start: fd.get('start'), end: fd.get('end'), status: fd.get('status'), description: fd.get('description').trim(),
-    display:{height:Number(fd.get('displayHeight'))||360,infoBg:fd.get('infoBg')||'',textColor:fd.get('textColor')||'#FFFFFF',accentColor:fd.get('accentColor')||'#7B3F00',imageFit:fd.get('imageFit')||'cover'},
+    display:{height:Number(fd.get('displayHeight'))||360,infoBg:fd.get('infoBg')||'',textColor:fd.get('textColor')||'#FFFFFF',accentColor:fd.get('accentColor')||'#111111',imageFit:fd.get('imageFit')||'cover'},
     seo: { title: fd.get('seoTitle').trim(), keywords: fd.get('seoKeywords').trim(), description: fd.get('seoDescription').trim() }
   });
   if(isNew){ FLASHSALES.push(draft); window.__draftFlash=null; }
@@ -4493,7 +4591,7 @@ function deleteBanner(id){ if(!confirm('Delete this banner?')) return; BANNERS=B
 
 function openBannerModal(id){
   const b=id?BANNERS.find(x=>x.id===id):{id:uid(),image:null,desktopImage:null,mobileImage:null,heroSlider:false,heading:'',description:'',buttonText:'',buttonUrl:'',visible:true,display:{}};
-  b.display=Object.assign({height:260,radius:12,overlay:.25,padding:30,headingColor:'#FFFFFF',descriptionColor:'#FFFFFF',buttonBg:'#7B3F00',buttonColor:'#FFFFFF',buttonBorder:'#7B3F00',buttonWidth:'',imageFit:'cover'},b.display||{});
+  b.display=Object.assign({height:260,radius:12,overlay:.25,padding:30,headingColor:'#FFFFFF',descriptionColor:'#FFFFFF',buttonBg:'#111111',buttonColor:'#FFFFFF',buttonBorder:'#111111',buttonWidth:'',imageFit:'cover'},b.display||{});
   const isNew=!id;if(isNew)window.__draftBanner=b;
   showModal(`<h2>${isNew?'Add Banner':'Edit Banner'}</h2>
     <form id="banner-form" onsubmit="event.preventDefault();saveBannerForm('${b.id}',${isNew});">
@@ -4535,7 +4633,7 @@ function saveBannerForm(id,isNew){
   const form=document.getElementById('banner-form'),fd=new FormData(form);
   const draft=isNew?window.__draftBanner:BANNERS.find(x=>x.id===id);
   Object.assign(draft,{heading:fd.get('heading').trim(),description:fd.get('description').trim(),buttonText:fd.get('buttonText').trim(),buttonUrl:fd.get('buttonUrl').trim(),visible:fd.get('visible')==='yes',heroSlider:fd.get('heroSlider')==='on',image:fd.get('image').trim()||draft.image,desktopImage:fd.get('desktopImage').trim()||null,mobileImage:fd.get('mobileImage').trim()||null});
-  draft.display={height:Number(fd.get('height'))||260,radius:Number(fd.get('radius'))||12,overlay:Number(fd.get('overlay'))||0,padding:Number(fd.get('padding'))||30,headingColor:fd.get('headingColor')||'#fff',descriptionColor:fd.get('descriptionColor')||'#fff',buttonBg:fd.get('buttonBg')||'#7B3F00',buttonColor:fd.get('buttonColor')||'#fff',buttonBorder:fd.get('buttonBorder')||fd.get('buttonBg')||'#7B3F00',buttonWidth:fd.get('buttonWidth')||'',imageFit:fd.get('imageFit')||'cover'};
+  draft.display={height:Number(fd.get('height'))||260,radius:Number(fd.get('radius'))||12,overlay:Number(fd.get('overlay'))||0,padding:Number(fd.get('padding'))||30,headingColor:fd.get('headingColor')||'#fff',descriptionColor:fd.get('descriptionColor')||'#fff',buttonBg:fd.get('buttonBg')||'#111111',buttonColor:fd.get('buttonColor')||'#fff',buttonBorder:fd.get('buttonBorder')||fd.get('buttonBg')||'#111111',buttonWidth:fd.get('buttonWidth')||'',imageFit:fd.get('imageFit')||'cover'};
   if(isNew){BANNERS.push(draft);window.__draftBanner=null;}
   saveKey(KEYS.banners,BANNERS);closeModal();toast('Banner saved with full design controls');
 }
@@ -4574,7 +4672,7 @@ function removeSection(i){ if(!confirm('Delete this section?')) return; SETTINGS
 function addSectionModal(){
   showModal(`<h2>Add Section</h2>
     <div class="form-grid">
-      ${['hero','flashsale','categories','productCollection','categoryShowcase','recentlyViewed','banner','customHtml','social'].map(t=>`<button type="button" class="btn ghost" style="justify-content:flex-start;" onclick="${t==='flashsale'?'addFlashSaleSectionModal()':`addSection('${t}')`}">+ ${sectionTypeLabel(t)}</button>`).join('')}
+      ${['hero','categories','productCollection','categoryShowcase','recentlyViewed','banner','customHtml','social'].map(t=>`<button type="button" class="btn ghost" style="justify-content:flex-start;" onclick="${t==='flashsale'?'addFlashSaleSectionModal()':`addSection('${t}')`}">+ ${sectionTypeLabel(t)}</button>`).join('')}
     </div>
     <div class="modal-close-row"><button type="button" class="btn ghost" onclick="closeModal()">Close</button></div>`);
 }
@@ -4744,12 +4842,12 @@ function sxApplyLayoutFromForm(s,fd){
 function sxSaveThemeColors(form){
   const fd=new FormData(form);
   const pick=(k,d)=>{ const v=String(fd.get(k)||'').trim(); return v||d; };
-  SETTINGS.primaryColor=pick('primaryColor','#7B3F00');
-  SETTINGS.primaryDark=pick('primaryDark','#D9631B');
+  SETTINGS.primaryColor=pick('primaryColor','#111111');
+  SETTINGS.primaryDark=pick('primaryDark','#222222');
   SETTINGS.secondaryColor=pick('secondaryColor','#5B616B');
   SETTINGS.secondaryDark=pick('secondaryDark','#3A3F47');
-  SETTINGS.accentColor=pick('accentColor','#D9631B');
-  SETTINGS.headerBg=pick('headerBg','#3B1E0E');
+  SETTINGS.accentColor=pick('accentColor','#222222');
+  SETTINGS.headerBg=pick('headerBg','#0A0A0A');
   SETTINGS.headerText=pick('headerText','#F7E7CC');
   SETTINGS.bodyBg=pick('bodyBg','#FAF9F7');
   SETTINGS.inkColor=pick('inkColor','#1F2328');
@@ -4831,15 +4929,15 @@ function adminTheme(){
       <div class="form-grid">
         <div class="field"><label>Primary Color</label>
           <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.primaryColor||'#7B3F00')}" oninput="this.form.primaryColor.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="primaryColor" value="${esc(SETTINGS.primaryColor||'#7B3F00')}" pattern="^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$" required style="flex:1;">
-            <span class="swatch" style="background:${esc(SETTINGS.primaryColor||'#7B3F00')}"></span>
+            <input type="color" value="${esc(SETTINGS.primaryColor||'#111111')}" oninput="this.form.primaryColor.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
+            <input type="text" name="primaryColor" value="${esc(SETTINGS.primaryColor||'#111111')}" pattern="^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$" required style="flex:1;">
+            <span class="swatch" style="background:${esc(SETTINGS.primaryColor||'#111111')}"></span>
           </div>
         </div>
         <div class="field"><label>Primary Dark / Hover</label>
           <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.primaryDark||'#D9631B')}" oninput="this.form.primaryDark.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="primaryDark" value="${esc(SETTINGS.primaryDark||'#D9631B')}" style="flex:1;">
+            <input type="color" value="${esc(SETTINGS.primaryDark||'#222222')}" oninput="this.form.primaryDark.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
+            <input type="text" name="primaryDark" value="${esc(SETTINGS.primaryDark||'#222222')}" style="flex:1;">
           </div>
         </div>
         <div class="field"><label>Secondary Color</label>
@@ -4857,14 +4955,14 @@ function adminTheme(){
         </div>
         <div class="field"><label>Accent Color</label>
           <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.accentColor||'#D9631B')}" oninput="this.form.accentColor.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="accentColor" value="${esc(SETTINGS.accentColor||'#D9631B')}" style="flex:1;">
+            <input type="color" value="${esc(SETTINGS.accentColor||'#222222')}" oninput="this.form.accentColor.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
+            <input type="text" name="accentColor" value="${esc(SETTINGS.accentColor||'#222222')}" style="flex:1;">
           </div>
         </div>
         <div class="field"><label>Header Background</label>
           <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.headerBg||'#3B1E0E')}" oninput="this.form.headerBg.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="headerBg" value="${esc(SETTINGS.headerBg||'#3B1E0E')}" style="flex:1;">
+            <input type="color" value="${esc(SETTINGS.headerBg||'#0A0A0A')}" oninput="this.form.headerBg.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
+            <input type="text" name="headerBg" value="${esc(SETTINGS.headerBg||'#0A0A0A')}" style="flex:1;">
           </div>
         </div>
         <div class="field"><label>Header Text</label>
@@ -4905,8 +5003,8 @@ function adminTheme(){
         </div>
         <div class="field"><label>Button Color</label>
           <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.buttonBg||SETTINGS.primaryColor||'#7B3F00')}" oninput="this.form.buttonBg.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="buttonBg" value="${esc(SETTINGS.buttonBg||SETTINGS.primaryColor||'#7B3F00')}" style="flex:1;">
+            <input type="color" value="${esc(SETTINGS.buttonBg||SETTINGS.primaryColor||'#111111')}" oninput="this.form.buttonBg.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
+            <input type="text" name="buttonBg" value="${esc(SETTINGS.buttonBg||SETTINGS.primaryColor||'#111111')}" style="flex:1;">
           </div>
         </div>
         <div class="field"><label>Button Text Color</label>
@@ -4917,14 +5015,14 @@ function adminTheme(){
         </div>
         <div class="field"><label>Icon Color</label>
           <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.iconColor||SETTINGS.primaryColor||'#7B3F00')}" oninput="this.form.iconColor.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="iconColor" value="${esc(SETTINGS.iconColor||SETTINGS.primaryColor||'#7B3F00')}" style="flex:1;">
+            <input type="color" value="${esc(SETTINGS.iconColor||SETTINGS.primaryColor||'#111111')}" oninput="this.form.iconColor.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
+            <input type="text" name="iconColor" value="${esc(SETTINGS.iconColor||SETTINGS.primaryColor||'#111111')}" style="flex:1;">
           </div>
         </div>
         <div class="field"><label>Footer Background</label>
           <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.footerBg||SETTINGS.primaryColor||'#7B3F00')}" oninput="this.form.footerBg.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="footerBg" value="${esc(SETTINGS.footerBg||SETTINGS.primaryColor||'#7B3F00')}" style="flex:1;">
+            <input type="color" value="${esc(SETTINGS.footerBg||SETTINGS.primaryColor||'#111111')}" oninput="this.form.footerBg.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
+            <input type="text" name="footerBg" value="${esc(SETTINGS.footerBg||SETTINGS.primaryColor||'#111111')}" style="flex:1;">
           </div>
         </div>
         <div class="field"><label>Footer Text</label>
@@ -4936,7 +5034,7 @@ function adminTheme(){
       </div>
       <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
         <button class="btn" type="submit">Save Theme Colors</button>
-        <button type="button" class="btn danger" onclick="sxResetBrandingPrompt()">Reset All Branding Settings to Default</button>
+        
       </div>
     </form>
   </div>
@@ -5076,7 +5174,7 @@ function adminTheme(){
         <div class="field"><label>Button Title / Text</label><input type="text" name="buttonText" value="${esc(h.buttonText)}"></div>
         <div class="field"><label>Target Link / URL</label><input type="text" name="buttonUrl" value="${esc(h.buttonUrl)}"></div>
         <div class="field"><label>Text Color</label><input type="text" name="buttonTextColor" value="${esc(h.buttonTextColor)}" placeholder="#FFFFFF"></div>
-        <div class="field"><label>Background Color</label><input type="text" name="buttonBgColor" value="${esc(h.buttonBgColor)}" placeholder="#7B3F00"></div>
+        <div class="field"><label>Background Color</label><input type="text" name="buttonBgColor" value="${esc(h.buttonBgColor)}" placeholder="#111111"></div>
         <div class="field"><label>Width (px, blank = auto)</label><input type="number" name="buttonWidth" value="${esc(h.buttonWidth)}"></div>
         <div class="field"><label>Alignment</label><select name="buttonAlign"><option value="left" ${h.buttonAlign==='left'?'selected':''}>Left</option><option value="center" ${h.buttonAlign==='center'?'selected':''}>Center</option><option value="right" ${h.buttonAlign==='right'?'selected':''}>Right</option></select></div>
         <div class="field"><label>Top/Bottom Padding (Height, px)</label><input type="number" name="buttonPaddingY" value="${esc(h.buttonPaddingY)}"></div>
@@ -5232,7 +5330,7 @@ function deletePage(id){ if(!confirm('Delete this page?')) return; PAGES=PAGES.f
 
 function openPageModal(id){
   const p=id?PAGES.find(x=>x.id===id):{id:uid(),title:'',slug:'',content:'',status:'published',image:null,style:{},showInFooter:true,showInNav:false,showInHamburger:false};
-  const isNew=!id, st=Object.assign({background:'',textColor:'#1F2328',border:'',radius:0,padding:30,width:'100%',buttonBg:'#7B3F00',buttonColor:'#FFFFFF',buttonBorder:'#7B3F00'},p.style||{});
+  const isNew=!id, st=Object.assign({background:'',textColor:'#1F2328',border:'',radius:0,padding:30,width:'100%',buttonBg:'#111111',buttonColor:'#FFFFFF',buttonBorder:'#111111'},p.style||{});
   const showInFooter = p.showInFooter!==false, showInNav = !!p.showInNav, showInHamburger = !!p.showInHamburger;
   showModal(`<h2>${isNew?'Add Page':'Edit Page'}</h2>
     <form onsubmit="event.preventDefault();savePageForm('${p.id}',${isNew},this);">
@@ -5270,7 +5368,7 @@ function savePageForm(id,isNew,form){
   const page=isNew?{id,title,slug:'',content:'',status:'published',style:{}}:PAGES.find(x=>x.id===id);
   Object.assign(page,{title,slug:slugify(fd.get('slug').trim()||title),content:fd.get('content').trim(),status:fd.get('status'),
     showInFooter: fd.get('showInFooter')==='on', showInNav: fd.get('showInNav')==='on', showInHamburger: fd.get('showInHamburger')==='on',
-    style:{background:fd.get('background')||'',textColor:fd.get('textColor')||'',border:fd.get('border')||'',radius:Number(fd.get('radius'))||0,padding:Number(fd.get('padding'))||30,width:fd.get('width')||'100%',buttonBg:fd.get('buttonBg')||'#7B3F00',buttonColor:fd.get('buttonColor')||'#FFFFFF',buttonBorder:fd.get('buttonBorder')||'#7B3F00'}});
+    style:{background:fd.get('background')||'',textColor:fd.get('textColor')||'',border:fd.get('border')||'',radius:Number(fd.get('radius'))||0,padding:Number(fd.get('padding'))||30,width:fd.get('width')||'100%',buttonBg:fd.get('buttonBg')||'#111111',buttonColor:fd.get('buttonColor')||'#FFFFFF',buttonBorder:fd.get('buttonBorder')||'#111111'}});
   if(isNew)PAGES.push(page);saveKey(KEYS.pages,PAGES);closeModal();toast('Page saved with full design controls');
 }
 
@@ -5942,7 +6040,7 @@ function storexBaseShowCheckoutInvoice(orderNumber, lines, customer, subtotal, c
       <div style="display:flex;justify-content:space-between;border-top:1px solid var(--line);margin-top:8px;padding-top:8px;font-weight:800;"><span>Total</span><span>${money(total)}</span></div>
     </div>
     <div style="font-size:13px;margin-bottom:12px;"><b>Delivery to</b><br>${esc(customer.name)}, ${esc(customer.phone)}<br>${esc(customer.address)}, ${esc(customer.city)}</div>
-    <div style="margin:0 0 16px;padding:12px 14px;border:1px solid #7B3F00;border-radius:10px;background:#FBF1E3;font-size:13px;line-height:1.5;"><b>Important — Save your Order Number</b><br>Keep <strong>${esc(orderNumber)}</strong> safe. You will need your order number to track your order, request cancellation, or request a return.</div>
+    <div style="margin:0 0 16px;padding:12px 14px;border:1px solid #111111;border-radius:10px;background:#FBF1E3;font-size:13px;line-height:1.5;"><b>Important — Save your Order Number</b><br>Keep <strong>${esc(orderNumber)}</strong> safe. You will need your order number to track your order, request cancellation, or request a return.</div>
     <div class="modal-close-row"><button class="btn" onclick="closeModal()">Done</button><button class="btn ghost" onclick="window.print()">Print / Save</button></div>
   </div>`);
 }
@@ -6362,7 +6460,7 @@ boot().catch(function(err){
 /* ===== Social media section ===== */
 .social-card{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.05);transition:box-shadow .15s,transform .15s;}
 .social-card:hover{box-shadow:0 6px 18px rgba(0,0,0,.12);transform:translateY(-1px);}
-.social-icon{flex:0 0 auto;width:48px;height:48px;border-radius:50%;background:var(--sc,#7B3F00);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;line-height:1;}
+.social-icon{flex:0 0 auto;width:48px;height:48px;border-radius:50%;background:var(--sc,#111111);color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;line-height:1;}
 .social-text{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:2px;}
 .social-text b{font-size:clamp(15px,4.2vw,18px);overflow-wrap:anywhere;}
 .social-text small{font-size:clamp(12px,3.4vw,13.5px);color:var(--ink-soft);overflow-wrap:anywhere;}
@@ -6412,7 +6510,7 @@ h1,h2,h3,h4,.section-head p,.promo-banner-inner h3,.promo-banner-inner p,.flash-
 .social-icon{background:#fff!important;border:1px solid var(--line);color:var(--ink)!important;}
 .social-icon img{width:28px;height:28px;object-fit:contain;display:block;}
 .social-icon em{display:none;font-style:normal;font-size:16px;}
-.social-icon.noimg{background:var(--sc,#7B3F00)!important;color:#fff!important;border-color:transparent;}
+.social-icon.noimg{background:var(--sc,#111111)!important;color:#fff!important;border-color:transparent;}
 .social-icon.noimg em{display:block;}
 /* ===== Footer description: pure white ===== */
 #site-footer .footer-grid p{color:#FFFFFF!important;}
@@ -6481,12 +6579,12 @@ body.is-admin,body.is-admin .admin-shell,body.is-admin .admin-main{background:#f
 .pd-slide-count{display:none!important}
 .sx-dl{opacity:.5}
 .sx-dl:hover,.sx-dl:focus-visible,.sx-dl:active{opacity:1}
-.sx-dl:hover,.sx-dl:focus-visible{background:#7B3F00;color:#fff;outline:none}
+.sx-dl:hover,.sx-dl:focus-visible{background:#111111;color:#fff;outline:none}
 .sx-dl:active{transform:scale(.92)}
 .sx-dl svg{width:20px;height:20px}
 .customer-card .field input,.customer-card .field select,.customer-card .field textarea,.trk-card .field input{background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;min-height:44px;font-size:14px;width:100%;box-sizing:border-box;transition:border-color .2s,box-shadow .2s}
 .customer-card .field textarea{min-height:88px}
-.customer-card .field input:focus,.customer-card .field select:focus,.customer-card .field textarea:focus{outline:none;border-color:#7B3F00;box-shadow:0 0 0 3px rgba(245,114,36,.15)}
+.customer-card .field input:focus,.customer-card .field select:focus,.customer-card .field textarea:focus{outline:none;border-color:#111111;box-shadow:0 0 0 3px rgba(245,114,36,.15)}
 .customer-card .field{margin-bottom:12px}
 .customer-card .field label{display:block;margin-bottom:5px}
 .customer-card .btn,.customer-card .coupon-row .btn{min-height:44px}
@@ -6496,15 +6594,15 @@ body.is-admin,body.is-admin .admin-shell,body.is-admin .admin-main{background:#f
 .card .sx-btn{flex:1 1 0;min-width:0;min-height:40px;display:flex;align-items:center;justify-content:center;gap:5px;padding:8px 6px;border-radius:8px;font-size:12.5px;font-weight:700;line-height:1.1;cursor:pointer;white-space:nowrap;transition:background .2s,color .2s,transform .12s;-webkit-tap-highlight-color:transparent}
 .card .sx-btn svg{width:16px;height:16px;flex:none}
 .card .sx-btn:active{transform:scale(.96)}
-.card .sx-cart{background:#fff;color:#7B3F00;border:1.5px solid #7B3F00}
+.card .sx-cart{background:#fff;color:#111111;border:1.5px solid #111111}
 .card .sx-cart:hover,.card .sx-cart.done{background:#FFF1E8}
-.card .sx-buy{background:#7B3F00;color:#fff;border:1.5px solid #7B3F00}
+.card .sx-buy{background:#111111;color:#fff;border:1.5px solid #111111}
 .card .sx-buy:hover{background:#DD5F14}
 .card .sx-out{background:#f1f1f1;color:#888;border:1.5px solid #e5e5e5;cursor:not-allowed}
 @media (max-width:380px){.card .sx-cart svg{display:none}.card .sx-btn{font-size:12px}}
 .sx-tags{position:absolute;top:8px;left:8px;display:flex;gap:4px;flex-wrap:wrap;max-width:70%;z-index:2}
 .sx-tag{color:#fff;font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.2px}
-.sx-cp{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px dashed #7B3F00;background:#FBF1E3;border-radius:10px;padding:10px 12px;margin:8px 0}
+.sx-cp{display:flex;justify-content:space-between;align-items:center;gap:10px;border:1.5px dashed #111111;background:#FBF1E3;border-radius:10px;padding:10px 12px;margin:8px 0}
 .sx-cp-sub{font-size:12px;color:var(--ink-soft);margin-top:2px}.sx-cp-done{color:#1a8f4f;font-weight:700;font-size:13px;white-space:nowrap}
 .sx-cpn{font-size:10.5px;font-weight:800;color:#1a8f4f;background:#E9F7EE;border-radius:4px;padding:1px 6px}
 .sx-pd-price{font-size:32px!important;font-weight:800;line-height:1.1}.sx-pd-note{font-size:13px;color:#1a8f4f;font-weight:700;margin:-4px 0 8px}
@@ -6563,7 +6661,7 @@ img,video,iframe,svg{max-width:100%}
 </script>
 <script id="sx-enh2-js">
 (function(){
-  var DEFTAG={sale:'#D92D20',hot:'#7B3F00','new':'#1A8F4F',trending:'#7C3AED'};
+  var DEFTAG={sale:'#D92D20',hot:'#111111','new':'#1A8F4F',trending:'#7C3AED'};
   var DEFOPTS=[['default','Recommended','default'],['newest','Newest','newest'],['promotion','Promotion','promotion'],['price-low','Price: Low to High','price-low'],['price-high','Price: High to Low','price-high'],['discount','Biggest Discount','discount'],['name','Name A\u2013Z','name-az']].map(function(a){return {id:a[0],label:a[1],method:a[2],enabled:true,tags:[],categories:[],match:'or'};});
   var METHODS=[['default','Default order'],['newest','Newest first'],['oldest','Oldest first'],['price-low','Price: Low to High'],['price-high','Price: High to Low'],['name-az','Name: A to Z'],['name-za','Name: Z to A'],['discount','Biggest discount'],['promotion','Promotion'],['featured','Featured products'],['popular','Popular (most viewed)'],['filter','Only filter (tags/categories)']];
   var SX_SORT=null,SX_TAGCOL={},SX_DRAFT=null,SX_ENG=null;
@@ -6795,22 +6893,22 @@ img,video,iframe,svg{max-width:100%}
 #app:has(>#site-header){
   --sx-display:'Playfair Display','Times New Roman',Times,serif;
   --sx-body:'Poppins','Segoe UI',Arial,sans-serif;
-  --sx-ink:#2B1A0E;
-  --sx-brown:#4B2511;
-  --sx-gold:#A8652A;
+  --sx-ink:#0F0F0F;
+  --sx-brown:#0D0D0D;
+  --sx-gold:#333333;
   --sx-gold-light:#E9BF72;
   --sx-cream:#FFF8EC;
   --sx-sand:#F6E3C4;
-  --sx-grad:linear-gradient(135deg,#5E2F0C 0%,#A8652A 100%);
+  --sx-grad:linear-gradient(135deg,#111111 0%,#333333 100%);
   --sx-grad-dark:linear-gradient(135deg,#2A1408 0%,#5A2E14 100%);
-  --primary:#7B3F00;
-  --primary-dark:#6B3410;
-  --ink:#2B1A0E;
+  --primary:#111111;
+  --primary-dark:#1A1A1A;
+  --ink:#0F0F0F;
   --ink-soft:#7A6652;
   --paper:#FBF1E3;
   --line:#EBD9BF;
   --card:#FFF8EC;
-  --header-bg:#3B1E0E;
+  --header-bg:#0A0A0A;
   --header-text:#F7E7CC;
   font-family:var(--sx-body);
   font-weight:600;
@@ -6867,7 +6965,7 @@ body:has(#site-header){
 #app:has(>#site-header) .icon-btn,#app:has(>#site-header) .mobile-toggle,#app:has(>#site-header) .mobile-search-toggle{color:#F7E7CC!important;}
 #app:has(>#site-header) .icon-btn{background:rgba(255,255,255,.1);border-radius:50%;}
 #app:has(>#site-header) .icon-btn:hover{background:rgba(255,255,255,.2);}
-#app:has(>#site-header) .icon-badge{background:var(--sx-gold-light);color:#3B1E0E;}
+#app:has(>#site-header) .icon-badge{background:var(--sx-gold-light);color:#0A0A0A;}
 #app:has(>#site-header) .search-suggestions{background:var(--sx-cream);border-color:var(--line);border-radius:18px;}
 #app:has(>#site-header) .search-suggestion{background:var(--sx-cream);color:var(--sx-ink);}
 #app:has(>#site-header) .search-suggestion:hover{background:var(--sx-sand);color:var(--sx-brown);}
@@ -6911,14 +7009,14 @@ body:has(#site-header){
 #app:has(>#site-header) .sx-pill{
   align-self:inherit;display:inline-block;margin:0 0 16px;padding:7px 16px;border-radius:999px;
   background:rgba(255,255,255,.55);border:1px solid rgba(181,122,34,.35);
-  color:#6B3410;font-size:13px;font-weight:700;
+  color:#1A1A1A;font-size:13px;font-weight:700;
 }
 #app:has(>#site-header) .hero-inner.align-center .sx-pill{align-self:center;}
 #app:has(>#site-header) .sx-hero-badges{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:30px;}
 #app:has(>#site-header) .sx-hero-badge{display:flex;align-items:center;gap:10px;}
 #app:has(>#site-header) .sx-hero-badge i{
   width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
-  background:rgba(255,255,255,.7);border:1px solid rgba(181,122,34,.3);color:#6B3410;
+  background:rgba(255,255,255,.7);border:1px solid rgba(181,122,34,.3);color:#1A1A1A;
 }
 #app:has(>#site-header) .sx-hero-badge svg{width:20px;height:20px;}
 #app:has(>#site-header) .sx-hero-badge b{display:block;font-size:13px;line-height:1.2;color:var(--sx-ink);font-weight:700;}
@@ -7013,14 +7111,14 @@ body:has(#site-header){
 #app:has(>#site-header) .card .sx-actions,#app:has(>#site-header) .card .card-actions-row{padding:4px 2px 4px;gap:8px;}
 #app:has(>#site-header) .card .sx-btn,#app:has(>#site-header) .card-cta{border-radius:999px;font-weight:700;min-height:42px;}
 #app:has(>#site-header) .card .sx-buy,#app:has(>#site-header) .card-cta{background:var(--sx-grad);border:0;color:#fff;box-shadow:0 8px 18px rgba(122,76,14,.28);}
-#app:has(>#site-header) .card .sx-buy:hover,#app:has(>#site-header) .card-cta:hover{background:linear-gradient(135deg,#5E3708,#966013);}
+#app:has(>#site-header) .card .sx-buy:hover,#app:has(>#site-header) .card-cta:hover{background:linear-gradient(135deg,#1A1A1A,#966013);}
 #app:has(>#site-header) .card .sx-cart,#app:has(>#site-header) .card-cta.ghost{background:#FFF8EC;color:var(--sx-brown);border:1.5px solid var(--sx-gold);box-shadow:none;}
 #app:has(>#site-header) .card .sx-cart:hover,#app:has(>#site-header) .card .sx-cart.done{background:var(--sx-sand);}
 #app:has(>#site-header) .card .sx-out{background:#EFE3D0;color:#9A8870;border:0;box-shadow:none;}
 
 /* ---------- Buttons / forms (poori store) ---------- */
 #app:has(>#site-header) .btn:not(.ghost):not(.secondary):not(.danger){background:var(--sx-grad);border-radius:999px;font-weight:700;}
-#app:has(>#site-header) .btn:not(.ghost):not(.secondary):not(.danger):hover{background:linear-gradient(135deg,#5E3708,#966013);}
+#app:has(>#site-header) .btn:not(.ghost):not(.secondary):not(.danger):hover{background:linear-gradient(135deg,#1A1A1A,#966013);}
 #app:has(>#site-header) .btn.ghost{border-radius:999px;}
 #app:has(>#site-header) .summary-card,#app:has(>#site-header) .customer-card,#app:has(>#site-header) .sx-pdc,#app:has(>#site-header) .admin-card{border-radius:22px;background:var(--sx-cream);border-color:var(--line);}
 #app:has(>#site-header) .coupon-row input,#app:has(>#site-header) .customer-card .field input,#app:has(>#site-header) .customer-card .field select,#app:has(>#site-header) .customer-card .field textarea{border-radius:14px;background:#fff;}
@@ -7046,7 +7144,7 @@ body:has(#site-header){
   box-shadow:0 10px 28px rgba(120,80,30,.1);
 }
 #app:has(>#site-header) .sx-trust div{display:flex;align-items:center;gap:12px;min-width:0;}
-#app:has(>#site-header) .sx-trust i{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--sx-sand);color:#6B3410;}
+#app:has(>#site-header) .sx-trust i{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--sx-sand);color:#1A1A1A;}
 #app:has(>#site-header) .sx-trust svg{width:21px;height:21px;}
 #app:has(>#site-header) .sx-trust b{display:block;font-size:13.5px;font-weight:700;color:var(--sx-ink);line-height:1.2;}
 #app:has(>#site-header) .sx-trust span{display:block;font-size:12px;color:var(--ink-soft);font-weight:600;line-height:1.3;}
@@ -7175,11 +7273,11 @@ body:has(#site-header){
 </script>
 <!-- ===== StoreX update bundle: page boxes, hero editor, sort scroll, SEO sync, fresh reload ===== -->
 <style id="StoreXBoxLayoutFix">
-.sx-cod{display:flex;gap:12px;align-items:flex-start;margin:14px 0 4px;padding:14px 16px;border:1.5px solid #7B3F00;border-radius:16px;background:#FBF1E3;color:#2B1A0E;}
-.sx-cod-ic{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#7B3F00;color:#fff;}
-.sx-cod b{display:block;color:#7B3F00;font-size:14.5px;}
+.sx-cod{display:flex;gap:12px;align-items:flex-start;margin:14px 0 4px;padding:14px 16px;border:1.5px solid #111111;border-radius:16px;background:#FBF1E3;color:#0F0F0F;}
+.sx-cod-ic{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#111111;color:#fff;}
+.sx-cod b{display:block;color:#111111;font-size:14.5px;}
 .sx-cod p{margin:4px 0 0;font-size:13px;line-height:1.5;}
-.sx-cod p b{display:inline;color:#2B1A0E;font-size:13px;}
+.sx-cod p b{display:inline;color:#0F0F0F;font-size:13px;}
 /* Every customer page card (checkout, delivery, review, track order, my orders...) now has real padding,
    so labels, inputs and text sit INSIDE the box instead of touching its border. */
 #app .customer-card{
@@ -7246,14 +7344,14 @@ body:has(#site-header){
   window.sxHBDel=function(i){badges().splice(i,1);render();};
   window.sxHBMove=function(i,d){var a=badges(),j=i+d;if(j<0||j>=a.length)return;var t=a[i];a[i]=a[j];a[j]=t;render();};
   window.sxHBtnSet=function(i,k,v){buttons()[i][k]=v;};
-  window.sxHBtnAdd=function(){buttons().push({text:'New Button',url:'#/category/all',bg:'#6B3410',color:'#FFFFFF',outline:false,newTab:false,enabled:true});render();};
+  window.sxHBtnAdd=function(){buttons().push({text:'New Button',url:'#/category/all',bg:'#1A1A1A',color:'#FFFFFF',outline:false,newTab:false,enabled:true});render();};
   window.sxHBtnDel=function(i){buttons().splice(i,1);render();};
   window.sxHBtnMove=function(i,d){var a=buttons(),j=i+d;if(j<0||j>=a.length)return;var t=a[i];a[i]=a[j];a[j]=t;render();};
   window.sxHeroTextSave=function(){
     try{saveKey(KEYS.settings,SETTINGS);toast('Hero text boxes & buttons saved \u2713');}catch(e){toast('Save failed: '+(e.message||e));}
   };
   window.sxApplyBrandDefaults=function(){
-    if(!confirm('Apply the default TEFaura logo, favicon, hero images, hero text and chocolate colours? Your products and categories are not touched.'))return;
+    if(!confirm('Apply the default TEFaura logo, favicon, hero images, hero text and dark black colours? Your products and categories are not touched.'))return;
     var A=SX_DEFAULT_ASSETS,D=DEFAULT_SETTINGS;
     SETTINGS.logo=A.logo;SETTINGS.favicon=A.favicon;SETTINGS.primaryColor=D.primaryColor;SETTINGS.primaryDark=D.primaryDark;SETTINGS.secondaryColor=D.secondaryColor;SETTINGS.secondaryDark=D.secondaryDark;SETTINGS.accentColor=D.accentColor;SETTINGS.headerBg=D.headerBg;SETTINGS.headerText=D.headerText;SETTINGS.bodyBg=D.bodyBg;SETTINGS.inkColor=D.inkColor;SETTINGS.inkSoft=D.inkSoft;SETTINGS.borderColor=D.borderColor;SETTINGS.cardBg=D.cardBg;SETTINGS.buttonBg=D.buttonBg;SETTINGS.buttonText=D.buttonText;SETTINGS.iconColor=D.iconColor;SETTINGS.footerBg=D.footerBg;SETTINGS.footerText=D.footerText;
     var h=SETTINGS.hero=SETTINGS.hero||{};
@@ -7278,7 +7376,7 @@ body:has(#site-header){
     var btnRows=btl.map(function(b,i){return '<div class="admin-card" style="margin:10px 0;background:#FAF9F7"><div class="form-grid">'
       +'<div class="field"><label>Button text</label><input type="text" value="'+esc(b.text||'')+'" onchange="sxHBtnSet('+i+',\'text\',this.value)"></div>'
       +'<div class="field"><label>Link / URL</label><input type="text" value="'+esc(b.url||'')+'" placeholder="#/category/all or https://..." onchange="sxHBtnSet('+i+',\'url\',this.value)"></div>'
-      +'<div class="field"><label>Button color</label><input type="color" value="'+hx(b.bg,'#6B3410')+'" onchange="sxHBtnSet('+i+',\'bg\',this.value)"></div>'
+      +'<div class="field"><label>Button color</label><input type="color" value="'+hx(b.bg,'#1A1A1A')+'" onchange="sxHBtnSet('+i+',\'bg\',this.value)"></div>'
       +'<div class="field"><label>Text color</label><input type="color" value="'+hx(b.color,'#FFFFFF')+'" onchange="sxHBtnSet('+i+',\'color\',this.value)"></div>'
       +'<div class="field"><label>Height padding (px)</label><input type="number" value="'+esc(b.padY||12)+'" onchange="sxHBtnSet('+i+',\'padY\',Number(this.value)||12)"></div>'
       +'<div class="field"><label>Side padding (px)</label><input type="number" value="'+esc(b.padX||22)+'" onchange="sxHBtnSet('+i+',\'padX\',Number(this.value)||22)"></div>'
@@ -7286,7 +7384,7 @@ body:has(#site-header){
       +'<div class="field"><label class="checkline"><input type="checkbox" '+(b.newTab?'checked':'')+' onchange="sxHBtnSet('+i+',\'newTab\',this.checked)"> Open in new tab</label></div>'
       +'<div class="field"><label class="checkline"><input type="checkbox" '+(b.enabled!==false?'checked':'')+' onchange="sxHBtnSet('+i+',\'enabled\',this.checked)"> Show this button</label></div></div>'
       +'<div style="'+row+'"><button type="button" class="btn small ghost" onclick="sxHBtnMove('+i+',-1)">\u2191 Up</button><button type="button" class="btn small ghost" onclick="sxHBtnMove('+i+',1)">\u2193 Down</button><button type="button" class="btn small danger" onclick="sxHBtnDel('+i+')">Delete</button></div></div>';}).join('');
-    return '<div class="admin-card" style="margin-bottom:12px"><h3 style="margin-top:0">Default Branding</h3><p style="font-size:12.5px;color:var(--ink-soft);margin-top:0">One tap to set the default logo, favicon, mobile &amp; desktop hero images, hero heading/subheading and chocolate colours.</p><button type="button" class="btn" onclick="sxApplyBrandDefaults()">Apply default logo, favicon, hero &amp; colours</button></div>'
+    return '<div class="admin-card" style="margin-bottom:12px"><h3 style="margin-top:0">Default Branding</h3><p style="font-size:12.5px;color:var(--ink-soft);margin-top:0">One tap to set the default logo, favicon, mobile &amp; desktop hero images, hero heading/subheading and dark black colours.</p></div>'
       +'<div class="admin-card">'
       +'<h3 style="margin-top:0">Hero Text Boxes &amp; Extra Buttons</h3>'
       +'<p style="font-size:12.5px;color:var(--ink-soft);margin-top:0">Edit, add, hide or reorder the small text boxes shown on the hero (the &ldquo;Welcome to&hellip;&rdquo; pill and the Fast Delivery / Secure Payments / Top Quality boxes), and add as many extra hero buttons as you like. Click <b>Save</b> when finished.</p>'
@@ -7373,7 +7471,7 @@ body:has(#site-header){
 
 
 <style id="StoreXAutoLinkStyle">
-a.sx-autolink{color:#7B3F00!important;font-weight:700;text-decoration:underline!important;text-underline-offset:3px;word-break:break-word;}
+a.sx-autolink{color:#111111!important;font-weight:700;text-decoration:underline!important;text-underline-offset:3px;word-break:break-word;}
 </style>
 <script id="StoreXAutoLink">
 /* Makes the store WhatsApp number and email clickable everywhere on the website. */
@@ -7492,7 +7590,7 @@ main .section-head p{font-size:13px;}
 #sxbi-root .sxbi-bar i{display:block;height:100%;background:var(--primary);transition:width .2s;}
 
 </style>
-<script id="StoreXBulkImportDocs">window.SXBI_DOCS={"template": "{\n  \"format\": \"storex-bulk-import\",\n  \"version\": 1,\n  \"notes\": \"EXAMPLE FILE. Replace every example value with your own real information before importing. Delete any record or field you do not need.\",\n  \"defaults\": {\n    \"status\": \"draft\"\n  },\n  \"categories\": [\n    {\n      \"name\": \"Example Wireless Earbuds\",\n      \"slug\": \"example-wireless-earbuds\",\n      \"description\": \"Example category description.\",\n      \"image\": \"\",\n      \"icon\": \"\",\n      \"order\": 1,\n      \"status\": \"draft\",\n      \"seo\": {\n        \"title\": \"Example Wireless Earbuds\",\n        \"description\": \"Example SEO description.\",\n        \"keywords\": \"example, earbuds\"\n      }\n    }\n  ],\n  \"products\": [\n    {\n      \"title\": \"Example Wireless Earbuds Pro\",\n      \"shortTitle\": \"Example Earbuds\",\n      \"shortDesc\": \"One-line summary of the product.\",\n      \"fullDesc\": \"Full product description. Only write facts you know to be true.\",\n      \"categoryNames\": [\n        \"Example Wireless Earbuds\"\n      ],\n      \"tags\": [\n        \"example\",\n        \"earbuds\"\n      ],\n      \"sku\": \"EX-EAR-001\",\n      \"mainImage\": \"\",\n      \"images\": [],\n      \"status\": \"draft\",\n      \"featured\": false,\n      \"trending\": false,\n      \"newArrival\": true,\n      \"bestSeller\": false,\n      \"stock\": 0,\n      \"order\": 1,\n      \"badge\": \"\",\n      \"deliveryCharges\": 0,\n      \"originalPrice\": 0,\n      \"specialPrice\": 0,\n      \"sectionPos\": {},\n      \"promotion\": {\n        \"title\": \"\",\n        \"freeDeliveryQty\": 0,\n        \"percentOff\": 0,\n        \"percentOffQty\": 0,\n        \"buyQty\": 0,\n        \"freeQty\": 0\n      },\n      \"seo\": {\n        \"slug\": \"example-wireless-earbuds-pro\",\n        \"title\": \"Example Wireless Earbuds Pro\",\n        \"description\": \"Example meta description.\",\n        \"keywords\": \"example, earbuds\"\n      }\n    }\n  ],\n  \"flashSales\": [\n    {\n      \"title\": \"Example Flash Sale\",\n      \"slug\": \"example-flash-sale\",\n      \"subtitle\": \"Limited time example\",\n      \"description\": \"Example description.\",\n      \"image\": \"\",\n      \"images\": [],\n      \"start\": \"2030-01-01T09:00\",\n      \"end\": \"2030-01-03T23:59\",\n      \"status\": \"draft\",\n      \"display\": {\n        \"height\": 360,\n        \"infoBg\": \"#FFFFFF\",\n        \"textColor\": \"#1F2328\",\n        \"accentColor\": \"#7B3F00\",\n        \"imageFit\": \"cover\"\n      },\n      \"seo\": {\n        \"title\": \"Example Flash Sale\",\n        \"description\": \"Example SEO description.\",\n        \"keywords\": \"example, sale\"\n      }\n    }\n  ],\n  \"banners\": [\n    {\n      \"heading\": \"Example Banner Heading\",\n      \"description\": \"Example banner text.\",\n      \"buttonText\": \"Shop Now\",\n      \"buttonUrl\": \"#/category/all\",\n      \"image\": \"\",\n      \"desktopImage\": \"\",\n      \"mobileImage\": \"\",\n      \"heroSlider\": false,\n      \"status\": \"draft\",\n      \"display\": {\n        \"height\": 260,\n        \"radius\": 12,\n        \"overlay\": 0.25,\n        \"padding\": 30,\n        \"headingColor\": \"#FFFFFF\",\n        \"descriptionColor\": \"#FFFFFF\",\n        \"buttonBg\": \"#7B3F00\",\n        \"buttonColor\": \"#FFFFFF\",\n        \"buttonBorder\": \"#7B3F00\",\n        \"imageFit\": \"cover\"\n      }\n    }\n  ]\n}\n", "sample": "{\n  \"format\": \"storex-bulk-import\",\n  \"version\": 1,\n  \"notes\": \"SAMPLE with several categories and products to practise the Bulk Import Center. All names, SKUs and prices are demo values. Everything imports as a draft.\",\n  \"defaults\": {\n    \"status\": \"draft\"\n  },\n  \"categories\": [\n    {\n      \"name\": \"Sample Watches\",\n      \"description\": \"Sample category for the bulk import demo.\",\n      \"order\": 1,\n      \"seo\": {\n        \"title\": \"Sample Watches\",\n        \"description\": \"Sample category for the bulk import demo.\"\n      }\n    },\n    {\n      \"name\": \"Sample Earbuds\",\n      \"description\": \"Sample category for the bulk import demo.\",\n      \"order\": 2,\n      \"seo\": {\n        \"title\": \"Sample Earbuds\",\n        \"description\": \"Sample category for the bulk import demo.\"\n      }\n    },\n    {\n      \"name\": \"Sample Accessories\",\n      \"description\": \"Sample category for the bulk import demo.\",\n      \"order\": 3,\n      \"seo\": {\n        \"title\": \"Sample Accessories\",\n        \"description\": \"Sample category for the bulk import demo.\"\n      }\n    }\n  ],\n  \"products\": [\n    {\n      \"title\": \"Sample Product 01\",\n      \"shortTitle\": \"Sample 01\",\n      \"shortDesc\": \"Demo product number 1.\",\n      \"fullDesc\": \"Demo description for sample product 1.\",\n      \"categoryNames\": [\n        \"Sample Watches\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-001\",\n      \"status\": \"draft\",\n      \"newArrival\": true,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 1100,\n      \"specialPrice\": 1000,\n      \"seo\": {\n        \"slug\": \"sample-product-01\",\n        \"title\": \"Sample Product 01\",\n        \"description\": \"Demo product 1.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 02\",\n      \"shortTitle\": \"Sample 02\",\n      \"shortDesc\": \"Demo product number 2.\",\n      \"fullDesc\": \"Demo description for sample product 2.\",\n      \"categoryNames\": [\n        \"Sample Earbuds\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-002\",\n      \"status\": \"draft\",\n      \"newArrival\": false,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 1200,\n      \"specialPrice\": 1100,\n      \"seo\": {\n        \"slug\": \"sample-product-02\",\n        \"title\": \"Sample Product 02\",\n        \"description\": \"Demo product 2.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 03\",\n      \"shortTitle\": \"Sample 03\",\n      \"shortDesc\": \"Demo product number 3.\",\n      \"fullDesc\": \"Demo description for sample product 3.\",\n      \"categoryNames\": [\n        \"Sample Accessories\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-003\",\n      \"status\": \"draft\",\n      \"newArrival\": true,\n      \"featured\": true,\n      \"stock\": 10,\n      \"originalPrice\": 1300,\n      \"specialPrice\": 1200,\n      \"seo\": {\n        \"slug\": \"sample-product-03\",\n        \"title\": \"Sample Product 03\",\n        \"description\": \"Demo product 3.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 04\",\n      \"shortTitle\": \"Sample 04\",\n      \"shortDesc\": \"Demo product number 4.\",\n      \"fullDesc\": \"Demo description for sample product 4.\",\n      \"categoryNames\": [\n        \"Sample Watches\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-004\",\n      \"status\": \"draft\",\n      \"newArrival\": false,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 1400,\n      \"specialPrice\": 1300,\n      \"seo\": {\n        \"slug\": \"sample-product-04\",\n        \"title\": \"Sample Product 04\",\n        \"description\": \"Demo product 4.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 05\",\n      \"shortTitle\": \"Sample 05\",\n      \"shortDesc\": \"Demo product number 5.\",\n      \"fullDesc\": \"Demo description for sample product 5.\",\n      \"categoryNames\": [\n        \"Sample Earbuds\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-005\",\n      \"status\": \"draft\",\n      \"newArrival\": true,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 1500,\n      \"specialPrice\": 1400,\n      \"seo\": {\n        \"slug\": \"sample-product-05\",\n        \"title\": \"Sample Product 05\",\n        \"description\": \"Demo product 5.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 06\",\n      \"shortTitle\": \"Sample 06\",\n      \"shortDesc\": \"Demo product number 6.\",\n      \"fullDesc\": \"Demo description for sample product 6.\",\n      \"categoryNames\": [\n        \"Sample Accessories\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-006\",\n      \"status\": \"draft\",\n      \"newArrival\": false,\n      \"featured\": true,\n      \"stock\": 10,\n      \"originalPrice\": 1600,\n      \"specialPrice\": 1500,\n      \"seo\": {\n        \"slug\": \"sample-product-06\",\n        \"title\": \"Sample Product 06\",\n        \"description\": \"Demo product 6.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 07\",\n      \"shortTitle\": \"Sample 07\",\n      \"shortDesc\": \"Demo product number 7.\",\n      \"fullDesc\": \"Demo description for sample product 7.\",\n      \"categoryNames\": [\n        \"Sample Watches\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-007\",\n      \"status\": \"draft\",\n      \"newArrival\": true,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 1700,\n      \"specialPrice\": 1600,\n      \"seo\": {\n        \"slug\": \"sample-product-07\",\n        \"title\": \"Sample Product 07\",\n        \"description\": \"Demo product 7.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 08\",\n      \"shortTitle\": \"Sample 08\",\n      \"shortDesc\": \"Demo product number 8.\",\n      \"fullDesc\": \"Demo description for sample product 8.\",\n      \"categoryNames\": [\n        \"Sample Earbuds\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-008\",\n      \"status\": \"draft\",\n      \"newArrival\": false,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 1800,\n      \"specialPrice\": 1700,\n      \"seo\": {\n        \"slug\": \"sample-product-08\",\n        \"title\": \"Sample Product 08\",\n        \"description\": \"Demo product 8.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 09\",\n      \"shortTitle\": \"Sample 09\",\n      \"shortDesc\": \"Demo product number 9.\",\n      \"fullDesc\": \"Demo description for sample product 9.\",\n      \"categoryNames\": [\n        \"Sample Accessories\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-009\",\n      \"status\": \"draft\",\n      \"newArrival\": true,\n      \"featured\": true,\n      \"stock\": 10,\n      \"originalPrice\": 1900,\n      \"specialPrice\": 1800,\n      \"seo\": {\n        \"slug\": \"sample-product-09\",\n        \"title\": \"Sample Product 09\",\n        \"description\": \"Demo product 9.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 10\",\n      \"shortTitle\": \"Sample 10\",\n      \"shortDesc\": \"Demo product number 10.\",\n      \"fullDesc\": \"Demo description for sample product 10.\",\n      \"categoryNames\": [\n        \"Sample Watches\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-010\",\n      \"status\": \"draft\",\n      \"newArrival\": false,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 2000,\n      \"specialPrice\": 1900,\n      \"seo\": {\n        \"slug\": \"sample-product-10\",\n        \"title\": \"Sample Product 10\",\n        \"description\": \"Demo product 10.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 11\",\n      \"shortTitle\": \"Sample 11\",\n      \"shortDesc\": \"Demo product number 11.\",\n      \"fullDesc\": \"Demo description for sample product 11.\",\n      \"categoryNames\": [\n        \"Sample Earbuds\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-011\",\n      \"status\": \"draft\",\n      \"newArrival\": true,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 2100,\n      \"specialPrice\": 2000,\n      \"seo\": {\n        \"slug\": \"sample-product-11\",\n        \"title\": \"Sample Product 11\",\n        \"description\": \"Demo product 11.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 12\",\n      \"shortTitle\": \"Sample 12\",\n      \"shortDesc\": \"Demo product number 12.\",\n      \"fullDesc\": \"Demo description for sample product 12.\",\n      \"categoryNames\": [\n        \"Sample Accessories\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-012\",\n      \"status\": \"draft\",\n      \"newArrival\": false,\n      \"featured\": true,\n      \"stock\": 10,\n      \"originalPrice\": 2200,\n      \"specialPrice\": 2100,\n      \"seo\": {\n        \"slug\": \"sample-product-12\",\n        \"title\": \"Sample Product 12\",\n        \"description\": \"Demo product 12.\",\n        \"keywords\": \"sample, demo\"\n      }\n    }\n  ],\n  \"flashSales\": [\n    {\n      \"title\": \"Sample Flash Sale\",\n      \"subtitle\": \"Demo only\",\n      \"description\": \"Demo flash sale. Add an image and real dates in the editor.\",\n      \"status\": \"draft\"\n    }\n  ],\n  \"banners\": [\n    {\n      \"heading\": \"Sample Banner\",\n      \"description\": \"Demo banner. Add an image in the banner editor.\",\n      \"buttonText\": \"Browse\",\n      \"buttonUrl\": \"#/category/all\",\n      \"status\": \"draft\"\n    }\n  ]\n}\n", "guide": "STOREX BULK IMPORT GUIDE\n========================\n\nWHAT IT DOES\nAdmin panel > Bulk Import Center lets you add many categories, products, flash sales\nand banners from ONE .txt file. The file is read inside your browser only. Nothing is\nsent anywhere except to your own StoreX / Supabase storage when you press Import.\nImported records are saved as DRAFTS (products hidden, categories hidden, flash sales\nhidden, banners not visible). Publishing is a separate button.\n\nQUICK STEPS\n1. Download the template from the Bulk Import Center (or use StoreX_Bulk_Import_Template.txt).\n2. Fill it in (or ask an AI using StoreX_AI_Content_Generator_Instructions.txt).\n3. Admin > Bulk Import Center > Upload Text File (or paste the text).\n4. Check the summary and the preview. Fix anything marked \"Needs correction\",\n   then upload / paste / Validate again.\n5. Choose what happens to records that already exist (Skip / Update / Separate).\n6. Press Import Valid Items. Watch the progress bar. Failed records can be retried.\n7. Press Publish Imported Items when ready. Records that lack a price, image,\n   category or end date stay as drafts and are listed with the reason.\n8. Download Import Report any time for a full record-by-record result.\nCancel Import / Clear Preview before importing changes nothing.\n\nFILE FORMAT\nThe file is JSON saved with a .txt extension. Top level:\n  \"format\"      required, must be \"storex-bulk-import\"\n  \"version\"     required, must be 1\n  \"defaults\"    optional  {\"status\": \"draft\"}  status used when a record has none\n  \"notes\"       optional free text, ignored\n  \"categories\"  optional list\n  \"products\"    optional list\n  \"flashSales\"  optional list\n  \"banners\"     optional list\nLimits: 2 MB per file, 500 records per list. Larger files must be split.\nText is plain text: HTML tags are removed. Links must be http(s) (banner buttons may\nalso use #/ routes). Anything not listed below is ignored and shown as a warning.\n\nSTATUS VALUES (all record types)\ndraft, hidden = keep hidden.   published, visible, active = \"wants to be published\".\nEither way the record is SAVED hidden; the Publish step decides what goes live.\n\nCATEGORIES\n  name (required)  slug  description  image (URL)  icon (emoji)  order (number)\n  status  seo {title, description, keywords}\n  id  (optional; only to update an existing category by id)\nCategory \"homeFeatured\" is not imported; set it in the category editor.\n\nPRODUCTS\n  title (required)  shortTitle  shortDesc  fullDesc\n  categoryNames  list of category NAMES (must exist in the file or in your store)\n  categoryIds    list of existing category ids\n  tags           list (or comma text)\n  sku  mainImage  images (list of URLs; max 12)\n  status  featured  trending  newArrival  bestSeller   (true / false)\n  stock (whole number)  order  badge  deliveryCharges\n  originalPrice  specialPrice   (StoreX uses prices. If you give none the product is\n                                 saved with price 0 and cannot be published until a\n                                 price is set. Prices are never invented.)\n  sectionPos {featured, trending, newArrival, bestSeller}  positive whole numbers\n  promotion {title, freeDeliveryQty, percentOff, percentOffQty, buyQty, freeQty}\n  seo {slug, title, description, keywords}\n  id (optional; only to update an existing product by id)\nMissing stock is saved as 0 (with a warning). Missing images only show a \"No image\"\nmarker; add images later in the product editor.\nA product whose category name is not found is marked \"Needs correction\" and is not\nimported (it is never put in a guessed category). Category names must match exactly\n(upper/lower case and extra spaces are ignored; similar names are NOT merged).\n\nFLASH SALES\n  title (required)  slug  subtitle  description\n  image / images (up to 3 URLs)  start  end   (format 2026-12-31T23:59, your local time)\n  status  display {height, infoBg, textColor, accentColor, imageFit}  seo {...}\nProducts cannot be attached by file; attach them in the flash sale editor.\nTo publish a flash sale it needs Image 1 and a future end date.\n\nBANNERS\n  heading (or title) (required)  description  buttonText  buttonUrl\n  image  desktopImage  mobileImage  heroSlider (true/false)  status\n  display {height, radius, overlay 0-1, padding, headingColor, descriptionColor,\n           buttonBg, buttonColor, buttonBorder, imageFit}\nBanners have no subtitle field; a subtitle is saved as the description when empty.\nTo publish a banner it needs an image.\n\nDUPLICATES\nA record is a duplicate when it matches an existing one (products: id, SKU, slug or\nidentical title; categories: id or slug; flash sales: id or slug; banners: id or\nidentical heading) or repeats earlier in the same file.\n  Skip      leave the existing record alone (default, safest)\n  Update    change the existing record, only when matched by a reliable identifier:\n            products id/SKU, categories id/slug, flash sales id/slug, banners id.\n            Only the fields present in your file are changed; status is not changed.\n  Separate  add as a new record (products and banners only). Not allowed for the\n            same id or SKU. Slugs get -2, -3 ... when needed.\nRepeats inside the same file are always skipped and listed.\n\nAFTER IMPORT\nRecords appear in the normal admin lists and, once published, on the storefront\nthrough the usual refresh. The \"Publish Imported Items\" button works for the current\nsession; after closing the page, publish from the normal editors.\n", "ai": "STOREX AI CONTENT GENERATOR INSTRUCTIONS\n========================================\nGive this whole file to an AI assistant together with your product ideas, product\nnames, specifications, category ideas, flash sale details, banner campaign details\nand any image URLs. The AI must answer by creating a downloadable file.\n\nYOUR TASK (AI)\nCreate ONE downloadable plain-text file named StoreX_Import_<short-topic>.txt that\nholds a single valid JSON object in the StoreX bulk import format below. The file\nmust be a real downloadable file (use your file-creation tool), not text pasted in\nthe chat. After creating it, give a short chat summary and the list of items\nneeding review (see \"Review list\").\n\nHARD RULES\n1. Output exactly the format below. No prose, no markdown, no code fences, no\n   comments, no trailing commas inside the file. Extension .txt, UTF-8.\n2. NEVER invent facts. Use only what the user supplied. Do not make up\n   specifications, SKUs, stock numbers, prices, discounts, dates, URLs, image\n   links, ratings, warranty, materials or claims.\n3. If information is missing, OMIT that field (the importer reports it as a\n   warning). Never write placeholders such as \"TBD\", \"N/A\", \"0\", \"example.com\".\n   Exceptions you may write: tags/keywords/SEO text derived ONLY from the user's own\n   words; and slugs made from the title (lowercase letters, numbers, hyphens).\n4. Image fields: only URLs the user gave (must start with https:// or http://).\n   Otherwise omit the field or leave \"\" . Do not search for or guess images.\n5. Marketing text: describe only what the user stated. Keep it plain text, no HTML.\n6. Every record gets \"status\": \"draft\" unless the user explicitly asks otherwise.\n   (The store never publishes automatically; the owner publishes after preview.)\n7. Include EVERY supported field the user gave information for, for EVERY record.\n8. Category names must be written identically in the \"categories\" list and in each\n   product's \"categoryNames\".\n9. Dates: \"YYYY-MM-DDTHH:mm\" local time, only if the user gave them.\n10. Banner buttonUrl: a #/ route (for example #/category/all, #/collection/featured)\n    or a full https link. Only if the user gave one.\n11. Prices: StoreX uses prices. Include originalPrice / specialPrice ONLY if the user\n    gave them (numbers, no currency symbol, specialPrice <= originalPrice).\n12. Respect limits: max 500 records per list, file under 2 MB. Split if larger.\n\nFORMAT\n{\n  \"format\": \"storex-bulk-import\",\n  \"version\": 1,\n  \"notes\": \"short text: what this file contains and what needs review\",\n  \"defaults\": { \"status\": \"draft\" },\n  \"categories\": [\n    { \"name\": \"\", \"slug\": \"\", \"description\": \"\", \"image\": \"\", \"icon\": \"\", \"order\": 1,\n      \"status\": \"draft\", \"seo\": { \"title\": \"\", \"description\": \"\", \"keywords\": \"\" } }\n  ],\n  \"products\": [\n    { \"title\": \"\", \"shortTitle\": \"\", \"shortDesc\": \"\", \"fullDesc\": \"\",\n      \"categoryNames\": [\"\"], \"tags\": [\"\"], \"sku\": \"\",\n      \"mainImage\": \"\", \"images\": [\"\"], \"status\": \"draft\",\n      \"featured\": false, \"trending\": false, \"newArrival\": false, \"bestSeller\": false,\n      \"stock\": 0, \"order\": 1, \"badge\": \"\", \"deliveryCharges\": 0,\n      \"originalPrice\": 0, \"specialPrice\": 0,\n      \"sectionPos\": { \"featured\": 1, \"trending\": 1, \"newArrival\": 1, \"bestSeller\": 1 },\n      \"promotion\": { \"title\": \"\", \"freeDeliveryQty\": 0, \"percentOff\": 0,\n                     \"percentOffQty\": 0, \"buyQty\": 0, \"freeQty\": 0 },\n      \"seo\": { \"slug\": \"\", \"title\": \"\", \"description\": \"\", \"keywords\": \"\" } }\n  ],\n  \"flashSales\": [\n    { \"title\": \"\", \"slug\": \"\", \"subtitle\": \"\", \"description\": \"\",\n      \"images\": [\"\"], \"start\": \"YYYY-MM-DDTHH:mm\", \"end\": \"YYYY-MM-DDTHH:mm\",\n      \"status\": \"draft\",\n      \"display\": { \"height\": 360, \"infoBg\": \"#FFFFFF\", \"textColor\": \"#1F2328\",\n                   \"accentColor\": \"#7B3F00\", \"imageFit\": \"cover\" },\n      \"seo\": { \"title\": \"\", \"description\": \"\", \"keywords\": \"\" } }\n  ],\n  \"banners\": [\n    { \"heading\": \"\", \"description\": \"\", \"buttonText\": \"\", \"buttonUrl\": \"\",\n      \"image\": \"\", \"desktopImage\": \"\", \"mobileImage\": \"\", \"heroSlider\": false,\n      \"status\": \"draft\",\n      \"display\": { \"height\": 260, \"radius\": 12, \"overlay\": 0.25, \"padding\": 30,\n                   \"headingColor\": \"#FFFFFF\", \"descriptionColor\": \"#FFFFFF\",\n                   \"buttonBg\": \"#7B3F00\", \"buttonColor\": \"#FFFFFF\",\n                   \"buttonBorder\": \"#7B3F00\", \"imageFit\": \"cover\" } }\n  ]\n}\nThe block above lists every supported field. Delete fields (and whole lists) you have\nno real information for. Do not keep empty \"\" or 0 values as stand-ins, except\nbooleans, which default to false. \"flashSales\" cannot hold products and homepage\nsections cannot be imported; do not add those keys. Do not add any other keys.\n\nFIELD NOTES\n- slug / seo.slug: lowercase-hyphenated from the title.\n- tags: short lowercase words from the user's text. seo.keywords: comma separated.\n- seo.title up to about 60 characters, seo.description up to about 155 characters,\n  written only from supplied facts.\n- sectionPos: only if the user gave explicit positions.\n- Banner \"subtitle\" is not supported; put the text in \"description\".\n\nVALIDATE BEFORE DELIVERING (mandatory)\n1. Parse the finished file with a real JSON parser (for example Python\n   json.load). It must succeed.\n2. Check: format and version correct; every list is a list; every record has its\n   required field (category name, product title, flash sale title, banner heading);\n   every product categoryNames entry exists in \"categories\" (or the user said it\n   already exists in the store); no duplicate SKUs/slugs/names inside the file; all\n   URLs start with http:// or https://; dates parse; specialPrice <= originalPrice.\n3. If any check fails, fix the file and validate again. Never deliver an invalid file.\n\nREVIEW LIST (put in your chat reply, also summarised in \"notes\")\nList per record the information that was missing and therefore left out: images,\nprices, stock, SKUs, descriptions, dates, categories. Say plainly that nothing was\ninvented and that the owner should review it in the Bulk Import Center preview.\n\nREPLY FORMAT\n1. The downloadable file.\n2. Counts: categories, products, flash sales, banners.\n3. Review list.\n"};</script>
+<script id="StoreXBulkImportDocs">window.SXBI_DOCS={"template": "{\n  \"format\": \"storex-bulk-import\",\n  \"version\": 1,\n  \"notes\": \"EXAMPLE FILE. Replace every example value with your own real information before importing. Delete any record or field you do not need.\",\n  \"defaults\": {\n    \"status\": \"draft\"\n  },\n  \"categories\": [\n    {\n      \"name\": \"Example Wireless Earbuds\",\n      \"slug\": \"example-wireless-earbuds\",\n      \"description\": \"Example category description.\",\n      \"image\": \"\",\n      \"icon\": \"\",\n      \"order\": 1,\n      \"status\": \"draft\",\n      \"seo\": {\n        \"title\": \"Example Wireless Earbuds\",\n        \"description\": \"Example SEO description.\",\n        \"keywords\": \"example, earbuds\"\n      }\n    }\n  ],\n  \"products\": [\n    {\n      \"title\": \"Example Wireless Earbuds Pro\",\n      \"shortTitle\": \"Example Earbuds\",\n      \"shortDesc\": \"One-line summary of the product.\",\n      \"fullDesc\": \"Full product description. Only write facts you know to be true.\",\n      \"categoryNames\": [\n        \"Example Wireless Earbuds\"\n      ],\n      \"tags\": [\n        \"example\",\n        \"earbuds\"\n      ],\n      \"sku\": \"EX-EAR-001\",\n      \"mainImage\": \"\",\n      \"images\": [],\n      \"status\": \"draft\",\n      \"featured\": false,\n      \"trending\": false,\n      \"newArrival\": true,\n      \"bestSeller\": false,\n      \"stock\": 0,\n      \"order\": 1,\n      \"badge\": \"\",\n      \"deliveryCharges\": 0,\n      \"originalPrice\": 0,\n      \"specialPrice\": 0,\n      \"sectionPos\": {},\n      \"promotion\": {\n        \"title\": \"\",\n        \"freeDeliveryQty\": 0,\n        \"percentOff\": 0,\n        \"percentOffQty\": 0,\n        \"buyQty\": 0,\n        \"freeQty\": 0\n      },\n      \"seo\": {\n        \"slug\": \"example-wireless-earbuds-pro\",\n        \"title\": \"Example Wireless Earbuds Pro\",\n        \"description\": \"Example meta description.\",\n        \"keywords\": \"example, earbuds\"\n      }\n    }\n  ],\n  \"flashSales\": [\n    {\n      \"title\": \"Example Flash Sale\",\n      \"slug\": \"example-flash-sale\",\n      \"subtitle\": \"Limited time example\",\n      \"description\": \"Example description.\",\n      \"image\": \"\",\n      \"images\": [],\n      \"start\": \"2030-01-01T09:00\",\n      \"end\": \"2030-01-03T23:59\",\n      \"status\": \"draft\",\n      \"display\": {\n        \"height\": 360,\n        \"infoBg\": \"#FFFFFF\",\n        \"textColor\": \"#1F2328\",\n        \"accentColor\": \"#111111\",\n        \"imageFit\": \"cover\"\n      },\n      \"seo\": {\n        \"title\": \"Example Flash Sale\",\n        \"description\": \"Example SEO description.\",\n        \"keywords\": \"example, sale\"\n      }\n    }\n  ],\n  \"banners\": [\n    {\n      \"heading\": \"Example Banner Heading\",\n      \"description\": \"Example banner text.\",\n      \"buttonText\": \"Shop Now\",\n      \"buttonUrl\": \"#/category/all\",\n      \"image\": \"\",\n      \"desktopImage\": \"\",\n      \"mobileImage\": \"\",\n      \"heroSlider\": false,\n      \"status\": \"draft\",\n      \"display\": {\n        \"height\": 260,\n        \"radius\": 12,\n        \"overlay\": 0.25,\n        \"padding\": 30,\n        \"headingColor\": \"#FFFFFF\",\n        \"descriptionColor\": \"#FFFFFF\",\n        \"buttonBg\": \"#111111\",\n        \"buttonColor\": \"#FFFFFF\",\n        \"buttonBorder\": \"#111111\",\n        \"imageFit\": \"cover\"\n      }\n    }\n  ]\n}\n", "sample": "{\n  \"format\": \"storex-bulk-import\",\n  \"version\": 1,\n  \"notes\": \"SAMPLE with several categories and products to practise the Bulk Import Center. All names, SKUs and prices are demo values. Everything imports as a draft.\",\n  \"defaults\": {\n    \"status\": \"draft\"\n  },\n  \"categories\": [\n    {\n      \"name\": \"Sample Watches\",\n      \"description\": \"Sample category for the bulk import demo.\",\n      \"order\": 1,\n      \"seo\": {\n        \"title\": \"Sample Watches\",\n        \"description\": \"Sample category for the bulk import demo.\"\n      }\n    },\n    {\n      \"name\": \"Sample Earbuds\",\n      \"description\": \"Sample category for the bulk import demo.\",\n      \"order\": 2,\n      \"seo\": {\n        \"title\": \"Sample Earbuds\",\n        \"description\": \"Sample category for the bulk import demo.\"\n      }\n    },\n    {\n      \"name\": \"Sample Accessories\",\n      \"description\": \"Sample category for the bulk import demo.\",\n      \"order\": 3,\n      \"seo\": {\n        \"title\": \"Sample Accessories\",\n        \"description\": \"Sample category for the bulk import demo.\"\n      }\n    }\n  ],\n  \"products\": [\n    {\n      \"title\": \"Sample Product 01\",\n      \"shortTitle\": \"Sample 01\",\n      \"shortDesc\": \"Demo product number 1.\",\n      \"fullDesc\": \"Demo description for sample product 1.\",\n      \"categoryNames\": [\n        \"Sample Watches\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-001\",\n      \"status\": \"draft\",\n      \"newArrival\": true,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 1100,\n      \"specialPrice\": 1000,\n      \"seo\": {\n        \"slug\": \"sample-product-01\",\n        \"title\": \"Sample Product 01\",\n        \"description\": \"Demo product 1.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 02\",\n      \"shortTitle\": \"Sample 02\",\n      \"shortDesc\": \"Demo product number 2.\",\n      \"fullDesc\": \"Demo description for sample product 2.\",\n      \"categoryNames\": [\n        \"Sample Earbuds\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-002\",\n      \"status\": \"draft\",\n      \"newArrival\": false,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 1200,\n      \"specialPrice\": 1100,\n      \"seo\": {\n        \"slug\": \"sample-product-02\",\n        \"title\": \"Sample Product 02\",\n        \"description\": \"Demo product 2.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 03\",\n      \"shortTitle\": \"Sample 03\",\n      \"shortDesc\": \"Demo product number 3.\",\n      \"fullDesc\": \"Demo description for sample product 3.\",\n      \"categoryNames\": [\n        \"Sample Accessories\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-003\",\n      \"status\": \"draft\",\n      \"newArrival\": true,\n      \"featured\": true,\n      \"stock\": 10,\n      \"originalPrice\": 1300,\n      \"specialPrice\": 1200,\n      \"seo\": {\n        \"slug\": \"sample-product-03\",\n        \"title\": \"Sample Product 03\",\n        \"description\": \"Demo product 3.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 04\",\n      \"shortTitle\": \"Sample 04\",\n      \"shortDesc\": \"Demo product number 4.\",\n      \"fullDesc\": \"Demo description for sample product 4.\",\n      \"categoryNames\": [\n        \"Sample Watches\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-004\",\n      \"status\": \"draft\",\n      \"newArrival\": false,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 1400,\n      \"specialPrice\": 1300,\n      \"seo\": {\n        \"slug\": \"sample-product-04\",\n        \"title\": \"Sample Product 04\",\n        \"description\": \"Demo product 4.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 05\",\n      \"shortTitle\": \"Sample 05\",\n      \"shortDesc\": \"Demo product number 5.\",\n      \"fullDesc\": \"Demo description for sample product 5.\",\n      \"categoryNames\": [\n        \"Sample Earbuds\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-005\",\n      \"status\": \"draft\",\n      \"newArrival\": true,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 1500,\n      \"specialPrice\": 1400,\n      \"seo\": {\n        \"slug\": \"sample-product-05\",\n        \"title\": \"Sample Product 05\",\n        \"description\": \"Demo product 5.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 06\",\n      \"shortTitle\": \"Sample 06\",\n      \"shortDesc\": \"Demo product number 6.\",\n      \"fullDesc\": \"Demo description for sample product 6.\",\n      \"categoryNames\": [\n        \"Sample Accessories\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-006\",\n      \"status\": \"draft\",\n      \"newArrival\": false,\n      \"featured\": true,\n      \"stock\": 10,\n      \"originalPrice\": 1600,\n      \"specialPrice\": 1500,\n      \"seo\": {\n        \"slug\": \"sample-product-06\",\n        \"title\": \"Sample Product 06\",\n        \"description\": \"Demo product 6.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 07\",\n      \"shortTitle\": \"Sample 07\",\n      \"shortDesc\": \"Demo product number 7.\",\n      \"fullDesc\": \"Demo description for sample product 7.\",\n      \"categoryNames\": [\n        \"Sample Watches\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-007\",\n      \"status\": \"draft\",\n      \"newArrival\": true,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 1700,\n      \"specialPrice\": 1600,\n      \"seo\": {\n        \"slug\": \"sample-product-07\",\n        \"title\": \"Sample Product 07\",\n        \"description\": \"Demo product 7.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 08\",\n      \"shortTitle\": \"Sample 08\",\n      \"shortDesc\": \"Demo product number 8.\",\n      \"fullDesc\": \"Demo description for sample product 8.\",\n      \"categoryNames\": [\n        \"Sample Earbuds\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-008\",\n      \"status\": \"draft\",\n      \"newArrival\": false,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 1800,\n      \"specialPrice\": 1700,\n      \"seo\": {\n        \"slug\": \"sample-product-08\",\n        \"title\": \"Sample Product 08\",\n        \"description\": \"Demo product 8.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 09\",\n      \"shortTitle\": \"Sample 09\",\n      \"shortDesc\": \"Demo product number 9.\",\n      \"fullDesc\": \"Demo description for sample product 9.\",\n      \"categoryNames\": [\n        \"Sample Accessories\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-009\",\n      \"status\": \"draft\",\n      \"newArrival\": true,\n      \"featured\": true,\n      \"stock\": 10,\n      \"originalPrice\": 1900,\n      \"specialPrice\": 1800,\n      \"seo\": {\n        \"slug\": \"sample-product-09\",\n        \"title\": \"Sample Product 09\",\n        \"description\": \"Demo product 9.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 10\",\n      \"shortTitle\": \"Sample 10\",\n      \"shortDesc\": \"Demo product number 10.\",\n      \"fullDesc\": \"Demo description for sample product 10.\",\n      \"categoryNames\": [\n        \"Sample Watches\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-010\",\n      \"status\": \"draft\",\n      \"newArrival\": false,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 2000,\n      \"specialPrice\": 1900,\n      \"seo\": {\n        \"slug\": \"sample-product-10\",\n        \"title\": \"Sample Product 10\",\n        \"description\": \"Demo product 10.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 11\",\n      \"shortTitle\": \"Sample 11\",\n      \"shortDesc\": \"Demo product number 11.\",\n      \"fullDesc\": \"Demo description for sample product 11.\",\n      \"categoryNames\": [\n        \"Sample Earbuds\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-011\",\n      \"status\": \"draft\",\n      \"newArrival\": true,\n      \"featured\": false,\n      \"stock\": 10,\n      \"originalPrice\": 2100,\n      \"specialPrice\": 2000,\n      \"seo\": {\n        \"slug\": \"sample-product-11\",\n        \"title\": \"Sample Product 11\",\n        \"description\": \"Demo product 11.\",\n        \"keywords\": \"sample, demo\"\n      }\n    },\n    {\n      \"title\": \"Sample Product 12\",\n      \"shortTitle\": \"Sample 12\",\n      \"shortDesc\": \"Demo product number 12.\",\n      \"fullDesc\": \"Demo description for sample product 12.\",\n      \"categoryNames\": [\n        \"Sample Accessories\"\n      ],\n      \"tags\": [\n        \"sample\",\n        \"demo\"\n      ],\n      \"sku\": \"SAMPLE-012\",\n      \"status\": \"draft\",\n      \"newArrival\": false,\n      \"featured\": true,\n      \"stock\": 10,\n      \"originalPrice\": 2200,\n      \"specialPrice\": 2100,\n      \"seo\": {\n        \"slug\": \"sample-product-12\",\n        \"title\": \"Sample Product 12\",\n        \"description\": \"Demo product 12.\",\n        \"keywords\": \"sample, demo\"\n      }\n    }\n  ],\n  \"flashSales\": [\n    {\n      \"title\": \"Sample Flash Sale\",\n      \"subtitle\": \"Demo only\",\n      \"description\": \"Demo flash sale. Add an image and real dates in the editor.\",\n      \"status\": \"draft\"\n    }\n  ],\n  \"banners\": [\n    {\n      \"heading\": \"Sample Banner\",\n      \"description\": \"Demo banner. Add an image in the banner editor.\",\n      \"buttonText\": \"Browse\",\n      \"buttonUrl\": \"#/category/all\",\n      \"status\": \"draft\"\n    }\n  ]\n}\n", "guide": "STOREX BULK IMPORT GUIDE\n========================\n\nWHAT IT DOES\nAdmin panel > Bulk Import Center lets you add many categories, products, flash sales\nand banners from ONE .txt file. The file is read inside your browser only. Nothing is\nsent anywhere except to your own StoreX / Supabase storage when you press Import.\nImported records are saved as DRAFTS (products hidden, categories hidden, flash sales\nhidden, banners not visible). Publishing is a separate button.\n\nQUICK STEPS\n1. Download the template from the Bulk Import Center (or use StoreX_Bulk_Import_Template.txt).\n2. Fill it in (or ask an AI using StoreX_AI_Content_Generator_Instructions.txt).\n3. Admin > Bulk Import Center > Upload Text File (or paste the text).\n4. Check the summary and the preview. Fix anything marked \"Needs correction\",\n   then upload / paste / Validate again.\n5. Choose what happens to records that already exist (Skip / Update / Separate).\n6. Press Import Valid Items. Watch the progress bar. Failed records can be retried.\n7. Press Publish Imported Items when ready. Records that lack a price, image,\n   category or end date stay as drafts and are listed with the reason.\n8. Download Import Report any time for a full record-by-record result.\nCancel Import / Clear Preview before importing changes nothing.\n\nFILE FORMAT\nThe file is JSON saved with a .txt extension. Top level:\n  \"format\"      required, must be \"storex-bulk-import\"\n  \"version\"     required, must be 1\n  \"defaults\"    optional  {\"status\": \"draft\"}  status used when a record has none\n  \"notes\"       optional free text, ignored\n  \"categories\"  optional list\n  \"products\"    optional list\n  \"flashSales\"  optional list\n  \"banners\"     optional list\nLimits: 2 MB per file, 500 records per list. Larger files must be split.\nText is plain text: HTML tags are removed. Links must be http(s) (banner buttons may\nalso use #/ routes). Anything not listed below is ignored and shown as a warning.\n\nSTATUS VALUES (all record types)\ndraft, hidden = keep hidden.   published, visible, active = \"wants to be published\".\nEither way the record is SAVED hidden; the Publish step decides what goes live.\n\nCATEGORIES\n  name (required)  slug  description  image (URL)  icon (emoji)  order (number)\n  status  seo {title, description, keywords}\n  id  (optional; only to update an existing category by id)\nCategory \"homeFeatured\" is not imported; set it in the category editor.\n\nPRODUCTS\n  title (required)  shortTitle  shortDesc  fullDesc\n  categoryNames  list of category NAMES (must exist in the file or in your store)\n  categoryIds    list of existing category ids\n  tags           list (or comma text)\n  sku  mainImage  images (list of URLs; max 12)\n  status  featured  trending  newArrival  bestSeller   (true / false)\n  stock (whole number)  order  badge  deliveryCharges\n  originalPrice  specialPrice   (StoreX uses prices. If you give none the product is\n                                 saved with price 0 and cannot be published until a\n                                 price is set. Prices are never invented.)\n  sectionPos {featured, trending, newArrival, bestSeller}  positive whole numbers\n  promotion {title, freeDeliveryQty, percentOff, percentOffQty, buyQty, freeQty}\n  seo {slug, title, description, keywords}\n  id (optional; only to update an existing product by id)\nMissing stock is saved as 0 (with a warning). Missing images only show a \"No image\"\nmarker; add images later in the product editor.\nA product whose category name is not found is marked \"Needs correction\" and is not\nimported (it is never put in a guessed category). Category names must match exactly\n(upper/lower case and extra spaces are ignored; similar names are NOT merged).\n\nFLASH SALES\n  title (required)  slug  subtitle  description\n  image / images (up to 3 URLs)  start  end   (format 2026-12-31T23:59, your local time)\n  status  display {height, infoBg, textColor, accentColor, imageFit}  seo {...}\nProducts cannot be attached by file; attach them in the flash sale editor.\nTo publish a flash sale it needs Image 1 and a future end date.\n\nBANNERS\n  heading (or title) (required)  description  buttonText  buttonUrl\n  image  desktopImage  mobileImage  heroSlider (true/false)  status\n  display {height, radius, overlay 0-1, padding, headingColor, descriptionColor,\n           buttonBg, buttonColor, buttonBorder, imageFit}\nBanners have no subtitle field; a subtitle is saved as the description when empty.\nTo publish a banner it needs an image.\n\nDUPLICATES\nA record is a duplicate when it matches an existing one (products: id, SKU, slug or\nidentical title; categories: id or slug; flash sales: id or slug; banners: id or\nidentical heading) or repeats earlier in the same file.\n  Skip      leave the existing record alone (default, safest)\n  Update    change the existing record, only when matched by a reliable identifier:\n            products id/SKU, categories id/slug, flash sales id/slug, banners id.\n            Only the fields present in your file are changed; status is not changed.\n  Separate  add as a new record (products and banners only). Not allowed for the\n            same id or SKU. Slugs get -2, -3 ... when needed.\nRepeats inside the same file are always skipped and listed.\n\nAFTER IMPORT\nRecords appear in the normal admin lists and, once published, on the storefront\nthrough the usual refresh. The \"Publish Imported Items\" button works for the current\nsession; after closing the page, publish from the normal editors.\n", "ai": "STOREX AI CONTENT GENERATOR INSTRUCTIONS\n========================================\nGive this whole file to an AI assistant together with your product ideas, product\nnames, specifications, category ideas, flash sale details, banner campaign details\nand any image URLs. The AI must answer by creating a downloadable file.\n\nYOUR TASK (AI)\nCreate ONE downloadable plain-text file named StoreX_Import_<short-topic>.txt that\nholds a single valid JSON object in the StoreX bulk import format below. The file\nmust be a real downloadable file (use your file-creation tool), not text pasted in\nthe chat. After creating it, give a short chat summary and the list of items\nneeding review (see \"Review list\").\n\nHARD RULES\n1. Output exactly the format below. No prose, no markdown, no code fences, no\n   comments, no trailing commas inside the file. Extension .txt, UTF-8.\n2. NEVER invent facts. Use only what the user supplied. Do not make up\n   specifications, SKUs, stock numbers, prices, discounts, dates, URLs, image\n   links, ratings, warranty, materials or claims.\n3. If information is missing, OMIT that field (the importer reports it as a\n   warning). Never write placeholders such as \"TBD\", \"N/A\", \"0\", \"example.com\".\n   Exceptions you may write: tags/keywords/SEO text derived ONLY from the user's own\n   words; and slugs made from the title (lowercase letters, numbers, hyphens).\n4. Image fields: only URLs the user gave (must start with https:// or http://).\n   Otherwise omit the field or leave \"\" . Do not search for or guess images.\n5. Marketing text: describe only what the user stated. Keep it plain text, no HTML.\n6. Every record gets \"status\": \"draft\" unless the user explicitly asks otherwise.\n   (The store never publishes automatically; the owner publishes after preview.)\n7. Include EVERY supported field the user gave information for, for EVERY record.\n8. Category names must be written identically in the \"categories\" list and in each\n   product's \"categoryNames\".\n9. Dates: \"YYYY-MM-DDTHH:mm\" local time, only if the user gave them.\n10. Banner buttonUrl: a #/ route (for example #/category/all, #/collection/featured)\n    or a full https link. Only if the user gave one.\n11. Prices: StoreX uses prices. Include originalPrice / specialPrice ONLY if the user\n    gave them (numbers, no currency symbol, specialPrice <= originalPrice).\n12. Respect limits: max 500 records per list, file under 2 MB. Split if larger.\n\nFORMAT\n{\n  \"format\": \"storex-bulk-import\",\n  \"version\": 1,\n  \"notes\": \"short text: what this file contains and what needs review\",\n  \"defaults\": { \"status\": \"draft\" },\n  \"categories\": [\n    { \"name\": \"\", \"slug\": \"\", \"description\": \"\", \"image\": \"\", \"icon\": \"\", \"order\": 1,\n      \"status\": \"draft\", \"seo\": { \"title\": \"\", \"description\": \"\", \"keywords\": \"\" } }\n  ],\n  \"products\": [\n    { \"title\": \"\", \"shortTitle\": \"\", \"shortDesc\": \"\", \"fullDesc\": \"\",\n      \"categoryNames\": [\"\"], \"tags\": [\"\"], \"sku\": \"\",\n      \"mainImage\": \"\", \"images\": [\"\"], \"status\": \"draft\",\n      \"featured\": false, \"trending\": false, \"newArrival\": false, \"bestSeller\": false,\n      \"stock\": 0, \"order\": 1, \"badge\": \"\", \"deliveryCharges\": 0,\n      \"originalPrice\": 0, \"specialPrice\": 0,\n      \"sectionPos\": { \"featured\": 1, \"trending\": 1, \"newArrival\": 1, \"bestSeller\": 1 },\n      \"promotion\": { \"title\": \"\", \"freeDeliveryQty\": 0, \"percentOff\": 0,\n                     \"percentOffQty\": 0, \"buyQty\": 0, \"freeQty\": 0 },\n      \"seo\": { \"slug\": \"\", \"title\": \"\", \"description\": \"\", \"keywords\": \"\" } }\n  ],\n  \"flashSales\": [\n    { \"title\": \"\", \"slug\": \"\", \"subtitle\": \"\", \"description\": \"\",\n      \"images\": [\"\"], \"start\": \"YYYY-MM-DDTHH:mm\", \"end\": \"YYYY-MM-DDTHH:mm\",\n      \"status\": \"draft\",\n      \"display\": { \"height\": 360, \"infoBg\": \"#FFFFFF\", \"textColor\": \"#1F2328\",\n                   \"accentColor\": \"#111111\", \"imageFit\": \"cover\" },\n      \"seo\": { \"title\": \"\", \"description\": \"\", \"keywords\": \"\" } }\n  ],\n  \"banners\": [\n    { \"heading\": \"\", \"description\": \"\", \"buttonText\": \"\", \"buttonUrl\": \"\",\n      \"image\": \"\", \"desktopImage\": \"\", \"mobileImage\": \"\", \"heroSlider\": false,\n      \"status\": \"draft\",\n      \"display\": { \"height\": 260, \"radius\": 12, \"overlay\": 0.25, \"padding\": 30,\n                   \"headingColor\": \"#FFFFFF\", \"descriptionColor\": \"#FFFFFF\",\n                   \"buttonBg\": \"#111111\", \"buttonColor\": \"#FFFFFF\",\n                   \"buttonBorder\": \"#111111\", \"imageFit\": \"cover\" } }\n  ]\n}\nThe block above lists every supported field. Delete fields (and whole lists) you have\nno real information for. Do not keep empty \"\" or 0 values as stand-ins, except\nbooleans, which default to false. \"flashSales\" cannot hold products and homepage\nsections cannot be imported; do not add those keys. Do not add any other keys.\n\nFIELD NOTES\n- slug / seo.slug: lowercase-hyphenated from the title.\n- tags: short lowercase words from the user's text. seo.keywords: comma separated.\n- seo.title up to about 60 characters, seo.description up to about 155 characters,\n  written only from supplied facts.\n- sectionPos: only if the user gave explicit positions.\n- Banner \"subtitle\" is not supported; put the text in \"description\".\n\nVALIDATE BEFORE DELIVERING (mandatory)\n1. Parse the finished file with a real JSON parser (for example Python\n   json.load). It must succeed.\n2. Check: format and version correct; every list is a list; every record has its\n   required field (category name, product title, flash sale title, banner heading);\n   every product categoryNames entry exists in \"categories\" (or the user said it\n   already exists in the store); no duplicate SKUs/slugs/names inside the file; all\n   URLs start with http:// or https://; dates parse; specialPrice <= originalPrice.\n3. If any check fails, fix the file and validate again. Never deliver an invalid file.\n\nREVIEW LIST (put in your chat reply, also summarised in \"notes\")\nList per record the information that was missing and therefore left out: images,\nprices, stock, SKUs, descriptions, dates, categories. Say plainly that nothing was\ninvented and that the owner should review it in the Bulk Import Center preview.\n\nREPLY FORMAT\n1. The downloadable file.\n2. Counts: categories, products, flash sales, banners.\n3. Review list.\n"};</script>
 <script id="StoreXBulkImport">
 /* =====================================================================
    StoreX Bulk Import Center  (admin only; data stays in the browser)
@@ -7686,7 +7784,7 @@ function parseFlash(rec,idx,def){
     if(!isObj(rec.display)) it.err('"display" must be an object'); else { const d={}, c=/^#[0-9a-fA-F]{3,8}$/;
       Object.keys(rec.display).forEach(k=>{ const v=rec.display[k];
         if(k==='height'){ const n=Number(v); if(n>=140&&n<=1000) d.height=n; else it.err('display.height must be 140-1000'); }
-        else if(['infoBg','textColor','accentColor'].includes(k)){ if(v===''||c.test(String(v))) d[k]=String(v); else it.err('display.'+k+' must be a hex color like #7B3F00'); }
+        else if(['infoBg','textColor','accentColor'].includes(k)){ if(v===''||c.test(String(v))) d[k]=String(v); else it.err('display.'+k+' must be a hex color like #111111'); }
         else if(k==='imageFit'){ if(['cover','contain'].includes(v)) d.imageFit=v; else it.err('display.imageFit must be cover or contain'); }
         else it.warn('display.'+k+' ignored'); });
       r.display=d; }
@@ -7900,7 +7998,7 @@ function applyBanner(it,arr,dec){
   const r=it.rec;
   if(dec.act==='update'){ const x=arr.find(b=>b.id===dec.existing.id); assign(x,r,['heading','description','buttonText','buttonUrl','image','desktopImage','mobileImage','heroSlider']); if(r.display) x.display=Object.assign({},x.display||{},r.display); it.savedId=x.id; return 'updated'; }
   const o={id:(r.id&&!arr.some(b=>b.id===r.id))?r.id:uid(),image:r.image||null,desktopImage:r.desktopImage||null,mobileImage:r.mobileImage||null,heroSlider:!!r.heroSlider,heading:r.heading,description:r.description||'',buttonText:r.buttonText||'',buttonUrl:r.buttonUrl||'',visible:false,
-    display:Object.assign({height:260,radius:12,overlay:.25,padding:30,headingColor:'#FFFFFF',descriptionColor:'#FFFFFF',buttonBg:'#7B3F00',buttonColor:'#FFFFFF',buttonBorder:'#7B3F00',buttonWidth:'',imageFit:'cover'},r.display||{})};
+    display:Object.assign({height:260,radius:12,overlay:.25,padding:30,headingColor:'#FFFFFF',descriptionColor:'#FFFFFF',buttonBg:'#111111',buttonColor:'#FFFFFF',buttonBorder:'#111111',buttonWidth:'',imageFit:'cover'},r.display||{})};
   arr.push(o); it.savedId=o.id; return 'created';
 }
 const CFG={category:{key:()=>KEYS.categories,get:()=>CATEGORIES,set:a=>{CATEGORIES=a;},apply:applyCategory},
@@ -8093,6 +8191,7 @@ window.SXBI_CORE={validate,classify,counts,runImport,publishImported,reportText,
 
 </script>
 
+<style id="StoreXNoFileUpload">input[type=file],.media-upload-button input[type=file]{display:none!important;}</style>
 <style id="StoreXProductStickyBar">
 .pd-sticky-bar{
   position:fixed;left:0;right:0;bottom:0;z-index:55;
