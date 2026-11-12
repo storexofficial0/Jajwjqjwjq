@@ -237,12 +237,12 @@ const SEO_CONFIG = {
   --line:#E5E2DC;
   --card:#FFFFFF;
   --radius:8px;
-  --header-bg:#FFFFFF;
-  --header-text:#1F2328;
+  --header-bg:#0A0A0A;
+  --header-text:#F5F5F5;
   --btn-bg:#111111;
   --btn-text:#FFFFFF;
   --icon-color:#111111;
-  --footer-bg:#111111;
+  --footer-bg:#0A0A0A;
   --footer-text:#FFFFFF;
 }
 *{box-sizing:border-box;}
@@ -266,7 +266,7 @@ img{max-width:100%;display:block;}
 #site-header{background:var(--header-bg);color:var(--header-text);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40;}
 .header-row{display:grid;grid-template-columns:auto minmax(220px,1fr) auto auto;gap:18px;align-items:center;padding:14px 0;position:relative;}
 .logo-wrap{display:flex;align-items:center;gap:10px;min-width:0;justify-content:center;}
-.logo-wrap img{max-width:340px;}
+.logo-wrap img{max-width:360px;}
 .logo-wrap img{object-fit:contain;}
 .logo-fallback{font-family:'Space Grotesk';font-weight:700;font-size:22px;white-space:nowrap;}
 .logo-fallback .x{color:var(--primary);}
@@ -275,7 +275,7 @@ img{max-width:100%;display:block;}
 .search-form input:focus{outline:none;border-color:var(--primary);}
 .search-form button{background:var(--primary);border:none;color:#fff;padding:0 18px;border-radius:0 6px 6px 0;font-weight:600;font-size:14px;}
 .search-form button:hover{background:var(--primary-dark);}
-@media(min-width:901px){.header-row .logo-wrap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3}.header-row .logo-wrap img{width:320px!important;max-width:320px;max-height:72px}.header-row .search-wrap{padding-right:300px}}
+@media(min-width:901px){.header-row .logo-wrap{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3}.header-row .logo-wrap img{width:auto!important;max-width:min(360px,42vw)!important;max-height:72px!important}.header-row .search-wrap{padding-right:300px}}
 .search-wrap{position:relative;flex:1;min-width:0;}
 .search-wrap .search-form{position:relative;}
 .search-wrap .search-form{max-width:none;}
@@ -463,7 +463,7 @@ img{max-width:100%;display:block;}
 .price-row{display:flex;align-items:baseline;gap:7px;margin-top:2px;}
 .price{font-size:16px;font-weight:700;color:var(--ink);}
 .price-old{font-size:12px;color:var(--ink-soft);text-decoration:line-through;}
-.discount-pill{font-size:11px;font-weight:700;color:#1a7f37;background:#E9F7EE;padding:2px 6px;border-radius:4px;}
+.discount-pill{font-size:11px;font-weight:700;color:#fff;background:#111111;padding:2px 6px;border-radius:4px;}
 .card-cta{margin-top:auto;width:100%;background:var(--btn-bg,var(--primary));color:var(--btn-text,#fff);border:none;padding:9px;font-size:12.5px;font-weight:700;border-radius:6px;}
 .card-cta:hover{background:var(--primary-dark);}
 @media (max-width:480px){
@@ -527,7 +527,7 @@ img{max-width:100%;display:block;}
 .promo-banner-overlay{position:absolute;inset:0;background:rgba(0,0,0,.25);}
 
 /* ---------- Footer ---------- */
-#site-footer{background:var(--footer-bg,#111111);color:var(--footer-text,#FFFFFF);margin-top:60px;}
+#site-footer{background:var(--footer-bg,#0A0A0A);color:var(--footer-text,#FFFFFF);margin-top:60px;}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;padding:44px 0 24px;}
 .footer-grid h4{color:#FFFFFF;font-size:14px;margin:0 0 12px;}
 .footer-grid a{display:block;font-size:13.5px;padding:4px 0;color:#FFFFFF;}
@@ -625,7 +625,7 @@ img{max-width:100%;display:block;}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--primary);}
 .checkline{display:flex;align-items:center;gap:8px;font-size:13.5px;}
 .badge-status{font-size:11px;font-weight:700;padding:3px 8px;border-radius:20px;}
-.badge-status.on{background:#E9F7EE;color:#1a7f37;}
+.badge-status.on{background:#111111;color:#ffffff;}
 .badge-status.off{background:#F1EFEA;color:#8A8D91;}
 .modal-overlay{position:fixed;inset:0;background:rgba(20,20,20,.5);display:flex;align-items:flex-start;justify-content:center;padding:40px 16px;overflow-y:auto;z-index:100;}
 .modal-box{background:#fff;border-radius:12px;padding:24px;width:100%;max-width:640px;}
@@ -905,6 +905,19 @@ img[loading="lazy"]{content-visibility:auto;}
   .grid .card-cta,.search-results-grid .card-cta{padding:7px!important;font-size:11.5px!important;}
 }
 </style>
+
+<style id="StoreXBlackChrome">
+#site-header{background:#0A0A0A!important;color:#F5F5F5!important;}
+#site-header .icon-btn{color:#F5F5F5!important;}
+#site-header .mobile-toggle,#site-header .mobile-search-toggle{color:#F5F5F5!important;}
+#site-header .main-nav a{color:#F0F0F0!important;}
+#site-header .search-form input{background:#1a1a1a;color:#fff;border-color:#333;}
+#site-header .search-form button{background:#111111;}
+#site-footer{background:#0A0A0A!important;color:#F0F0F0!important;}
+.discount-pill,.card-badge{background:#111111!important;color:#fff!important;}
+.badge-status.on{background:#111111!important;color:#fff!important;}
+</style>
+
 </head>
 
 <!--
@@ -1448,7 +1461,7 @@ const DEFAULT_SETTINGS = {
   accentColor:'#222222', headerBg:'#0A0A0A', headerText:'#F7E7CC',
   bodyBg:'#FAF9F7', inkColor:'#1F2328', inkSoft:'#5B616B', borderColor:'#E5E2DC', cardBg:'#FFFFFF',
   buttonBg:'#111111', buttonText:'#FFFFFF', iconColor:'#111111',
-  footerBg:'#111111', footerText:'#FFFFFF',
+  footerBg:'#0A0A0A', footerText:'#F0F0F0',
   favicon:SX_DEFAULT_ASSETS.favicon, gaId:'', darazStoreUrl:'',
   invoice:{ownerName:'Taha Faiz', websiteUrl:'https://store.tfoda.com', logo:'', thankYou:'Thanks for the order', size:'A4'},
   hero:{
@@ -1619,8 +1632,7 @@ function openOrderModal(productId, initialQty=1){
       </div>
       <div class="admin-card" style="margin-top:12px;background:#FAF9F7;">
         <b>Apply Coupon</b>
-        <div class="coupon-row" style="margin-top:8px;"><input id="order-coupon-input" type="text" placeholder="Enter coupon code" aria-label="Coupon code"><button type="button" class="btn small" onclick="applyCouponFromOrder('${p.id}')">Apply</button></div>
-        <div id="order-coupon-msg" class="coupon-msg"></div>
+        
       </div>
       <div id="order-summary" class="admin-card" style="margin-top:12px;background:#FAF9F7;"><b>Order summary</b><div style="margin-top:8px;display:grid;gap:4px;font-size:13px;"><span>Price: <strong id="order-price">${money(calc.unitPrice)} × ${selectedQty}</strong></span><span>Delivery: <strong id="order-delivery">${calc.delivery?money(calc.delivery):'FREE'}</strong></span><span>Coupon: <strong id="order-coupon-discount">—</strong></span><span>Total: <strong id="order-total">${money(calc.total)}</strong></span><span style="color:var(--ink-soft);">Stock available: ${stock}</span></div></div>
       <div class="modal-close-row"><button type="button" class="btn ghost" onclick="closeModal()">Cancel</button><button id="order-submit-btn" type="submit" class="btn">Review Order</button></div>
@@ -1738,6 +1750,36 @@ function buildWhatsAppOrderMessage(p, qty){
   }
   return lines.join('\n').trim();
 }
+
+function checkoutCartViaWhatsApp(){
+  try{
+    const lines=(typeof CART!=='undefined'?CART:[]).map(function(l){return {line:l, info:cartLineProductInfo(l)};}).filter(function(x){return x.info;});
+    if(!lines.length){ toast('Your cart is empty.'); return; }
+    const cfg=getWhatsAppOrderConfig();
+    if(!cfg.enabled || !cfg.number){ toast('WhatsApp ordering is not configured yet.'); return; }
+    const msgLines=[];
+    msgLines.push(cfg.intro || 'I want to order these products from my cart.');
+    msgLines.push('');
+    var subtotal=0, deliveryTotal=0;
+    lines.forEach(function(x, i){
+      var p=x.info.p, qty=x.line.qty||1, unit=x.info.unit||0, lineTotal=unit*qty;
+      subtotal+=lineTotal;
+      var d=Number(p.deliveryCharges)||0;
+      deliveryTotal+=d;
+      msgLines.push((i+1)+') '+(p.shortTitle||p.title||'Product'));
+      if(cfg.includeSku && p.sku) msgLines.push('   SKU: '+p.sku);
+      if(cfg.includePrice) msgLines.push('   Price: Rs. '+Number(unit).toLocaleString('en-PK')+' x '+qty+' = Rs. '+Number(lineTotal).toLocaleString('en-PK'));
+      if(cfg.includeDelivery) msgLines.push('   Delivery: '+(d>0?('Rs. '+Number(d).toLocaleString('en-PK')):'FREE / as discussed'));
+      msgLines.push('');
+    });
+    msgLines.push('Items total: Rs. '+Number(subtotal).toLocaleString('en-PK'));
+    msgLines.push('Delivery total: '+(deliveryTotal>0?('Rs. '+Number(deliveryTotal).toLocaleString('en-PK')):'FREE / as discussed'));
+    msgLines.push('Grand total: Rs. '+Number(subtotal+deliveryTotal).toLocaleString('en-PK'));
+    var url='https://wa.me/'+cfg.number+'?text='+encodeURIComponent(msgLines.join('\n').trim());
+    window.open(url, '_blank', 'noopener');
+  }catch(e){ console.error(e); toast('Could not open WhatsApp.'); }
+}
+
 function startBuyNow(productId, initialQty){
   if(initialQty==null) initialQty=1;
   const p=PRODUCTS.find(x=>x.id===productId); if(!p)return;
@@ -2297,6 +2339,9 @@ window.addEventListener('resize',function(){ clearTimeout(SX_RESIZE_T); SX_RESIZ
 function applyTheme(){
   if(!SETTINGS) return;
   const r=document.documentElement;
+  // Keep brand blacks unless admin explicitly set others for non-chrome
+  if(!SETTINGS.headerBg) SETTINGS.headerBg='#0A0A0A';
+  if(!SETTINGS.footerBg) SETTINGS.footerBg='#0A0A0A';
   const primary=SETTINGS.primaryColor||'#111111';
   const primaryDark=SETTINGS.primaryDark||SETTINGS.accentColor||'#222222';
   const secondary=SETTINGS.secondaryColor||'#5B616B';
@@ -2662,7 +2707,7 @@ document.addEventListener('click',function(e){
   performSearchQuery(item.getAttribute('data-search-value')||'');
 },true);
 function renderHeader(){
-  const logo = SETTINGS.logo ? `<img src="${mediaSrc(SETTINGS.logo)}" alt="${esc(SETTINGS.siteName)} logo" style="width:${SETTINGS.logoWidth}px;height:auto;max-height:56px;">` : `<span class="logo-fallback">${esc(SETTINGS.siteName)}</span>`;
+  const logo = SETTINGS.logo ? `<img src="${mediaSrc(SETTINGS.logo)}" alt="${esc(SETTINGS.siteName)} logo" style="width:${Number(SETTINGS.logoWidth)||200}px;height:auto;max-height:${Math.min(80, Math.max(48, Math.round((Number(SETTINGS.logoWidth)||200)*0.36)))}px;">` : `<span class="logo-fallback">${esc(SETTINGS.siteName)}</span>`;
   const navPages = PAGES.filter(p=>p.status==='published' && p.showInNav===true).map(p=>({label:p.title,url:'#/page/'+p.slug}));
   const navLinks = [...SETTINGS.nav.slice(0,3), ...navPages].map(n=>`<a href="${esc(n.url)}" ${n.newTab?'target="_blank" rel="noopener"':''}>${esc(n.label)}</a>`).join('');
   return `<header id="site-header"><div class="container header-row">
@@ -2686,7 +2731,6 @@ function renderMobileDrawer(){
   const built=[
     {label:'Home',url:'#/'},
     {label:'All Products',url:'#/category/all'},
-    {label:'Flash Sale',url:'#/flash-sale'},
     {label:'Wishlist',url:'#/wishlist'},
     {label:'Cart',url:'#/cart'},
     ...PAGES.filter(p=>p.status==='published' && p.showInHamburger===true).slice(0,12).map(p=>({label:p.title,url:'#/page/'+p.slug}))
@@ -2702,7 +2746,7 @@ function renderMobileDrawer(){
       <button class="mobile-drawer-close" onclick="MOBILE_DRAWER_OPEN=false;render();">&times;</button>
       <div style="clear:both;height:8px;"></div>
       ${navLinks}
-      <a href="#/track-order" onclick="MOBILE_DRAWER_OPEN=false;">Track Your Order</a>
+      
       ${categoryMenu}
     </div>
   </div>`;
@@ -3535,8 +3579,7 @@ function storexBaseRenderAdminSidebar(){
     ${item('whatsapp','WhatsApp Orders')}
     <div class="group-label">Site</div>
     ${item('homepage','Homepage Builder')}
-    ${item('bulkimport','Bulk Import Center')}
-    ${item('theme','Theme & Branding')}
+        ${item('theme','Theme & Branding')}
     ${item('nav','Navigation')}
     ${item('media','Media Library')}
     ${item('pages','Custom Pages')}
@@ -3556,7 +3599,6 @@ function storexBaseRenderAdminView(){
     case 'categories': return adminCategories();
     case 'banners': return adminBanners();
     case 'homepage': return adminHomepage();
-    case 'bulkimport': return adminBulkImport();
     case 'theme': return adminTheme();
     case 'nav': return adminNav();
     case 'media': return adminMedia();
@@ -3697,11 +3739,7 @@ function openMediaPicker(callback, options={}){
   el.innerHTML=`<div class="modal-box">
     <h2>Select image from Media Library</h2>
     <p style="font-size:12.5px;color:var(--ink-soft);">${MEDIA_PICKER_MULTIPLE?'Select one or more images, then click Done.':'Choose an existing image or upload a new image. Your current form will stay open.'}</p>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px;">
-      <label class="btn small media-upload-button">Upload from device
-        <input id="${pickerId}" type="file" accept="image/*" ${MEDIA_PICKER_MULTIPLE?'multiple':''} onchange="handleMediaPickerFile(this)">
-      </label>
-    </div>
+    <div class="help-note" style="margin:0 0 14px;">Paste an image URL in the form fields, or pick an existing library image below. Device upload is disabled.</div>
     <div id="media-picker-status" style="font-size:12px;color:var(--ink-soft);margin-bottom:10px;"></div>
     ${MEDIA.length?`<div class="thumb-picker" id="media-pick-grid" style="gap:12px;">${MEDIA.slice(0,SX_MEDIA_PAGE).map(mediaPickItemHtml).join('')}</div>${MEDIA.length>SX_MEDIA_PAGE?'<div class="sx-more" data-sx-more="pick">Loading more&hellip;</div>':''}`:'<div class="empty-state"><div class="icon">🖼️</div><h3>No media yet</h3><p>Upload an image from your device or add an image URL first.</p></div>'}
     <div class="modal-close-row">
@@ -4616,7 +4654,7 @@ function removeSection(i){ if(!confirm('Delete this section?')) return; SETTINGS
 function addSectionModal(){
   showModal(`<h2>Add Section</h2>
     <div class="form-grid">
-      ${['hero','categories','productCollection','categoryShowcase','recentlyViewed','banner','customHtml','social'].map(t=>`<button type="button" class="btn ghost" style="justify-content:flex-start;" onclick="${t==='flashsale'?'addFlashSaleSectionModal()':`addSection('${t}')`}">+ ${sectionTypeLabel(t)}</button>`).join('')}
+      ${['hero','categories','productCollection','categoryShowcase','recentlyViewed','banner','customHtml','social'].map(t=>`<button type="button" class="btn ghost" style="justify-content:flex-start;" onclick="addSection('${t}')">+ ${sectionTypeLabel(t)}</button>`).join('')}
     </div>
     <div class="modal-close-row"><button type="button" class="btn ghost" onclick="closeModal()">Close</button></div>`);
 }
@@ -4867,122 +4905,6 @@ function adminTheme(){
   const h = SETTINGS.hero, m=Object.assign({},DEFAULT_SETTINGS.mediaSizing,SETTINGS.mediaSizing||{});
   return `<div class="admin-topbar"><h1>Theme &amp; Branding</h1></div>
   <div class="admin-card">
-    <h3 style="margin-top:0;">Global Colors</h3>
-    <p style="font-size:12.5px;color:var(--ink-soft);margin-top:0;">Primary and secondary colors apply across the whole storefront and admin. Changes save to the cloud and apply immediately.</p>
-    <form onsubmit="event.preventDefault();sxSaveThemeColors(this);">
-      <div class="form-grid">
-        <div class="field"><label>Primary Color</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.primaryColor||'#111111')}" oninput="this.form.primaryColor.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="primaryColor" value="${esc(SETTINGS.primaryColor||'#111111')}" pattern="^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$" required style="flex:1;">
-            <span class="swatch" style="background:${esc(SETTINGS.primaryColor||'#111111')}"></span>
-          </div>
-        </div>
-        <div class="field"><label>Primary Dark / Hover</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.primaryDark||'#222222')}" oninput="this.form.primaryDark.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="primaryDark" value="${esc(SETTINGS.primaryDark||'#222222')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Secondary Color</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.secondaryColor||'#5B616B')}" oninput="this.form.secondaryColor.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="secondaryColor" value="${esc(SETTINGS.secondaryColor||'#5B616B')}" style="flex:1;">
-            <span class="swatch" style="background:${esc(SETTINGS.secondaryColor||'#5B616B')}"></span>
-          </div>
-        </div>
-        <div class="field"><label>Secondary Dark</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.secondaryDark||'#3A3F47')}" oninput="this.form.secondaryDark.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="secondaryDark" value="${esc(SETTINGS.secondaryDark||'#3A3F47')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Accent Color</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.accentColor||'#222222')}" oninput="this.form.accentColor.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="accentColor" value="${esc(SETTINGS.accentColor||'#222222')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Header Background</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.headerBg||'#0A0A0A')}" oninput="this.form.headerBg.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="headerBg" value="${esc(SETTINGS.headerBg||'#0A0A0A')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Header Text</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.headerText||'#F7E7CC')}" oninput="this.form.headerText.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="headerText" value="${esc(SETTINGS.headerText||'#F7E7CC')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Body Background</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.bodyBg||'#FAF9F7')}" oninput="this.form.bodyBg.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="bodyBg" value="${esc(SETTINGS.bodyBg||'#FAF9F7')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Main Text Color</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.inkColor||'#1F2328')}" oninput="this.form.inkColor.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="inkColor" value="${esc(SETTINGS.inkColor||'#1F2328')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Secondary Text Color</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.inkSoft||'#5B616B')}" oninput="this.form.inkSoft.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="inkSoft" value="${esc(SETTINGS.inkSoft||'#5B616B')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Border Color</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.borderColor||'#E5E2DC')}" oninput="this.form.borderColor.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="borderColor" value="${esc(SETTINGS.borderColor||'#E5E2DC')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Card Background</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.cardBg||'#FFFFFF')}" oninput="this.form.cardBg.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="cardBg" value="${esc(SETTINGS.cardBg||'#FFFFFF')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Button Color</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.buttonBg||SETTINGS.primaryColor||'#111111')}" oninput="this.form.buttonBg.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="buttonBg" value="${esc(SETTINGS.buttonBg||SETTINGS.primaryColor||'#111111')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Button Text Color</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.buttonText||'#FFFFFF')}" oninput="this.form.buttonText.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="buttonText" value="${esc(SETTINGS.buttonText||'#FFFFFF')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Icon Color</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.iconColor||SETTINGS.primaryColor||'#111111')}" oninput="this.form.iconColor.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="iconColor" value="${esc(SETTINGS.iconColor||SETTINGS.primaryColor||'#111111')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Footer Background</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.footerBg||SETTINGS.primaryColor||'#111111')}" oninput="this.form.footerBg.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="footerBg" value="${esc(SETTINGS.footerBg||SETTINGS.primaryColor||'#111111')}" style="flex:1;">
-          </div>
-        </div>
-        <div class="field"><label>Footer Text</label>
-          <div style="display:flex;gap:8px;align-items:center;">
-            <input type="color" value="${esc(SETTINGS.footerText||'#FFFFFF')}" oninput="this.form.footerText.value=this.value" style="width:48px;height:36px;padding:0;border:1px solid var(--line);border-radius:6px;">
-            <input type="text" name="footerText" value="${esc(SETTINGS.footerText||'#FFFFFF')}" style="flex:1;">
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
-        <button class="btn" type="submit">Save Theme Colors</button>
-        
-      </div>
-    </form>
-  </div>
-  <div class="admin-card">
     <h3 style="margin-top:0;">Logo</h3>
     <div class="help-note">Used in the storefront header, invoices and branding previews. Restore uses the official TEFaura default logo.</div>
     <div class="upload-box">
@@ -5021,19 +4943,6 @@ function adminTheme(){
     </div>
   </div>
   <div class="admin-card">
-    <h3 style="margin-top:0;">Universal Media Size Controls</h3>
-    <p style="font-size:12.5px;color:var(--ink-soft);">These values are shared across phone, tablet and desktop so media keeps the same proportions instead of becoming a smaller mobile version.</p>
-    <form onsubmit="event.preventDefault();const fd=new FormData(this);SETTINGS.mediaSizing={categoryHeight:Number(fd.get('categoryHeight'))||130,productRatio:fd.get('productRatio')||'1/1',flashHeight:Number(fd.get('flashHeight'))||360,promoHeight:Number(fd.get('promoHeight'))||260};saveKey(KEYS.settings,SETTINGS);toast('Universal media sizes saved');">
-      <div class="form-grid">
-        <div class="field"><label>Category image height (px)</label><input type="number" name="categoryHeight" value="${Number(m.categoryHeight)||130}"></div>
-        <div class="field"><label>Product image ratio</label><select name="productRatio"><option value="1/1" ${m.productRatio==='1/1'?'selected':''}>1:1 Square</option><option value="4/5" ${m.productRatio==='4/5'?'selected':''}>4:5 Portrait</option><option value="4/3" ${m.productRatio==='4/3'?'selected':''}>4:3</option><option value="16/9" ${m.productRatio==='16/9'?'selected':''}>16:9</option></select></div>
-        <div class="field"><label>Flash sale height (px)</label><input type="number" name="flashHeight" value="${Number(m.flashHeight)||360}"></div>
-        <div class="field"><label>Promotional banner height (px)</label><input type="number" name="promoHeight" value="${Number(m.promoHeight)||260}"></div>
-      </div>
-      <button class="btn" style="margin-top:12px;" type="submit">Save Media Sizes</button>
-    </form>
-  </div>
-  <div class="admin-card">
     <h3 style="margin-top:0;">Logo Settings</h3>
     <div class="upload-box">
       <input type="url" placeholder="Logo Image URL yahan enter karein (https://...)" value="${esc(SETTINGS.logo||'')}" onchange="if(this.value){ const input=this; handleImageUrlInput(input,url=>{ SETTINGS.logo=url||null; saveKey(KEYS.settings,SETTINGS); }); }">
@@ -5050,18 +4959,6 @@ function adminTheme(){
         <button class="btn" type="submit">Save Logo</button>
         ${SETTINGS.logo?`<button type="button" class="btn danger" onclick="SETTINGS.logo=null;saveKey(KEYS.settings,SETTINGS);toast('Logo removed');">Remove Logo</button>`:''}
       </div>
-    </form>
-  </div>
-
-  <div class="admin-card">
-    <h3 style="margin-top:0;">Colors &amp; Header Appearance</h3>
-    <form onsubmit="event.preventDefault(); const fd=new FormData(this); SETTINGS.primaryColor=fd.get('primaryColor'); SETTINGS.headerBg=fd.get('headerBg'); SETTINGS.headerText=fd.get('headerText'); saveKey(KEYS.settings,SETTINGS); toast('Colors saved!');">
-      <div class="form-grid">
-        <div class="field"><label>Primary / CTA Color</label><input type="text" name="primaryColor" value="${esc(SETTINGS.primaryColor)}"></div>
-        <div class="field"><label>Header Background</label><input type="text" name="headerBg" value="${esc(SETTINGS.headerBg)}"></div>
-        <div class="field"><label>Header Text Color</label><input type="text" name="headerText" value="${esc(SETTINGS.headerText)}"></div>
-      </div>
-      <button class="btn" style="margin-top:12px;" type="submit">Save Theme Colors</button>
     </form>
   </div>
 
@@ -5202,9 +5099,7 @@ function adminMedia(){
       <input type="url" id="media-url-input" placeholder="Image URL yahan enter karein (https://...)" onkeydown="if(event.key==='Enter'){event.preventDefault();addMediaByUrl();}">
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
         <button type="button" class="btn small" onclick="addMediaByUrl()">+ Add Image URL</button>
-        <label class="btn small ghost media-upload-button">Upload from device
-          <input id="media-library-device-input" type="file" accept="image/*" multiple onchange="handleMediaLibraryUpload(this)">
-        </label>
+        
       </div>
       <div id="media-library-status" style="font-size:12px;color:var(--ink-soft);margin-top:8px;"></div>
       <div class="upload-note">Paste an image URL and click "Add Image URL", or upload one or more images from your device. They are saved to your library for reuse across the site.</div>
@@ -5649,11 +5544,7 @@ function renderCartPage(){
         ${couponCalc.discount>0?`<div class="summary-row"><span>Coupon discount</span><span>-${money(couponCalc.discount)}</span></div>`:''}
         <div class="summary-row"><span>Delivery</span><span>${delivery?money(delivery):'FREE'}</span></div>
         <div class="summary-row total"><span>Total</span><span>${money(total)}</span></div>
-        <div id="coupon-box">
-          <div class="coupon-row"><input id="coupon-input" type="text" placeholder="Enter coupon code" value="${esc(appliedCoupon?appliedCoupon.code:'')}" aria-label="Coupon code"><button type="button" class="btn small" onclick="applyCouponFromCart()">${appliedCoupon?'Update':'Apply'}</button></div>
-          <div id="coupon-msg" class="coupon-msg"></div>
-        </div>
-        <a href="#/checkout" class="btn" style="width:100%;justify-content:center;margin-top:12px;">Proceed to Checkout</a>
+        <button type="button" class="btn" style="width:100%;justify-content:center;margin-top:12px;" onclick="checkoutCartViaWhatsApp()">Order on WhatsApp</button>
       </div>
     </div>
   </div>`;
@@ -6086,10 +5977,10 @@ function renderMobileDrawer(){
     {label:'Home',url:'#/'},
     {label:'All Products',url:'#/category/all'},
     {label:'All Categories',url:'#/all-categories'},
-    {label:'Flash Sale',url:'#/flash-sale'},
+    
     {label:'Wishlist',url:'#/wishlist'},
     {label:'Cart',url:'#/cart'},
-    {label:'Track Your Order',url:'#/track-order'}
+    
   ];
   const seen=new Set();
   const makeLinks=items=>items.filter(n=>n&&n.label&&n.url).filter(n=>{const k=String(n.url)+'|'+String(n.label);if(seen.has(k))return false;seen.add(k);return true;}).map(n=>`<a href="${esc(n.url)}" ${n.newTab?'target="_blank" rel="noopener"':''} onclick="MOBILE_DRAWER_OPEN=false;">${esc(n.label)}</a>`).join('');
@@ -6099,7 +5990,10 @@ function renderMobileDrawer(){
 }
 
 /* Guest checkout only. No account/default-address/login logic remains. */
-function renderCheckoutPage(){return storexBaseRenderCheckoutPage();}
+function renderCheckoutPage(){
+  setTimeout(function(){ try{checkoutCartViaWhatsApp();}catch(e){} try{location.hash='#/cart';}catch(e2){} }, 30);
+  return (typeof renderPageLoading==='function'?renderPageLoading('Opening WhatsApp…'):'<p style="padding:40px;text-align:center">Opening WhatsApp…</p>');
+}
 function showOrderInvoice(order,p,qty,customer,couponCode=''){return storexBaseShowOrderInvoice(order,p,qty,customer,couponCode);}
 function showCheckoutInvoice(orderNumber,lines,customer,subtotal,couponCalc,delivery){return storexBaseShowCheckoutInvoice(orderNumber,lines,customer,subtotal,couponCalc,delivery);}
 
@@ -6874,13 +6768,13 @@ body:has(#site-header){
 
 /* ---------- Header: dark floating bar ---------- */
 #app:has(>#site-header) #site-header{
-  background:var(--sx-grad-dark);
-  color:var(--header-text);
+  background:#0A0A0A !important;
+  color:#F5F5F5 !important;
   border:0;
   width:min(1280px,calc(100% - 20px));
   margin:10px auto 0;
   border-radius:28px;
-  box-shadow:0 16px 40px rgba(60,35,10,.35);
+  box-shadow:0 16px 40px rgba(0,0,0,.45);
   top:10px;
 }
 #app:has(>#site-header) .header-row{padding:12px 6px;}
@@ -7096,8 +6990,9 @@ body:has(#site-header){
 
 /* ---------- Footer ---------- */
 #app:has(>#site-header) #site-footer{
-  background:var(--sx-grad-dark);color:#F3E3C6;
-  margin-top:28px;border-radius:38px 38px 0 0;
+  background:#0A0A0A !important;
+  color:#F0F0F0 !important;
+  margin-top:48px;
 }
 #app:has(>#site-header) .footer-grid h4{font-family:var(--sx-display);font-size:19px;font-weight:800;color:var(--sx-gold-light);}
 #app:has(>#site-header) .footer-grid a{color:#F3E3C6;font-weight:600;}
@@ -7199,7 +7094,7 @@ body:has(#site-header){
       t.innerHTML=
         '<div><i>'+ICON.truck+'</i><p style="margin:0"><b>Fast Delivery</b><span>Across Pakistan</span></p></div>'+
         '<div><i>'+ICON.shield+'</i><p style="margin:0"><b>Secure Checkout</b><span>100% safe &amp; secure</span></p></div>'+
-        '<div><i>'+ICON.pin+'</i><p style="margin:0"><b>Track Your Order</b><span>Check status anytime</span></p></div>'+
+        '<div><i>'+ICON.pin+'</i><p style="margin:0"><b>WhatsApp Support</b><span>Order help anytime</span></p></div>'+
         '<div><i>'+ICON.help+'</i><p style="margin:0"><b>Customer Support</b><span>We\u2019re here to help</span></p></div>';
       ft.parentNode.insertBefore(t,ft);
     }
@@ -8135,6 +8030,7 @@ window.SXBI_CORE={validate,classify,counts,runImport,publishImported,reportText,
 
 </script>
 
+<style id="StoreXNoFileUpload">input[type=file]:not([accept=".txt,text/plain"]),.media-upload-button{display:none!important;}</style>
 <style id="StoreXProductStickyBar">
 .pd-sticky-bar{
   position:fixed;left:0;right:0;bottom:0;z-index:55;
