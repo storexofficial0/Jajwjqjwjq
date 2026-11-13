@@ -4945,7 +4945,13 @@ function adminTheme(){
         <div class="upload-box"><input type="url" placeholder="Fallback Hero Image URL yahan enter karein (https://...)" value="${esc(h.image||'')}" onchange="if(this.value){ const input=this; handleImageUrlInput(input,url=>{ SETTINGS.hero.image=url||null; saveKey(KEYS.settings,SETTINGS); }); }">
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;"><button type="button" class="btn small ghost" onclick="openMediaPicker(url=>{SETTINGS.hero.image=url;saveKey(KEYS.settings,SETTINGS);})">Choose from Media Library</button></div>
         ${h.image?`<img src="${mediaSrc(h.image)}" style="height:70px;margin-top:8px;border-radius:6px;" id="hero-img-prev">`:''}
-        ); saveKey(KEYS.settings,SETTINGS); toast('Hero button settings saved!');">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="admin-card">
+    <h3 style="margin-top:0;">Hero Button Settings</h3>
+    <form onsubmit="event.preventDefault(); const fd=new FormData(this); const n=(k,d)=>{const v=Number(fd.get(k));return (fd.get(k)===''||isNaN(v))?d:v;}; const bu=(fd.get('buttonUrl')||'').trim(); Object.assign(SETTINGS.hero,{buttonText:(fd.get('buttonText')||'').trim(),buttonUrl:bu,buttonLink:bu,buttonTextColor:(fd.get('buttonTextColor')||'').trim(),buttonBgColor:(fd.get('buttonBgColor')||'').trim(),buttonWidth:(fd.get('buttonWidth')||'').toString().trim(),buttonAlign:fd.get('buttonAlign')||'left',buttonPaddingY:n('buttonPaddingY',12),buttonPaddingX:n('buttonPaddingX',22),buttonMarginTop:n('buttonMarginTop',0)}); saveKey(KEYS.settings,SETTINGS); toast('Hero button settings saved!');">
       <div class="form-grid">
         <div class="field"><label>Button Title / Text</label><input type="text" name="buttonText" value="${esc(h.buttonText)}"></div>
         <div class="field"><label>Target Link / URL</label><input type="text" name="buttonUrl" value="${esc(h.buttonUrl)}"></div>
