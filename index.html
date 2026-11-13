@@ -2805,7 +2805,7 @@ function initLazySections(){
   };
   const io=new IntersectionObserver(es=>{
     es.forEach(e=>{ if(e.isIntersecting){ io.unobserve(e.target); fill(e.target); } });
-  },{rootMargin:'500px 0px'});
+  },{rootMargin:'1500px 0px'});
   nodes.forEach(n=>io.observe(n));
 }
 function renderSection(sec){
@@ -4867,18 +4867,6 @@ async function sxResetBrandingVerify(form){
 function adminTheme(){
   const h = SETTINGS.hero, m=Object.assign({},DEFAULT_SETTINGS.mediaSizing,SETTINGS.mediaSizing||{});
   return `<div class="admin-topbar"><h1>Theme &amp; Branding</h1></div>
-  <div class="admin-card">
-    <h3 style="margin-top:0;">Logo</h3>
-    <div class="help-note">Used in the storefront header, invoices and branding previews. Restore uses the official TEFaura default logo.</div>
-    <div class="upload-box">
-      <input type="url" style="margin-top:8px;width:100%;" placeholder="Logo image URL" value="${esc(SETTINGS.logo||'')}" onchange="if(this.value){const input=this;handleImageUrlInput(input,url=>{SETTINGS.logo=url;saveKey(KEYS.settings,SETTINGS);});}">
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
-        <button type="button" class="btn small ghost" onclick="openMediaPicker(url=>{SETTINGS.logo=url;saveKey(KEYS.settings,SETTINGS);})">Choose from Media Library</button>
-      </div>
-      ${SETTINGS.logo?`<img src="${mediaSrc(SETTINGS.logo)}" style="max-width:220px;max-height:72px;object-fit:contain;margin:12px auto 0;display:block;border:1px solid var(--line);border-radius:8px;padding:8px;background:#fff;">`:''}
-      <div class="field" style="margin-top:12px;text-align:left;"><label>Logo width (px)</label><input type="number" value="${Number(SETTINGS.logoWidth)||150}" onchange="SETTINGS.logoWidth=Math.min(280,Math.max(80,Number(this.value)||220));saveKey(KEYS.settings,SETTINGS);render();"></div>
-    </div>
-  </div>
   <div class="admin-card">
     <h3 style="margin-top:0;">Site Name &amp; Invoice Branding</h3>
     <form onsubmit="event.preventDefault();const fd=new FormData(this);SETTINGS.siteName=fd.get('siteName')||'TEFaura';SETTINGS.invoice=Object.assign({},SETTINGS.invoice||{},{ownerName:fd.get('ownerName')||'Taha Faiz',websiteUrl:fd.get('websiteUrl')||'https://store.tfoda.com',thankYou:fd.get('thankYou')||'Thanks for the order'});if(SETTINGS.footer){SETTINGS.footer.copyright='© '+(SETTINGS.siteName||'TEFaura');}saveKey(KEYS.settings,SETTINGS);toast('Branding text saved');">
@@ -8040,5 +8028,187 @@ body.has-pd-sticky{padding-bottom:72px;}
 })();
 </script>
 
+
+<style id="StoreXRound4Tweaks">
+/* ===== 1) ADMIN: all chocolate/brown -> black ===== */
+body.is-admin{
+  --primary:#000000!important;--primary-dark:#000000!important;--secondary:#111111!important;--secondary-dark:#000000!important;
+  --accent:#000000!important;--ink:#000000!important;--ink-soft:#222222!important;--line:#222222!important;
+  --btn-bg:#000000!important;--btn-text:#FFFFFF!important;--icon-color:#000000!important;--paper:#FFFFFF!important;--card:#FFFFFF!important;
+}
+body.is-admin .admin-sidebar{background:#000!important;color:#E6E6E6!important;}
+body.is-admin .admin-sidebar a,body.is-admin .admin-sidebar button.navlink{color:#D0D0D0!important;}
+body.is-admin .admin-sidebar a:hover,body.is-admin .admin-sidebar button.navlink:hover{background:#1c1c1c!important;color:#fff!important;}
+body.is-admin .admin-sidebar a.active,body.is-admin .admin-sidebar button.navlink.active{background:#2b2b2b!important;color:#fff!important;}
+body.is-admin .admin-sidebar .group-label{color:#9a9a9a!important;}
+body.is-admin .admin-hamburger{background:#000!important;}
+body.is-admin .help-note{background:#F2F2F2!important;border-color:#222!important;color:#000!important;}
+body.is-admin .upload-box{border-color:#222!important;color:#000!important;}
+body.is-admin .btn:not(.ghost):not(.danger):not(.secondary){background:#000!important;color:#fff!important;}
+body.is-admin .btn.ghost{color:#000!important;border-color:#000!important;}
+
+/* ===== 2) HERO: black pill stroke, black Shop Now button, golden sub text ===== */
+#app:has(>#site-header) .sx-pill{border:1.5px solid #000!important;}
+#app:has(>#site-header) .hero .btn{background:#000!important;background-image:none!important;color:#fff!important;box-shadow:0 10px 24px rgba(0,0,0,.35)!important;}
+#app:has(>#site-header) .sx-hero-badge span{
+  background:linear-gradient(180deg,#D9A441,#9A6416)!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;color:transparent!important;text-shadow:none!important;
+}
+
+/* ===== 3) PRODUCT CARDS: black stroke + black glow ===== */
+#app:has(>#site-header) .card{border:1px solid #000!important;box-shadow:0 14px 34px rgba(0,0,0,.22)!important;}
+#app:has(>#site-header) .card:hover{border-color:#000!important;box-shadow:0 18px 40px rgba(0,0,0,.34)!important;}
+
+/* ===== 4) IMAGES already seen: show instantly, no fade/reload flicker ===== */
+main img.sx-seen,#app img.sx-seen{opacity:1!important;transition:none!important;}
+
+/* ===== 5) Header logo: transparent padding trimmed away ===== */
+#site-header .logo-wrap img{object-fit:contain!important;}
+
+/* ===== Header logo: normal size, never covers hamburger / wishlist / cart / search ===== */
+#site-header .header-row .logo-wrap{position:relative!important;z-index:6!important;overflow:visible!important;flex:none!important;justify-self:start!important;}
+#site-header .header-row .logo-wrap img{width:auto!important;height:auto!important;object-fit:contain!important;}
+@media (max-width:820px){
+  #site-header .header-row .logo-wrap{margin-left:-20px!important;padding-left:0!important;}
+  #site-header .header-row .logo-wrap img{max-width:min(118px,30vw)!important;max-height:36px!important;position:relative;z-index:6;}
+}
+@media (min-width:821px){
+  #site-header .header-row .logo-wrap img{max-width:150px!important;max-height:44px!important;}
+  #site-header .header-row{column-gap:16px!important;}
+  #site-header .header-row .search-wrap{min-width:0!important;margin-right:18px!important;}
+  #site-header .header-row .search-form{width:100%!important;max-width:100%!important;min-width:0!important;}
+  #site-header .header-row .search-form input{min-width:0!important;width:100%!important;}
+  #site-header .header-row .main-nav{flex-wrap:nowrap!important;white-space:nowrap!important;}
+}
+
+/* ===== Images: no blank flashes, no fade-in re-flicker, stay painted while scrolling ===== */
+img[loading="lazy"]{content-visibility:visible!important;}
+main img[loading="lazy"],#app img[loading="lazy"]{opacity:1!important;transition:none!important;}
+/* lighter painting = smooth scrolling (no blank / torn tiles on fast scroll) */
+#app:has(>#site-header) .card{box-shadow:0 4px 10px rgba(0,0,0,.22)!important;}
+#app:has(>#site-header) .card:hover{box-shadow:0 5px 12px rgba(0,0,0,.30)!important;}
+#app:has(>#site-header) #site-header{box-shadow:0 4px 12px rgba(0,0,0,.18)!important;}
+.pd-sticky-bar,#pd-sticky-bar,#bn-sticky-bar{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;}
+/* off-screen sections are not painted at all, so the phone never runs out of tile memory */
+#app main .section,#app main .sx-lazy-sec,#app main .sx-sec-in{content-visibility:auto;contain-intrinsic-size:auto 560px;}
+.sx-sec-in{animation:none!important;}
+</style>
+<script id="StoreXRound4Tweaks_JS">
+(function(){
+  'use strict';
+  /* ---------- A) Image cache: remember images that already loaded ---------- */
+  var SEEN_KEY='StoreX.imgSeen.v1', seen=new Set(), keep=new Map(), saveT=null;
+  try{ JSON.parse(localStorage.getItem(SEEN_KEY)||'[]').forEach(function(u){seen.add(u);}); }catch(_){}
+  function saveSeen(){ clearTimeout(saveT); saveT=setTimeout(function(){ try{ localStorage.setItem(SEEN_KEY,JSON.stringify(Array.from(seen).slice(-800))); }catch(_){} },900); }
+  function markLoaded(img){
+    var s=img.currentSrc||img.src; if(!s||s.indexOf('data:')===0) return;
+    img.classList.add('sx-seen','sx-in');
+    if(!seen.has(s)){ seen.add(s); saveSeen(); }
+    /* keep a decoded copy in memory so going back to a page never reloads it */
+    if(!keep.has(s) && keep.size<60){ var k=new Image(); k.decoding='async'; k.src=s; keep.set(s,k); }
+  }
+  document.addEventListener('load',function(e){ var t=e.target; if(t&&t.tagName==='IMG') markLoaded(t); },true);
+  function revealSeen(root){
+    var list=(root||document).querySelectorAll('img');
+    for(var i=0;i<list.length;i++){
+      var im=list[i], s=im.currentSrc||im.src;
+      if(!s||im.classList.contains('sx-seen')) continue;
+      if((im.complete&&im.naturalWidth)||seen.has(s)||keep.has(s)) im.classList.add('sx-seen','sx-in');
+    }
+  }
+
+  /* ---------- B) Logo: cut transparent padding so the logo fills its box ---------- */
+  var LOGO_KEY='StoreX.logoTrim.v1', logoCache={};
+  try{ logoCache=JSON.parse(localStorage.getItem(LOGO_KEY)||'{}')||{}; }catch(_){ logoCache={}; }
+  function trimLogo(img){
+    if(!img||img.dataset.sxTrim) return;
+    var orig=img.getAttribute('src'); if(!orig||orig.indexOf('data:')===0) { img.dataset.sxTrim='1'; return; }
+    img.dataset.sxTrim='1';
+    if(logoCache[orig]){ img.src=logoCache[orig]; return; }
+    var im=new Image(); im.crossOrigin='anonymous';
+    im.onload=function(){
+      try{
+        var w=im.naturalWidth,h=im.naturalHeight; if(!w||!h) return;
+        var sc=Math.min(1,800/Math.max(w,h)), cw=Math.max(1,Math.round(w*sc)), ch=Math.max(1,Math.round(h*sc));
+        var c=document.createElement('canvas'); c.width=cw; c.height=ch;
+        var x=c.getContext('2d'); x.drawImage(im,0,0,cw,ch);
+        var d=x.getImageData(0,0,cw,ch).data, x0=cw,y0=ch,x1=-1,y1=-1;
+        for(var yy=0;yy<ch;yy++){ for(var xx=0;xx<cw;xx++){ if(d[(yy*cw+xx)*4+3]>16){ if(xx<x0)x0=xx; if(xx>x1)x1=xx; if(yy<y0)y0=yy; if(yy>y1)y1=yy; } } }
+        if(x1<0||y1<0) return;
+        var pad=2; x0=Math.max(0,x0-pad); y0=Math.max(0,y0-pad); x1=Math.min(cw-1,x1+pad); y1=Math.min(ch-1,y1+pad);
+        var tw=x1-x0+1, th=y1-y0+1;
+        if(tw>=cw*0.98&&th>=ch*0.98) return;           /* nothing to trim */
+        var c2=document.createElement('canvas'); c2.width=tw; c2.height=th;
+        c2.getContext('2d').drawImage(c,x0,y0,tw,th,0,0,tw,th);
+        var url=c2.toDataURL('image/png');
+        logoCache[orig]=url;
+        try{ localStorage.setItem(LOGO_KEY,JSON.stringify(logoCache)); }catch(_){}
+        if(document.contains(img)) img.src=url;
+      }catch(_){ /* CORS blocked: keep the original logo */ }
+    };
+    im.onerror=function(){};
+    im.src=orig;
+  }
+  function scan(){
+    var imgs=document.querySelectorAll('#site-header .logo-wrap img');
+    for(var i=0;i<imgs.length;i++) trimLogo(imgs[i]);
+    revealSeen(document);
+  }
+  var t=null;
+  function later(){ if(t) return; t=setTimeout(function(){ t=null; try{scan();}catch(_){} },30); }
+  function start(){
+    var app=document.getElementById('app')||document.body;
+    new MutationObserver(later).observe(app,{childList:true,subtree:true});
+    scan();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',start); else start();
+
+  /* ---------- C) Load images well before they scroll into view ---------- */
+  var near=null;
+  if('IntersectionObserver' in window){
+    near=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var im=e.target; near.unobserve(im);
+        try{ im.loading='eager'; im.decoding='async'; if(im.getAttribute('src')) im.src=im.getAttribute('src'); }catch(_){}
+      });
+    },{rootMargin:'1000px 0px 1000px 0px'});
+  }
+  function watchLazy(){
+    if(!near) return;
+    var list=document.querySelectorAll('img[loading="lazy"]:not([data-sx-near])');
+    for(var i=0;i<list.length;i++){ list[i].setAttribute('data-sx-near','1'); near.observe(list[i]); }
+  }
+  var wt=null;
+  function watchLater(){ if(wt) return; wt=setTimeout(function(){ wt=null; try{watchLazy();}catch(_){} },40); }
+  function startNear(){
+    var app=document.getElementById('app')||document.body;
+    new MutationObserver(watchLater).observe(app,{childList:true,subtree:true});
+    watchLazy();
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',startNear); else startNear();
+
+  /* ---------- D) Product page opens instantly: preload its images on touch / hover ---------- */
+  var warmed={};
+  function warmProduct(a){
+    try{
+      var h=a.getAttribute('href')||''; if(h.indexOf('#/p/')!==0) return;
+      var key=decodeURIComponent(h.slice(4).split('?')[0]); if(warmed[key]) return; warmed[key]=1;
+      if(typeof PRODUCTS==='undefined'||typeof mediaSrc!=='function') return;
+      var p=PRODUCTS.find(function(x){ return String((x.seo&&x.seo.slug)||x.id)===key; }); if(!p) return;
+      var ids=(p.images&&p.images.length?p.images:(p.mainImage?[p.mainImage]:[])).slice(0,6);
+      ids.forEach(function(id){
+        var u=mediaSrc(id); if(!u||keep.has(u)) return;
+        var k=new Image(); k.decoding='async'; k.src=u; keep.set(u,k);
+      });
+    }catch(_){}
+  }
+  function onTouch(e){ var a=e.target&&e.target.closest?e.target.closest('a[href^="#/p/"]'):null; if(a) warmProduct(a); }
+  document.addEventListener('touchstart',onTouch,{passive:true,capture:true});
+  document.addEventListener('pointerdown',onTouch,{passive:true,capture:true});
+  document.addEventListener('mouseover',onTouch,{passive:true,capture:true});
+})();
+</script>
 </body>
 </html>
