@@ -918,6 +918,18 @@ img[loading="lazy"]{content-visibility:auto;}
 .badge-status.on{background:#111111!important;color:#fff!important;}
 </style>
 
+<style id="StoreXLogoSize">
+#site-header .logo-wrap img, .header-row .logo-wrap img, .logo-wrap img{
+  width:auto !important;
+  max-width:min(280px, 55vw) !important;
+  max-height:72px !important;
+  height:auto !important;
+  object-fit:contain !important;
+}
+</style>
+<style id="StoreXHideCoupons">
+#sx-pdc, #sx-pubc, .pd-coupon-box, #coupon-box { display:none !important; }
+</style>
 </head>
 
 <!--
@@ -1456,7 +1468,7 @@ const SX_DEFAULT_ASSETS={
 };
 const DEFAULT_SETTINGS = {
   siteName:'TEFaura',
-  logo:SX_DEFAULT_ASSETS.logo, logoLink:'#/', logoWidth:200,
+  logo:SX_DEFAULT_ASSETS.logo, logoLink:'#/', logoWidth:220,
   primaryColor:'#111111', primaryDark:'#222222', secondaryColor:'#5B616B', secondaryDark:'#3A3F47',
   accentColor:'#222222', headerBg:'#0A0A0A', headerText:'#F7E7CC',
   bodyBg:'#FAF9F7', inkColor:'#1F2328', inkSoft:'#5B616B', borderColor:'#E5E2DC', cardBg:'#FFFFFF',
@@ -2707,7 +2719,7 @@ document.addEventListener('click',function(e){
   performSearchQuery(item.getAttribute('data-search-value')||'');
 },true);
 function renderHeader(){
-  const logo = SETTINGS.logo ? `<img src="${mediaSrc(SETTINGS.logo)}" alt="${esc(SETTINGS.siteName)} logo" style="width:${Number(SETTINGS.logoWidth)||200}px;height:auto;max-height:${Math.min(80, Math.max(48, Math.round((Number(SETTINGS.logoWidth)||200)*0.36)))}px;">` : `<span class="logo-fallback">${esc(SETTINGS.siteName)}</span>`;
+  const logo = SETTINGS.logo ? `<img src="${mediaSrc(SETTINGS.logo)}" alt="${esc(SETTINGS.siteName)} logo" style="width:${Math.min(280, Math.max(120, Number(SETTINGS.logoWidth)||220))}px;height:auto;max-height:72px;">` : `<span class="logo-fallback">${esc(SETTINGS.siteName)}</span>`;
   const navPages = PAGES.filter(p=>p.status==='published' && p.showInNav===true).map(p=>({label:p.title,url:'#/page/'+p.slug}));
   const navLinks = [...SETTINGS.nav.slice(0,3), ...navPages].map(n=>`<a href="${esc(n.url)}" ${n.newTab?'target="_blank" rel="noopener"':''}>${esc(n.label)}</a>`).join('');
   return `<header id="site-header"><div class="container header-row">
@@ -3611,10 +3623,32 @@ function storexBaseRenderAdminView(){
 }
 
 
+function adminDashboard(){
+  const published = PRODUCTS.filter(p=>p.status==='published').length;
+  const hidden = PRODUCTS.filter(p=>p.status==='hidden').length;
+  return `<div class="admin-topbar"><h1>Dashboard</h1></div>
+  <div class="stat-grid">
+    <div class="stat-box"><b>${PRODUCTS.length}</b><span>Total products</span></div>
+    <div class="stat-box"><b>${published}</b><span>Published</span></div>
+    <div class="stat-box"><b>${hidden}</b><span>Hidden</span></div>
+    <div class="stat-box"><b>${CATEGORIES.length}</b><span>Categories</span></div>
+  </div>
+  <div class="admin-card">
+    <h3 style="margin-top:0;">Quick actions</h3>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn small" onclick="openProductModal()">+ Add Product</button>
+      <button class="btn small ghost" onclick="openCategoryModal()">+ Add Category</button>
+      <button class="btn small ghost" onclick="setAdminView('homepage')">Customize Homepage</button>
+      <button class="btn small ghost" onclick="setAdminView('theme')">Theme</button>
+      <button class="btn small ghost" onclick="setAdminView('whatsapp')">WhatsApp Orders</button>
+    </div>
+  </div>`;
+}
+
 function adminWhatsAppOrders(){
   const w=Object.assign({enabled:true,number:'923301588630',intro:'I want to order this product. Can I get more details?',includeTitle:true,includeSku:true,includePrice:true,includeDelivery:true,includeQty:true,includeLink:true}, (SETTINGS&&SETTINGS.whatsappOrder)||{});
   return '<div class="admin-topbar"><h1>WhatsApp Orders</h1></div>'
-    +'<div class="help-note">Buy Now opens WhatsApp with a pre-filled message.</div>'
+    +'<div class="help-note">Buy Now and Cart checkout open WhatsApp with a pre-filled message.</div>'
     +'<div class="admin-card"><form onsubmit="event.preventDefault();saveWhatsAppOrderSettings(this);">'
     +'<div class="form-grid">'
     +'<div class="field"><label class="checkline"><input type="checkbox" name="enabled" '+(w.enabled!==false?'checked':'')+'> Enable WhatsApp ordering</label></div>'
@@ -3643,77 +3677,6 @@ async function saveWhatsAppOrderSettings(form){
   };
   const ok=await saveKey(KEYS.settings,SETTINGS);
   if(ok) toast('WhatsApp order settings saved');
-}
-
-/* ---------- Dashboard ---------- */
-const ORDER_ALERT_DISMISS_KEY='StoreX.dismissed.order.request.alerts.v1';
-function getDismissedOrderAlerts(){try{const v=JSON.parse(localStorage.getItem(ORDER_ALERT_DISMISS_KEY)||'[]');return Array.isArray(v)?v.map(String):[];}catch(e){return [];}}
-function dismissOrderRequestAlert(id){
-  const key=String(id||''); if(!key)return;
-  const list=getDismissedOrderAlerts();
-  if(!list.includes(key)){list.push(key);try{localStorage.setItem(ORDER_ALERT_DISMISS_KEY,JSON.stringify(list));}catch(e){}}
-  closeModal();
-  toast('Request removed from dashboard alerts.');
-  render();
-}
-function isCustomerCancellation(o){return !!(o?.customer_cancelled_at || o?.cancelled_by==='customer' || o?.cancel_source==='customer' || o?.customer_cancel_request_at || o?.cancel_reason || o?.cancelReason);}
-function isCustomerReturnRequest(o){return !!(o?.return_source==='customer' || o?.customer_return_request_at || o?.return_requested_at);}
-function orderCancelPending(o){return String(o?.cancel_request_status||'').toLowerCase()==='pending' && !['cancelled','returned'].includes(String(o?.status||'').toLowerCase());}
-function orderReturnPending(o){return String(o?.status||'').toLowerCase()==='return_requested';}
-function requestAlertRow(o,kind){
-  const reason=kind==='cancel'?(o.cancel_reason||o.cancelReason):o.return_reason;
-  return `<div style="padding:8px 0;border-top:1px solid var(--line);font-size:12.5px;"><b>${esc(o.order_number||o.id||'')}</b> — ${esc(o.customer_name||'Customer')}<br><span style="color:var(--ink-soft);">${esc(o.product_title||'Product')}</span>${reason?`<br><span style="color:var(--ink-soft);">Reason: ${esc(reason)}</span>`:''}<div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;"><button class="btn small" onclick="reviewOrderRequest('${o.id}','${kind}','approve')">Approve</button><button class="btn small danger" onclick="reviewOrderRequest('${o.id}','${kind}','reject')">Reject</button><button class="btn small ghost" onclick="showOrderDetails('${o.id}')">View</button><button class="btn small ghost" onclick="dismissOrderRequestAlert('${o.id}')">Delete</button></div></div>`;
-}
-function isOrderRequestAlert(o){return isCustomerReturnRequest(o)||isCustomerCancellation(o);}
-function adminDashboard(){
-  const dismissedAlerts = new Set(getDismissedOrderAlerts());
-  const returnRequests = ORDERS.filter(o=>orderReturnPending(o) && !dismissedAlerts.has(String(o.id))).sort((a,b)=>new Date(b.return_requested_at||b.updated_at||b.created_at||0)-new Date(a.return_requested_at||a.updated_at||a.created_at||0));
-  const cancellationRequests = ORDERS.filter(o=>orderCancelPending(o) && !dismissedAlerts.has(String(o.id))).sort((a,b)=>new Date(b.customer_cancel_request_at||b.updated_at||b.created_at||0)-new Date(a.customer_cancel_request_at||a.updated_at||a.created_at||0));
-  const latestOrders = [...ORDERS].sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0)).slice(0,6);
-  const published = PRODUCTS.filter(p=>p.status==='published').length;
-  const hidden = PRODUCTS.filter(p=>p.status==='hidden').length;
-  const activeFS = FLASHSALES.filter(f=>f.status==='active').length;
-  const expiredFS = FLASHSALES.filter(f=>f.end && new Date(f.end).getTime()<Date.now()).length;
-  const topClicks = [...PRODUCTS].map(p=>Object.assign({},p,analyticsCounts(p))).sort((a,b)=>(b.clicks||0)-(a.clicks||0)).slice(0,5);
-  return `<div class="admin-topbar"><h1>Dashboard</h1></div>
-  <div class="admin-card" style="border:1px solid var(--primary);background:#FFF9F3;margin-bottom:16px;">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px;"><div><h3 style="margin:0;">🔔 Latest Orders</h3><p style="margin:4px 0 0;color:var(--ink-soft);font-size:13px;">Newest customer orders appear here as notifications.</p></div><button class="btn small ghost" onclick="setAdminView('orders')">Open Orders</button></div>
-    ${latestOrders.length?latestOrders.map(o=>`<div style="display:flex;justify-content:space-between;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--line);font-size:12.5px;"><div><b>${esc(o.order_number||o.id||'')}</b> — ${esc(o.customer_name||'Customer')}<br><span style="color:var(--ink-soft);">${esc(o.product_title||'Product')} × ${Number(o.quantity)||0}</span></div><div style="text-align:right;"><b>${money(o.total_amount)}</b><br><span class="badge-status ${o.status==='confirmed'||o.status==='ready_to_ship'||o.status==='shipped'||o.status==='delivered'?'on':''}">${formatOrderStatus(o.status)}</span></div></div>`).join(''):'<div style="color:var(--ink-soft);font-size:13px;">No orders yet.</div>'}
-  </div>
-  <div class="admin-card" style="border:1px solid var(--primary);background:#FFF9F3;margin-bottom:16px;">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
-      <div><h3 style="margin:0;">Order Requests & Alerts</h3><p style="margin:4px 0 0;color:var(--ink-soft);font-size:13px;">New return and cancellation activity is shown here first.</p></div>
-      <button class="btn small ghost" onclick="setAdminView('orders')">Open Orders</button>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;">
-      <div style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;">
-        <div style="font-weight:800;margin-bottom:8px;">Return Requests <span class="badge-status ${returnRequests.length?'off':'on'}" style="margin-left:6px;">${returnRequests.length}</span></div>
-        ${returnRequests.length?returnRequests.slice(0,5).map(o=>requestAlertRow(o,'return')).join(''):'<div style="color:var(--ink-soft);font-size:13px;">No pending return requests.</div>'}
-      </div>
-      <div style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;">
-        <div style="font-weight:800;margin-bottom:8px;">Cancellation Requests <span class="badge-status ${cancellationRequests.length?'off':'on'}" style="margin-left:6px;">${cancellationRequests.length}</span></div>
-        ${cancellationRequests.length?cancellationRequests.slice(0,5).map(o=>requestAlertRow(o,'cancel')).join(''):'<div style="color:var(--ink-soft);font-size:13px;">No pending cancellation requests.</div>'}
-      </div>
-    </div>
-  </div>
-  <div class="stat-grid">
-    <div class="stat-box"><b>${PRODUCTS.length}</b><span>Total products</span></div>
-    <div class="stat-box"><b>${published}</b><span>Published</span></div>
-    <div class="stat-box"><b>${hidden}</b><span>Hidden</span></div>
-    <div class="stat-box"><b>${CATEGORIES.length}</b><span>Categories</span></div>
-    <div class="stat-box"><b>${activeFS}</b><span>Active flash sales</span></div>
-    <div class="stat-box"><b>${expiredFS}</b><span>Expired flash sales</span></div>
-  </div>
-  <div class="admin-card">
-    <h3 style="margin-top:0;">Quick actions</h3>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn small" onclick="openProductModal()">+ Add Product</button>
-      <button class="btn small ghost" onclick="openCategoryModal()">+ Add Category</button>
-      <button class="btn small ghost" onclick="openFlashSaleModal()">+ Create Flash Sale</button>
-      <button class="btn small ghost" onclick="setAdminView('homepage')">Customize Homepage</button>
-      <button class="btn small ghost" onclick="setAdminView('theme')">Theme</button>
-    </div>
-  </div>`;
 }
 
 /* ---------- Reusable admin image picker ---------- */
@@ -4418,7 +4381,7 @@ function saveCategoryForm(id, isNew){
 
 /* ---------- Flash Sales ---------- */
 function adminFlashSales(){
-  return `<div class="admin-topbar"><h1>Flash Sales</h1><button class="btn" onclick="openFlashSaleModal()">+ Create Flash Sale</button></div>
+  return `<div class="admin-topbar"><h1>Flash Sales</h1></div>
   <div class="admin-card">
   ${FLASHSALES.length? `<table class="admin-table"><thead><tr><th>Position</th><th>Title</th><th>Ends</th><th>Products</th><th>Status</th><th>Actions</th></tr></thead><tbody>
   ${FLASHSALES.map(f=>`<tr>
@@ -4911,11 +4874,9 @@ function adminTheme(){
       <input type="url" style="margin-top:8px;width:100%;" placeholder="Logo image URL" value="${esc(SETTINGS.logo||'')}" onchange="if(this.value){const input=this;handleImageUrlInput(input,url=>{SETTINGS.logo=url;saveKey(KEYS.settings,SETTINGS);});}">
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
         <button type="button" class="btn small ghost" onclick="openMediaPicker(url=>{SETTINGS.logo=url;saveKey(KEYS.settings,SETTINGS);})">Choose from Media Library</button>
-        <button type="button" class="btn small ghost" onclick="SETTINGS.logo=SX_DEFAULT_ASSETS.logo;saveKey(KEYS.settings,SETTINGS);toast('Default logo restored');">Restore Default Logo</button>
-        ${SETTINGS.logo?`<button type="button" class="btn small danger" onclick="SETTINGS.logo='';saveKey(KEYS.settings,SETTINGS);">Remove Logo</button>`:''}
       </div>
       ${SETTINGS.logo?`<img src="${mediaSrc(SETTINGS.logo)}" style="max-width:220px;max-height:72px;object-fit:contain;margin:12px auto 0;display:block;border:1px solid var(--line);border-radius:8px;padding:8px;background:#fff;">`:''}
-      <div class="field" style="margin-top:12px;text-align:left;"><label>Logo width (px)</label><input type="number" value="${Number(SETTINGS.logoWidth)||150}" onchange="SETTINGS.logoWidth=Math.max(40,Number(this.value)||150);saveKey(KEYS.settings,SETTINGS);"></div>
+      <div class="field" style="margin-top:12px;text-align:left;"><label>Logo width (px)</label><input type="number" value="${Number(SETTINGS.logoWidth)||150}" onchange="SETTINGS.logoWidth=Math.min(280,Math.max(80,Number(this.value)||220));saveKey(KEYS.settings,SETTINGS);render();"></div>
     </div>
   </div>
   <div class="admin-card">
@@ -4925,8 +4886,7 @@ function adminTheme(){
         <div class="field"><label>Website Name</label><input type="text" name="siteName" value="${esc(SETTINGS.siteName||'TEFaura')}"></div>
         <div class="field"><label>Invoice Owner Name</label><input type="text" name="ownerName" value="${esc((SETTINGS.invoice&&SETTINGS.invoice.ownerName)||'Taha Faiz')}"></div>
         <div class="field"><label>Invoice Website URL</label><input type="url" name="websiteUrl" value="${esc((SETTINGS.invoice&&SETTINGS.invoice.websiteUrl)||'https://store.tfoda.com')}"></div>
-        <div class="field full"><label>Invoice Thank-you Message</label><input type="text" name="thankYou" value="${esc((SETTINGS.invoice&&SETTINGS.invoice.thankYou)||'Thanks for the order')}"></div>
-      </div>
+        </div>
       <div style="margin-top:12px;"><button class="btn" type="submit">Save Branding Text</button></div>
     </form>
   </div>
@@ -4938,8 +4898,6 @@ function adminTheme(){
       <input type="url" style="margin-top:8px;width:100%;" placeholder="Or paste favicon URL" value="${esc(SETTINGS.favicon||'')}" onchange="if(this.value){const input=this;handleImageUrlInput(input,url=>{SETTINGS.favicon=url;saveKey(KEYS.settings,SETTINGS);});}">
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;"><button type="button" class="btn small ghost" onclick="openMediaPicker(url=>{SETTINGS.favicon=url;saveKey(KEYS.settings,SETTINGS);})">Choose from Media Library</button></div>
       ${SETTINGS.favicon?`<img src="${mediaSrc(SETTINGS.favicon)}" style="width:64px;height:64px;object-fit:contain;margin:10px auto 0;border:1px solid var(--line);border-radius:8px;">`:''}
-      ${SETTINGS.favicon?`<button type="button" class="btn small danger" style="margin-top:8px;" onclick="SETTINGS.favicon=null;saveKey(KEYS.settings,SETTINGS);">Remove Favicon</button>`:''}
-      <button type="button" class="btn small ghost" style="margin-top:8px;" onclick="SETTINGS.favicon=SX_DEFAULT_ASSETS.favicon;saveKey(KEYS.settings,SETTINGS);toast('Default favicon restored');">Restore Default Favicon</button>
     </div>
   </div>
   <div class="admin-card">
@@ -4950,14 +4908,13 @@ function adminTheme(){
       ${SETTINGS.logo?`<img src="${mediaSrc(SETTINGS.logo)}" style="height:40px;margin-top:8px;" id="theme-logo-preview">`:''}
       <div class="upload-note">Recommended logo size: 300 x 80px (transparent PNG works best).</div>
     </div>
-    <form onsubmit="event.preventDefault(); const fd=new FormData(this); SETTINGS.logoWidth=Number(fd.get('logoWidth'))||130; SETTINGS.logoLink=fd.get('logoLink'); saveKey(KEYS.settings,SETTINGS); toast('Logo saved directly to website!');">
+    <form onsubmit="event.preventDefault(); const fd=new FormData(this); SETTINGS.logoWidth=Math.min(280,Math.max(80,Number(fd.get('logoWidth'))||220)); SETTINGS.logoLink=fd.get('logoLink'); saveKey(KEYS.settings,SETTINGS); toast('Logo saved directly to website!');">
       <div class="form-grid" style="margin-top:12px;">
         <div class="field"><label>Logo width (px)</label><input type="number" name="logoWidth" value="${SETTINGS.logoWidth}"></div>
         <div class="field"><label>Logo link</label><input type="text" name="logoLink" value="${esc(SETTINGS.logoLink)}"></div>
       </div>
       <div style="margin-top:12px;display:flex;gap:10px;">
         <button class="btn" type="submit">Save Logo</button>
-        ${SETTINGS.logo?`<button type="button" class="btn danger" onclick="SETTINGS.logo=null;saveKey(KEYS.settings,SETTINGS);toast('Logo removed');">Remove Logo</button>`:''}
       </div>
     </form>
   </div>
@@ -4971,8 +4928,7 @@ function adminTheme(){
         <div class="field full"><label>Subheading</label><input type="text" name="subheading" value="${esc(h.subheading)}"></div>
         <div class="field"><label>Text Alignment</label><select name="align"><option value="left" ${h.align==='left'?'selected':''}>Left</option><option value="center" ${h.align==='center'?'selected':''}>Center</option></select></div>
         <div class="field"><label>Overlay Darkening (0 to 1)</label><input type="number" step="0.05" min="0" max="1" name="overlay" value="${Number(h.overlay)||0}"></div>
-        <div class="field"><label>Hero Height (px)</label><input type="number" name="height" value="${h.height}"></div>
-      </div>
+        </div>
       <div style="margin-top:12px;">
         <button class="btn" type="submit">Save Hero Settings</button>
       </div>
@@ -4984,7 +4940,7 @@ function adminTheme(){
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;"><button type="button" class="btn small ghost" onclick="openMediaPicker(url=>{SETTINGS.hero.desktopImage=url;saveKey(KEYS.settings,SETTINGS);})">Choose from Media Library</button></div>
         ${h.desktopImage?`<img src="${mediaSrc(h.desktopImage)}" style="height:70px;margin-top:8px;border-radius:6px;">`:''}
         <div class="upload-note">Recommended: 1920 x 700px (wide banner).</div>
-        ${h.desktopImage?`<button type="button" class="btn small danger" style="margin-top:8px;width:100%;" onclick="SETTINGS.hero.desktopImage=null;saveKey(KEYS.settings,SETTINGS);">Remove</button>`:''}
+        
         </div>
       </div>
       <div class="field">
@@ -4993,7 +4949,7 @@ function adminTheme(){
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;"><button type="button" class="btn small ghost" onclick="openMediaPicker(url=>{SETTINGS.hero.mobileImage=url;saveKey(KEYS.settings,SETTINGS);})">Choose from Media Library</button></div>
         ${h.mobileImage?`<img src="${mediaSrc(h.mobileImage)}" style="height:70px;margin-top:8px;border-radius:6px;">`:''}
         <div class="upload-note">Recommended: 800 x 1000px (tall, portrait).</div>
-        ${h.mobileImage?`<button type="button" class="btn small danger" style="margin-top:8px;width:100%;" onclick="SETTINGS.hero.mobileImage=null;saveKey(KEYS.settings,SETTINGS);">Remove</button>`:''}
+        
         </div>
       </div>
       <div class="field full">
@@ -5001,16 +4957,7 @@ function adminTheme(){
         <div class="upload-box"><input type="url" placeholder="Fallback Hero Image URL yahan enter karein (https://...)" value="${esc(h.image||'')}" onchange="if(this.value){ const input=this; handleImageUrlInput(input,url=>{ SETTINGS.hero.image=url||null; saveKey(KEYS.settings,SETTINGS); }); }">
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;"><button type="button" class="btn small ghost" onclick="openMediaPicker(url=>{SETTINGS.hero.image=url;saveKey(KEYS.settings,SETTINGS);})">Choose from Media Library</button></div>
         ${h.image?`<img src="${mediaSrc(h.image)}" style="height:70px;margin-top:8px;border-radius:6px;" id="hero-img-prev">`:''}
-        ${h.image?`<button type="button" class="btn small danger" style="margin-top:8px;" onclick="SETTINGS.hero.image=null;saveKey(KEYS.settings,SETTINGS);toast('Fallback hero image removed');">Remove Fallback Image</button>`:''}
-        </div>
-      </div>
-    </div>
-    <p style="font-size:12px;color:var(--ink-soft);margin-top:10px;">The storefront automatically shows the desktop image on larger screens and the mobile image on phones, so nothing looks stretched. If you also mark banners as "Include in Hero Slider" in the Banners section, they will auto-scroll together with the hero image every 5 seconds.</p>
-  </div>
-
-  <div class="admin-card">
-    <h3 style="margin-top:0;">Hero "Explore Products" Button</h3>
-    <form onsubmit="event.preventDefault(); const fd=new FormData(this); Object.assign(SETTINGS.hero,{buttonText:fd.get('buttonText'),buttonUrl:fd.get('buttonUrl'),buttonBgColor:fd.get('buttonBgColor'),buttonTextColor:fd.get('buttonTextColor'),buttonWidth:fd.get('buttonWidth'),buttonPaddingY:Number(fd.get('buttonPaddingY'))||0,buttonPaddingX:Number(fd.get('buttonPaddingX'))||0,buttonMarginTop:Number(fd.get('buttonMarginTop'))||0,buttonAlign:fd.get('buttonAlign')}); saveKey(KEYS.settings,SETTINGS); toast('Hero button settings saved!');">
+        ); saveKey(KEYS.settings,SETTINGS); toast('Hero button settings saved!');">
       <div class="form-grid">
         <div class="field"><label>Button Title / Text</label><input type="text" name="buttonText" value="${esc(h.buttonText)}"></div>
         <div class="field"><label>Target Link / URL</label><input type="text" name="buttonUrl" value="${esc(h.buttonUrl)}"></div>
@@ -6672,10 +6619,9 @@ img,video,iframe,svg{max-width:100%}
   }
   function enhance(){
     document.querySelectorAll('.tag-pill:not([data-sx])').forEach(function(el){el.dataset.sx=1;var k=lc(el.textContent);if(DEFTAG[k]||SX_TAGCOL[k]){el.style.background=tagColor(k);el.style.color='#fff';el.style.border='none';}});
-    injectList('#checkout-coupon-input',cartLines());
-    injectList('#coupon-input',cartLines());
+    /* coupon injectList disabled */
     if(document.getElementById('bn-coupon-input')){var d=getBuyNowDraft(),bp=d&&PRODUCTS.find(function(x){return x.id===d.productId;});if(bp)injectList('#bn-coupon-input',[fakeLine(bp,d.qty||1)]);}
-    var h1=document.querySelector('h1.pd-title');
+    var h1=null; /* product page coupons disabled */
     if(h1){
       var k=decodeURIComponent((('#'+route()).match(/#\/p\/([^/?]+)/)||[])[1]||''),p=PRODUCTS.find(function(x){return String(x.id)===k||(x.seo&&x.seo.slug===k);});
       var pr=h1.parentElement.querySelector('strong.price');
@@ -7223,8 +7169,7 @@ body:has(#site-header){
       +'<div class="field"><label class="checkline"><input type="checkbox" '+(b.newTab?'checked':'')+' onchange="sxHBtnSet('+i+',\'newTab\',this.checked)"> Open in new tab</label></div>'
       +'<div class="field"><label class="checkline"><input type="checkbox" '+(b.enabled!==false?'checked':'')+' onchange="sxHBtnSet('+i+',\'enabled\',this.checked)"> Show this button</label></div></div>'
       +'<div style="'+row+'"><button type="button" class="btn small ghost" onclick="sxHBtnMove('+i+',-1)">\u2191 Up</button><button type="button" class="btn small ghost" onclick="sxHBtnMove('+i+',1)">\u2193 Down</button><button type="button" class="btn small danger" onclick="sxHBtnDel('+i+')">Delete</button></div></div>';}).join('');
-    return '<div class="admin-card" style="margin-bottom:12px"><h3 style="margin-top:0">Default Branding</h3><p style="font-size:12.5px;color:var(--ink-soft);margin-top:0">One tap to set the default logo, favicon, mobile &amp; desktop hero images, hero heading/subheading and dark black colours.</p></div>'
-      +'<div class="admin-card">'
+    return '<div class="admin-card">'
       +'<h3 style="margin-top:0">Hero Text Boxes &amp; Extra Buttons</h3>'
       +'<p style="font-size:12.5px;color:var(--ink-soft);margin-top:0">Edit, add, hide or reorder the small text boxes shown on the hero (the &ldquo;Welcome to&hellip;&rdquo; pill and the Fast Delivery / Secure Payments / Top Quality boxes), and add as many extra hero buttons as you like. Click <b>Save</b> when finished.</p>'
       +'<h4 style="margin:14px 0 6px">Top pill text box</h4><div class="form-grid">'
