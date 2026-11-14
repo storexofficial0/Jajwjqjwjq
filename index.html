@@ -2350,6 +2350,13 @@ let SX_RESIZE_T=null;
 window.addEventListener('resize',function(){ clearTimeout(SX_RESIZE_T); SX_RESIZE_T=setTimeout(function(){ document.querySelectorAll('.hero-bg-slide.active [data-lazy-bg]').forEach(loadLazyBackground); },250); });
 function applyTheme(){
   if(!SETTINGS) return;
+  if(SETTINGS.sxPalette!=='gold-black'){
+    try{ var _D=(typeof DEFAULT_SETTINGS!=='undefined')?DEFAULT_SETTINGS:null;
+      ['primaryColor','primaryDark','secondaryColor','secondaryDark','accentColor','headerBg','headerText','bodyBg','inkColor','inkSoft','borderColor','cardBg','buttonBg','buttonText','iconColor','footerBg','footerText'].forEach(function(k){ if(_D&&_D[k]) SETTINGS[k]=_D[k]; });
+      if(SETTINGS.hero&&_D&&_D.hero&&_D.hero.buttonBgColor) SETTINGS.hero.buttonBgColor=_D.hero.buttonBgColor;
+    }catch(_){}
+    SETTINGS.sxPalette='gold-black';
+  }
   const r=document.documentElement;
   // Keep brand blacks unless admin explicitly set others for non-chrome
   if(!SETTINGS.headerBg) SETTINGS.headerBg='#D4AF37';
@@ -8233,8 +8240,100 @@ main img[loading="lazy"],#app img[loading="lazy"]{opacity:1!important;transition
   document.addEventListener('mouseover',onTouch,{passive:true,capture:true});
 })();
 </script>
+<style id="TefauraIvoryTheme">
+/* IVORY + BLACK + GOLD, with navy / burgundy / emerald / champagne accents (watch store) */
+#app:has(>#site-header){
+  --sx-ink:#1A1A1A;--sx-brown:#96771A;--sx-gold:#B8962E;--sx-gold-light:#D4AF37;--sx-cream:#FFFFFF;--sx-sand:#F3E9D2;
+  --primary:#B8962E;--primary-dark:#96771A;--ink:#1A1A1A;--ink-soft:#5C5548;--paper:#FAF7F2;--line:#E8DDC4;--card:#FFFFFF;
+  --navy:#1F2A44;--burgundy:#8B1E2D;--emerald:#1F6B54;--champagne:#F3E9D2;--rose:#C98B7A;
+  color:#1A1A1A;
+}
+body:has(#site-header){background:#FAF7F2!important;color:#1A1A1A;}
+#app:has(>#site-header) h1,#app:has(>#site-header) h2,#app:has(>#site-header) h3,#app:has(>#site-header) h4,#app:has(>#site-header) .display,#app:has(>#site-header) .pd-title,#app:has(>#site-header) .promo-banner-inner h3{color:#1A1A1A;}
+/* ---- Header: black bar, gold + ivory ---- */
+#app:has(>#site-header) #site-header{background:#111111!important;color:#F3E9D2!important;border:1px solid rgba(212,175,55,.55);box-shadow:0 14px 34px rgba(17,17,17,.28);}
+#app:has(>#site-header) .logo-fallback{background:linear-gradient(180deg,#F0C14B,#B8962E);-webkit-background-clip:text;background-clip:text;color:transparent;}
+#app:has(>#site-header) .main-nav a{color:#F3E9D2!important;}
+#app:has(>#site-header) .main-nav a:hover{color:#D4AF37!important;border-color:#D4AF37;}
+#app:has(>#site-header) #site-header .search-form input{background:rgba(255,255,255,.08);color:#F3E9D2;border:1px solid rgba(212,175,55,.5);border-right:none;}
+#app:has(>#site-header) #site-header .search-form input::placeholder{color:rgba(243,233,210,.6);}
+#app:has(>#site-header) #site-header .search-form input:focus{border-color:#D4AF37;background:rgba(255,255,255,.12);}
+#app:has(>#site-header) #site-header .search-form button{background:#D4AF37;color:#111111;border:1px solid #D4AF37;border-left:none;}
+#app:has(>#site-header) #site-header .search-form button:hover{background:#F0C14B;color:#111111;}
+#app:has(>#site-header) #site-header .icon-btn,#app:has(>#site-header) #site-header .mobile-toggle,#app:has(>#site-header) #site-header .mobile-search-toggle{color:#D4AF37!important;}
+#app:has(>#site-header) #site-header .icon-btn{background:rgba(212,175,55,.14);}
+#app:has(>#site-header) #site-header .icon-btn:hover{background:rgba(212,175,55,.26);}
+#app:has(>#site-header) #site-header .icon-badge{background:#D4AF37;color:#111111;}
+/* ---- Hero: deep navy band with gold text ---- */
+#app:has(>#site-header) .hero{background:linear-gradient(120deg,#1F2A44 0%,#16203A 55%,#0E1424 100%);}
+/* ---- Section headings ---- */
+#app:has(>#site-header) .section-head h2{color:#1A1A1A;}
+#app:has(>#site-header) .section-head h2 .sx-gold{background:linear-gradient(180deg,#D4AF37,#96771A);-webkit-background-clip:text;background-clip:text;color:transparent;}
+#app:has(>#site-header) .section-head p{color:#5C5548;}
+#app:has(>#site-header) .section-head a{color:#96771A;}
+/* ---- Category tiles in mixed colors ---- */
+#app:has(>#site-header) .cat-card .cat-icon{background:linear-gradient(160deg,#1F2A44,#141C30);border:1px solid #D4AF37;color:#E9CF86;box-shadow:0 8px 20px rgba(31,42,68,.22);}
+#app:has(>#site-header) .h-scroll.cat-scroll > .cat-card:nth-child(4n+2) .cat-icon,#app:has(>#site-header) .cat-grid > .cat-card:nth-child(4n+2) .cat-icon{background:linear-gradient(160deg,#1F6B54,#134536);}
+#app:has(>#site-header) .h-scroll.cat-scroll > .cat-card:nth-child(4n+3) .cat-icon,#app:has(>#site-header) .cat-grid > .cat-card:nth-child(4n+3) .cat-icon{background:linear-gradient(160deg,#8B1E2D,#5A121D);}
+#app:has(>#site-header) .h-scroll.cat-scroll > .cat-card:nth-child(4n+4) .cat-icon,#app:has(>#site-header) .cat-grid > .cat-card:nth-child(4n+4) .cat-icon{background:linear-gradient(160deg,#2B2B2B,#111111);}
+#app:has(>#site-header) .cat-card.sx-all .cat-icon{background:var(--sx-grad);color:#111111;border-color:transparent;}
+#app:has(>#site-header) .cat-name{color:#1A1A1A;}
+#app:has(>#site-header) .cat-grid > .cat-card{background:#FFFFFF;border:1px solid #E8DDC4;}
+#app:has(>#site-header) .hs-btn{background:var(--sx-grad);color:#111111;}
+/* ---- Product cards ---- */
+#app:has(>#site-header) .card{background:#FFFFFF;border:1px solid #E8DDC4;box-shadow:0 12px 30px rgba(26,26,26,.08);}
+#app:has(>#site-header) .card:hover{border-color:#C98B7A;box-shadow:0 18px 40px rgba(201,139,122,.28);}
+#app:has(>#site-header) .card .card-img,#app:has(>#site-header) .grid .card-img,#app:has(>#site-header) .search-results-grid .card-img{background:radial-gradient(circle at 50% 38%,#FFFFFF 0%,#F3E9D2 100%)!important;}
+#app:has(>#site-header) .card-title,#app:has(>#site-header) .grid .card-title,#app:has(>#site-header) .h-scroll > .card .card-title{color:#1A1A1A;}
+#app:has(>#site-header) .card-desc{color:#5C5548;}
+#app:has(>#site-header) .price,#app:has(>#site-header) .h-scroll > .card .price,#app:has(>#site-header) .grid.prod-grid > .card .price,#app:has(>#site-header) .price-row .price,#app:has(>#site-header) .spotlight-card .price{color:#96771A;}
+#app:has(>#site-header) .card del{color:#9C9384!important;}
+#app:has(>#site-header) .card > .card-body .badge-status,#app:has(>#site-header) .discount-pill,#app:has(>#site-header) .card-badge{background:linear-gradient(135deg,#A8263A,#8B1E2D)!important;color:#FFFFFF!important;}
+#app:has(>#site-header) .card .sx-tag{background:#1F6B54;color:#FFFFFF;}
+#app:has(>#site-header) .card .card-imgwrap .wishlist-heart{background:rgba(255,255,255,.94)!important;color:#96771A!important;border:1px solid #D4AF37!important;box-shadow:0 4px 12px rgba(26,26,26,.15);}
+#app:has(>#site-header) .card .sx-cart,#app:has(>#site-header) .card-cta.ghost{background:#FFFFFF;color:#1F2A44;border:1.5px solid #1F2A44;}
+#app:has(>#site-header) .card .sx-cart:hover,#app:has(>#site-header) .card .sx-cart.done{background:#1F2A44;color:#F3E9D2;}
+#app:has(>#site-header) .card .sx-out{background:#EFEAE0;color:#9C9384;border:1px solid #E8DDC4;}
+/* ---- Buttons / forms ---- */
+#app:has(>#site-header) .btn.ghost{color:#1F2A44;border-color:#1F2A44;}
+#app:has(>#site-header) .summary-card,#app:has(>#site-header) .customer-card,#app:has(>#site-header) .sx-pdc,#app:has(>#site-header) .admin-card{background:#FFFFFF;border-color:#E8DDC4;color:#1A1A1A;}
+#app:has(>#site-header) .coupon-row input,#app:has(>#site-header) .customer-card .field input,#app:has(>#site-header) .customer-card .field select,#app:has(>#site-header) .customer-card .field textarea{background:#FFFFFF;color:#1A1A1A;border-color:#D9CBA6;}
+#app:has(>#site-header) .back-btn,#app:has(>#site-header) .share-btn{background:#FFFFFF;color:#1F2A44;border-color:#1F2A44;}
+#app:has(>#site-header) #site-footer .share-btn{background:transparent;color:#0A0A0A;border-color:rgba(10,10,10,.4);}
+#app:has(>#site-header) .pd-main-img,#app:has(>#site-header) .pd-slider{background:radial-gradient(circle at 50% 38%,#FFFFFF,#F3E9D2);}
+#app:has(>#site-header) .qty-stepper{border-color:#D9CBA6;}
+#app:has(>#site-header) .qty-stepper button{background:#FFFFFF;color:#1F2A44;}
+#app:has(>#site-header) .tag-pill{background:#F3E9D2;color:#1F2A44;}
+#app:has(>#site-header) .trending-searches button{background:#FFFFFF;color:#1F2A44;border-color:#D9CBA6;}
+/* ---- Product page text ---- */
+#app:has(>#site-header) .pd-title{color:#1A1A1A!important;}
+#app:has(>#site-header) .pd-desc{color:#5C5548!important;}
+#app:has(>#site-header) .pd-more-btn{color:#96771A!important;}
+#app:has(>#site-header) .crumb{color:#5C5548;}
+#app:has(>#site-header) .crumb a:hover{color:#96771A;}
+#app:has(>#site-header) .empty-state{color:#5C5548;}
+#app:has(>#site-header) .empty-state h3{color:#1A1A1A;}
+/* ---- Banners ---- */
+#app:has(>#site-header) .spotlight-card{background:#FFFFFF;border-color:#D4AF37;}
+#app:has(>#site-header) .spotlight-card .spotlight-body h3{color:#1A1A1A;}
+#app:has(>#site-header) .social-card{background:#FFFFFF;border-color:#E8DDC4;}
+#app:has(>#site-header) .flash-info{background:#1F2A44!important;color:#F3E9D2!important;}
+#app:has(>#site-header) .flash-info h3{color:#F0C14B!important;}
+#app:has(>#site-header) .flash-info p{color:#E4DCC6!important;}
+#app:has(>#site-header) .flash-eyebrow{color:#D4AF37!important;}
+#app:has(>#site-header) .promo-banner,#app:has(>#site-header) .flash{box-shadow:0 18px 40px rgba(31,42,68,.2);}
+/* ---- Trust strip ---- */
+#app:has(>#site-header) .sx-trust{background:#F3E9D2;border:1px solid #E2D4AE;box-shadow:0 10px 28px rgba(26,26,26,.07);}
+#app:has(>#site-header) .sx-trust i{background:#FFFFFF;color:#1F6B54;border:1px solid #1F6B54;}
+#app:has(>#site-header) .sx-trust div:nth-child(2) i{color:#1F2A44;border-color:#1F2A44;}
+#app:has(>#site-header) .sx-trust div:nth-child(3) i{color:#8B1E2D;border-color:#8B1E2D;}
+#app:has(>#site-header) .sx-trust div:nth-child(4) i{color:#96771A;border-color:#96771A;}
+#app:has(>#site-header) .sx-trust b{color:#1A1A1A;}
+#app:has(>#site-header) .sx-trust span{color:#5C5548;}
+/* ---- Footer: gold with black text (unchanged), deeper gold ---- */
+#app:has(>#site-header) #site-footer{background:linear-gradient(180deg,#D4AF37,#C29B2B)!important;}
+</style>
 <style id="TefauraSuggestFooterColors">
-/* Search suggestions text: golden */
 #app:has(>#site-header) .search-form .search-suggestions .search-suggestion,
 #site-header .search-form .search-suggestions .search-suggestion,
 .search-form .search-suggestions .search-suggestion{color:#D4AF37!important;background:#141414!important;border:0!important;border-radius:0!important;}
@@ -8246,7 +8345,6 @@ main img[loading="lazy"],#app img[loading="lazy"]{opacity:1!important;transition
 .search-form .search-suggestions .search-suggestion:hover span{color:#F0C14B!important;}
 .search-form .search-suggestions .search-suggestion small{color:#D4AF37!important;}
 .search-form .search-suggestions .search-suggestions-head,.search-form .search-suggestions-head{color:#D4AF37!important;}
-/* Footer description (under StoreX): black */
 #site-footer .footer-grid p,#site-footer .footer-grid p.sx-owner-desc{color:#0A0A0A!important;opacity:1!important;}
 </style>
 </body>
